@@ -6,7 +6,7 @@
   .box-cubediv {
     width: 26px;
     transform-style: preserve-3d;
-    animation: boxRotate 8s linear infinite;
+    animation: boxRotate 16s linear infinite;
     div {
       position: absolute;
       width: 26px;
@@ -24,29 +24,24 @@
     .logo_scaledown {
       margin: 2px;
       width: 18px;
-      overflow: hidden;
     }
     #Front {
       transform: translateZ(13px);
       background: $backround-color;
-      overflow: hidden;
     }
     #Back {
       transform: rotateY(180deg) translateZ(13px);
       background: $backround-color;
-      overflow: hidden;
     }
     #Left {
       transform: rotateY(-90deg) translateX(-13px);
       transform-origin: left;
       background: $backround-color;
-      overflow: hidden;
     }
     #Right {
       transform: rotateY(90deg) translateX(13px);
       transform-origin: right;
       background: $backround-color;
-      overflow: hidden;
     }
 
     // #Top {
