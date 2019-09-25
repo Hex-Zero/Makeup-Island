@@ -49,18 +49,18 @@
       overflow: hidden;
     }
 
-    #Top {
-      transform: rotateX(-90deg) translateY(-13px);
-      transform-origin: top;
-      background: $backround-color;
-      overflow: hidden;
-    }
-    #Bottom {
-      transform: rotateX(90deg) translateY(13px);
-      transform-origin: bottom;
-      background: $backround-color;
-      overflow: hidden;
-    }
+    // #Top {
+    //   transform: rotateX(-90deg) translateY(-13px);
+    //   transform-origin: top;
+    //   background: $backround-color;
+    //   overflow: hidden;
+    // }
+    // #Bottom {
+    //   transform: rotateX(90deg) translateY(13px);
+    //   transform-origin: bottom;
+    //   background: $backround-color;
+    //   overflow: hidden;
+    // }
   }
 }
 @keyframes boxRotate {
@@ -68,15 +68,6 @@
     ransform: rotateY(0);
   }
   100% {
-    transform: rotateY(360deg);
-  }
-}
-
-@keyframes typeSwitch {
-  from {
-    transform: rotateY(0deg);
-  }
-  to {
     transform: rotateY(360deg);
   }
 }

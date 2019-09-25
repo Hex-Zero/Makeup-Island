@@ -28,8 +28,6 @@ const Cube: React.FC = () => {
         <div id="Right">
           <img src={typeScript} className="logo_scaledown" alt="logo" />
         </div>
-        <div id="Top" />
-        <div id="Bottom" />
       </div>
     </div>
   )
