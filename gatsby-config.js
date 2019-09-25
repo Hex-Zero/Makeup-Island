@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `MakeupIsland`,
+    title: `Makeup Island`,
     description: `E-commers website selling makeup`,
     author: `Hex-Zero`,
   },
