@@ -1,0 +1,37 @@
+.barAnimation {
+  position: absolute;
+  width: 100vw;
+  overflow: hidden;
+  z-index: -1;
+  background: $main-color;
+
+  .shadow {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.301) 0%,
+      transparent 67%,
+      rgba(0, 0, 0, 0.219) 100%
+    );
+    .slide {
+      width: 5011px;
+      height: 100%;
+      background-image: repeating-linear-gradient(
+        44deg,
+        transparent 0,
+        transparent 10px,
+        hsla(0, 0%, 0%, 0.075) 10px,
+        hsla(0, 0%, 0%, 0.075) 20px
+      );
+      animation: slide 200s linear infinite;
+    }
+  }
+}
+
+@keyframes slide {
+  from {
+    background-position: 0;
+  }
+  to {
+    background-position: 5011px;
+  }
+}

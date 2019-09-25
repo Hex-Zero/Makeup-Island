@@ -1,0 +1,90 @@
+.main-cubediv {
+  margin: 22px 30px;
+  perspective: 70px;
+  position: relative;
+  bottom: 16px;
+  .box-cubediv {
+    width: 26px;
+    transform-style: preserve-3d;
+    animation: boxRotate 8s linear infinite;
+    div {
+      position: absolute;
+      width: 26px;
+      height: 26px;
+      border: 2px solid $main-color;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .react-logo {
+      animation: logoRotate 3s linear infinite;
+    }
+    .graphQl-logo {
+      animation: logoRotate 9s linear infinite;
+    }
+    .logo_scaledown {
+      margin: 2px;
+      width: 18px;
+      overflow: hidden;
+    }
+    #Front {
+      transform: translateZ(13px);
+      background: $backround-color;
+      overflow: hidden;
+    }
+    #Back {
+      transform: rotateY(180deg) translateZ(13px);
+      background: $backround-color;
+      overflow: hidden;
+    }
+    #Left {
+      transform: rotateY(-90deg) translateX(-13px);
+      transform-origin: left;
+      background: $backround-color;
+      overflow: hidden;
+    }
+    #Right {
+      transform: rotateY(90deg) translateX(13px);
+      transform-origin: right;
+      background: $backround-color;
+      overflow: hidden;
+    }
+
+    #Top {
+      transform: rotateX(-90deg) translateY(-13px);
+      transform-origin: top;
+      background: $backround-color;
+      overflow: hidden;
+    }
+    #Bottom {
+      transform: rotateX(90deg) translateY(13px);
+      transform-origin: bottom;
+      background: $backround-color;
+      overflow: hidden;
+    }
+  }
+}
+@keyframes boxRotate {
+  0% {
+    ransform: rotateY(0);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes typeSwitch {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+@keyframes logoRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
