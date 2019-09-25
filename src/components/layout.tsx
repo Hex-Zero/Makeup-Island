@@ -34,6 +34,7 @@ const Layout: React.FC<Props> = ({ children }) => {
           © {new Date().getFullYear()}, Built by
           {` `}
           {data.site.siteMetadata.author}
+          <p>Contact</p>
           <Cube />
         </footer>
       </div>
