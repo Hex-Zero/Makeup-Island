@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import Image from "./image"
+import MakeupPlaceholder from "./image"
 interface Props {
   name: number
 }
@@ -12,7 +12,7 @@ const ItemCard: React.FC<Props> = ({ name }) => {
         <h1>Sold Out</h1>
       </div>
       Item {name} Here
-      <Image />
+      <MakeupPlaceholder />
       <span>
         <button onClick={() => setSoldout(!soldout)}>Buy</button>
       </span>
