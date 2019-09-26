@@ -12,26 +12,26 @@ const IndexPage: React.FC<Props> = () => {
     3,
     4,
     5,
-    6,
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
+    // 6,
+    // 1,
+    // 2,
+    // 3,
+    // 4,
+    // 5,
+    // 6,
+    // 1,
+    // 2,
+    // 3,
+    // 4,
+    // 5,
+    // 6,
   ])
   return (
     <Layout>
       <SEO title="Home" />
       <div className="card-container">
-        {cards.map(() => (
-          <ItemCard />
+        {cards.map(x => (
+          <ItemCard key={x} name={x} />
         ))}
       </div>
     </Layout>

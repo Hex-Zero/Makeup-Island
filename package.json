@@ -19,6 +19,7 @@
     "gatsby-plugin-offline": "^3.0.9",
     "gatsby-plugin-playground": "^1.0.6",
     "gatsby-plugin-react-helmet": "^3.1.8",
+    "gatsby-plugin-react-redux": "^1.0.10",
     "gatsby-plugin-sass": "^2.1.15",
     "gatsby-plugin-sharp": "^2.2.25",
     "gatsby-plugin-typescript": "^2.1.9",
@@ -29,6 +30,7 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-helmet": "^5.2.1",
+    "react-redux": "^7.1.1",
     "typescript": "^3.6.3",
     "webpack": "^4.0.0"
   },

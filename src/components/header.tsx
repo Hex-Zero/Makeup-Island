@@ -23,6 +23,9 @@ const Header: React.FC<Props> = ({ siteTitle }) => (
         <Link activeClassName="active" to="/about">
           About
         </Link>
+        <Link activeClassName="active" to="/cart">
+          Cart
+        </Link>
       </nav>
     </div>
   </header>
