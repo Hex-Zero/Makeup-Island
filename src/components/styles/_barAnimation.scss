@@ -1,0 +1,81 @@
+.barAnimation {
+  position: absolute;
+  width: 100vw;
+  overflow: hidden;
+  z-index: -1;
+  background: $main-color;
+
+  .shadow {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.301) 0%,
+      transparent 67%,
+      rgba(0, 0, 0, 0.219) 100%
+    );
+    .slide {
+      width: 5011px;
+      height: 100%;
+      background-image: repeating-linear-gradient(
+        44deg,
+        transparent 0,
+        transparent 10px,
+        hsla(0, 0%, 0%, 0.075) 10px,
+        hsla(0, 0%, 0%, 0.075) 20px
+      );
+      animation: slide5011px 200s linear infinite;
+    }
+    @media only screen and (max-width: 1100px) {
+      .slide {
+        width: 1094px;
+        height: 100%;
+        background-image: repeating-linear-gradient(
+          44deg,
+          transparent 0,
+          transparent 10px,
+          hsla(0, 0%, 0%, 0.075) 10px,
+          hsla(0, 0%, 0%, 0.075) 20px
+        );
+        animation: slide1094px 45s linear infinite;
+      }
+    }
+    @media only screen and (max-width: 600px) {
+      .slide {
+        width: 634px;
+        height: 100%;
+        background-image: repeating-linear-gradient(
+          44deg,
+          transparent 0,
+          transparent 10px,
+          hsla(0, 0%, 0%, 0.075) 10px,
+          hsla(0, 0%, 0%, 0.075) 20px
+        );
+        animation: slide634px 30s linear infinite;
+      }
+    }
+  }
+}
+
+@keyframes slide5011px {
+  from {
+    background-position: 0;
+  }
+  to {
+    background-position: 5011px;
+  }
+}
+@keyframes slide1094px {
+  from {
+    background-position: 0;
+  }
+  to {
+    background-position: 1094px;
+  }
+}
+@keyframes slide634px {
+  from {
+    background-position: 0;
+  }
+  to {
+    background-position: 634px;
+  }
+}

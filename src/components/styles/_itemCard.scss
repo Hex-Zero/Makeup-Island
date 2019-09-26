@@ -1,0 +1,28 @@
+.item-card-box {
+  border: solid 2px $main-color;
+  border-radius: 4px;
+  height: 270px;
+  width: 300px;
+  padding: 20px;
+  &:hover {
+    border: solid 2px $secondary-color;
+  }
+  .soldOut {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.301);
+    height: 230px;
+    width: 260px;
+    z-index: 3;
+    font-size: 3rem;
+    text-align: center;
+    color: $text-color;
+  }
+  .visible-false {
+    display: none;
+  }
+
+  button {
+    margin: 5px 0;
+    padding: 1px 5px;
+  }
+}
