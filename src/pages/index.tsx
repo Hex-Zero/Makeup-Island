@@ -1,28 +1,8 @@
 import React, { useState } from "react"
-import { connect } from "react-redux"
+import ConnectedCounter from "../components/Counter"
 import ItemCard from "../components/ItemCard"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-
-const Counter = ({ count, increment }) => (
-  <div>
-    <p>Count: {count}</p>
-    <button onClick={increment}>Increment</button>
-  </div>
-)
-
-const mapStateToProps = ({ count }) => {
-  return { count }
-}
-
-const mapDispatchToProps = dispatch => {
-  return { increment: () => dispatch({ type: `INCREMENT` }) }
-}
-
-const ConnectedCounter = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Counter)
 
 interface Props {}
 
