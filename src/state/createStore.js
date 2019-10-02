@@ -1,22 +1,24 @@
-import { createStore as reduxCreateStore } from "redux"
+import React from "react"
+import { Provider } from "react-redux"
+import { applyMiddleware, createStore } from "redux"
+import { createLogger } from "redux-logger"
+import thunk from "redux-thunk"
+import { getAllProducts } from "../actions"
+import reducer from "../reducers"
 
-const reducer = (state, action) => {
-  switch (action.type) {
-    case `INCREMENT`:
-      return Object.assign({}, state, {
-        count: state.count + 1,
-      })
-    case `DECREMENT`:
-      return Object.assign({}, state, {
-        count: state.count - 1,
-      })
+// eslint-disable-next-line react/display-name,react/prop-types
+export default ({ element }) => {
+  // Instantiating store in `wrapRootElement` handler ensures:
+  //  - there is fresh store for each SSR page
+  //  - it will be called only once in browser, when React mounts
 
-    default:
-      return state
+  const middleware = [thunk]
+  if (process.env.NODE_ENV !== "production") {
+    middleware.push(createLogger())
   }
+
+  const store = createStore(reducer, applyMiddleware(...middleware))
+
+  store.dispatch(getAllProducts())
+  return <Provider store={store}>{element}</Provider>
 }
-
-const initialState = { count: 0 }
-
-const createStore = () => reduxCreateStore(reducer, initialState)
-export default createStore
