@@ -1,6 +1,4 @@
-import { applyMiddleware, createStore as reduxCreateStore } from "redux"
-import createLogger from "redux-logger"
-import thunk from "redux-thunk"
+import { createStore as reduxCreateStore } from "redux"
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -17,13 +15,8 @@ const reducer = (state, action) => {
       return state
   }
 }
-const middleware = [thunk]
-if (process.env.NODE_ENV !== "production") {
-  middleware.push(createLogger())
-}
 
-// const initialState = { count: 0 }
+const initialState = { count: 0 }
 
-const createStore = () =>
-  reduxCreateStore(reducer, applyMiddleware(...middleware))
+const createStore = () => reduxCreateStore(reducer, initialState)
 export default createStore
