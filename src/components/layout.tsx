@@ -19,7 +19,7 @@ const Layout: React.FC<Props> = ({ children }) => {
       }
     }
   `)
-
+  console.log(process.env.GATSBY_NAME_COOL)
   return (
     <>
       <div className="wrapper">

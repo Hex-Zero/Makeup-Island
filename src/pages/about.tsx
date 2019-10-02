@@ -5,6 +5,7 @@ import SEO from "../components/seo"
 const About: React.FC = () => (
   <Layout>
     <SEO title="About Page" />
+
     <h1>Hello from the About Page</h1>
   </Layout>
 )
