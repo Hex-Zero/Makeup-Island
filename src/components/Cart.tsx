@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types'
-import React from 'react'
-import Product from './Product'
+import PropTypes from "prop-types"
+import React from "react"
+import Product from "./Product"
 
 const Cart = ({ products, total, onCheckoutClicked }) => {
   const hasProducts = products.length > 0
@@ -22,10 +22,7 @@ const Cart = ({ products, total, onCheckoutClicked }) => {
       <h3>Your Cart</h3>
       <div>{nodes} !Sweet </div>
       <p>Total: &#36;{total}</p>
-      <button
-        onClick={onCheckoutClicked}
-        disabled={hasProducts ? '' : 'disabled'}
-      >
+      <button onClick={onCheckoutClicked} disabled={hasProducts ? false : true}>
         Checkout
       </button>
     </div>
@@ -35,7 +32,7 @@ const Cart = ({ products, total, onCheckoutClicked }) => {
 Cart.propTypes = {
   products: PropTypes.array,
   total: PropTypes.string,
-  onCheckoutClicked: PropTypes.func
+  onCheckoutClicked: PropTypes.func,
 }
 
 export default Cart
