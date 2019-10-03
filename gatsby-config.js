@@ -33,5 +33,17 @@ module.exports = {
         icon: `src/images/fav.png`,
       },
     },
+    {
+      resolve: `gatsby-source-mongodb`,
+      options: {
+        connectionString: `${process.env.GATSBY_DATABASE}`,
+        dbName: `hex`,
+        collection: `posts`,
+        map: {
+          posts: { description: `text/markdown` },
+        },
+        clientOptions: { useUnifiedTopology: true, useNewUrlParser: true },
+      },
+    },
   ],
 }
