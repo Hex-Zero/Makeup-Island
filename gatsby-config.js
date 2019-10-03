@@ -37,8 +37,8 @@ module.exports = {
       resolve: `gatsby-source-mongodb`,
       options: {
         connectionString: `${process.env.GATSBY_DATABASE}`,
-        dbName: `hex`,
-        collection: `posts`,
+        dbName: `MakeupIsland`,
+        collection: `Products`,
         map: {
           posts: { description: `text/markdown` },
         },
