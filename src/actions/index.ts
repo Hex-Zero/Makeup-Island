@@ -5,11 +5,9 @@ const receiveProducts = products => ({
   type: types.RECEIVE_PRODUCTS,
   products,
 })
-
+const a = JSON.parse(window.localStorage.getItem("DataBase" || null))
 export const getAllProducts = () => dispatch => {
-  shop.getProducts(products => {
-    dispatch(receiveProducts(products))
-  })
+  dispatch(receiveProducts(a))
 }
 
 const addToCartUnsafe = productId => ({

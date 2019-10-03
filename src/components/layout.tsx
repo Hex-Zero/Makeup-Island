@@ -1,5 +1,6 @@
 import { graphql, useStaticQuery } from "gatsby"
 import React from "react"
+import Local from "../api/Local"
 import Header from "./header"
 import "./styles/index.scss"
 import Cube from "./styles/logos/Cube"
@@ -20,9 +21,10 @@ const Layout: React.FC<Props> = ({ children }) => {
     }
   `)
 
-  console.log(process.env.GATSBY_NAME_COOL)
+  // console.log(process.env.GATSBY_NAME_COOL)
   return (
     <>
+      <Local />
       <div className="wrapper">
         <Header siteTitle={data.site.siteMetadata.title} />
         <main>{children}</main>
