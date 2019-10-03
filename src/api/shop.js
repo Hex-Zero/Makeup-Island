@@ -2,8 +2,8 @@
  * Mocking client-server processing
  */
 import _products from "./products.json"
-
-const TIMEOUT = 100
+const TIMEOUT = 1
+// console.log(Products)
 
 export default {
   getProducts: (cb, timeout) =>
