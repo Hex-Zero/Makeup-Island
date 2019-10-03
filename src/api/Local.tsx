@@ -21,7 +21,6 @@ const Local: React.FC<Props> = ({}) => {
   useEffect(() => {
     window.localStorage.setItem("DataBase", localDataBase)
   }, [])
-  console.log(JSON.parse(window.localStorage.getItem("DataBase" || null)))
 
   return <div></div>
 }
