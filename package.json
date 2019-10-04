@@ -14,7 +14,6 @@
     "dotenv": "^8.1.0",
     "eslint": "^6.4.0",
     "eslint-plugin-flowtype": "4.3.0",
-    "fs": "0.0.1-security",
     "gatsby": "^2.15.24",
     "gatsby-image": "^2.2.21",
     "gatsby-plugin-manifest": "^2.2.18",
@@ -32,9 +31,6 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-helmet": "^5.2.1",
-    "react-redux": "^7.1.1",
-    "redux": "^4.0.4",
-    "redux-logger": "^3.0.6",
     "typescript": "^3.6.3",
     "webpack": "^4.0.0"
   },
