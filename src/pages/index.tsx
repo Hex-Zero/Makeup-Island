@@ -1,4 +1,5 @@
 import React from "react"
+import DisplayProducts from "../components/DisplayProducts"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -8,6 +9,7 @@ const IndexPage: React.FC<Props> = ({}) => {
   return (
     <Layout>
       <SEO title="Home" />
+      <DisplayProducts />
     </Layout>
   )
 }
