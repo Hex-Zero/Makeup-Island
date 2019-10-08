@@ -5,7 +5,8 @@
   "version": "0.1.0",
   "author": "Hex",
   "dependencies": {
-    "@babel/core": "^7.0.0-0",
+    "@babel/core": "^7.6.2",
+    "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
     "@types/node": "^12.7.7",
     "@types/react": "^16.9.3",
     "@types/react-dom": "^16.9.1",
