@@ -4,11 +4,7 @@ import Footer from "./footer"
 import Header from "./header"
 import "./styles/index.scss"
 
-interface Props {
-  children: JSX.Element[] | JSX.Element
-}
-
-const Layout: React.FC<Props> = ({ children }) => {
+const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {

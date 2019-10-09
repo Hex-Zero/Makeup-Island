@@ -1,11 +1,7 @@
 import React from "react"
 import Cube from "./styles/logos/Cube"
 
-interface Props {
-  author: string
-}
-
-const Footer: React.FC<Props> = ({ author }) => {
+const Footer = ({ author }) => {
   return (
     <div className="layout-footer">
       {" "}

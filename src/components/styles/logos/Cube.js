@@ -1,10 +1,10 @@
 import React from "react"
-const reactLogo = require("./react.svg") as string
-const typeScript = require("./type.svg") as string
-const GraphQL_logo = require("./GraphQL.svg") as string
-const gatsby_logo = require("./gatsby.svg") as string
+const reactLogo = require("./react.svg")
+const typeScript = require("./type.svg")
+const GraphQL_logo = require("./GraphQL.svg")
+const gatsby_logo = require("./gatsby.svg")
 
-const Cube: React.FC = () => {
+const Cube = () => {
   return (
     <div className="main-cubediv">
       <div className="box-cubediv">

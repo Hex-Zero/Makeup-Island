@@ -1,16 +1,14 @@
 import { graphql, useStaticQuery } from "gatsby"
-import React, { useState } from "react"
+import React, { useContext, useEffect } from "react"
+import { DispatchContext, SetCart, StateContext } from "../components/Context"
+import Layout from "../components/layout"
+import SEO from "../components/seo"
 
-const GlobalCart = React.createContext()
-const GlobalSetCart = React.createContext()
-export const GlobalBase = React.createContext()
-const GlobalSetBase = React.createContext()
+const IndexPage = ({}) => {
+  const state = useContext(StateContext)
+  const setState = useContext(DispatchContext)
+  const setCart = useContext(SetCart)
 
-// interface Props {
-//   children: any;
-// }
-
-const DisplayProducts = ({ children }) => {
   const data = useStaticQuery(graphql`
     query {
       allMongodbMakeupIslandProducts {
@@ -23,12 +21,11 @@ const DisplayProducts = ({ children }) => {
       }
     }
   `)
-
-  const [local, setLocal] = useState(data.allMongodbMakeupIslandProducts.nodes)
-  const [cart, setCart] = useState()
-
-  function handleClick(item, index) {
-    setLocal(localState =>
+  useEffect(() => {
+    setState(data.allMongodbMakeupIslandProducts.nodes)
+  }, [data.allMongodbMakeupIslandProducts.nodes, setState])
+  function handleClick(item) {
+    setState(localState =>
       localState.map(currentLocal => {
         if (currentLocal.id === item.id) {
           currentLocal.inventory -= 1
@@ -68,30 +65,29 @@ const DisplayProducts = ({ children }) => {
       })
     )
   }
-
-  return <GlobalBase.Provider value={local}>{children}</GlobalBase.Provider>
-
-  // return (
-  //   <div>
-  //     <ul>
-  //       {local.map((item, index) => {
-  //         return (
-  //           <li key={item.id}>
-  //             {item.title} ${item.price}{" "}
-  //             <button
-  //               onClick={() => handleClick(item, index)}
-  //               disabled={item.inventory <= 0}
-  //             >
-  //               {item.inventory <= 0 ? "Out of stock" : "Add To Basket"}
-  //             </button>{" "}
-  //             x {item.inventory} x {item.amount}
-  //           </li>
-  //         )
-  //       })}
-  //     </ul>
-  //     {console.log(cart)}
-  //   </div>
-  // )
+  return (
+    <Layout>
+      <SEO title="Home" />
+      <div>
+        <ul>
+          {state.map(item => {
+            return (
+              <li key={item.id}>
+                {item.title} ${item.price}{" "}
+                <button
+                  onClick={() => handleClick(item)}
+                  disabled={item.inventory <= 0}
+                >
+                  {item.inventory <= 0 ? "Out of stock" : "Add To Basket"}
+                </button>{" "}
+                x {item.inventory} x {item.amount}
+              </li>
+            )
+          })}
+        </ul>
+      </div>
+    </Layout>
+  )
 }
 
-export default DisplayProducts
+export default IndexPage

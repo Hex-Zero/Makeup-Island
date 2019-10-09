@@ -1,31 +1,19 @@
-import React, { createContext, useReducer } from "react"
+import React, { createContext, useState } from "react"
 
 export const StateContext = createContext()
 export const DispatchContext = createContext()
-
-const init = {
-  theme: "light",
-}
-
-function reducer(state, action) {
-  switch (action.type) {
-    case "TOGGLE": {
-      return {
-        ...state,
-        theme: state.theme === "light" ? "dark" : "light",
-      }
-    }
-    default:
-      throw new Error("Bad Action Type")
-  }
-}
+export const Cart = createContext()
+export const SetCart = createContext()
 
 const Context = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, init)
+  const [localState, setLocal] = useState([])
+  const [cart, setCart] = useState([])
   return (
-    <StateContext.Provider value={state}>
-      <DispatchContext.Provider value={dispatch}>
-        {children}
+    <StateContext.Provider value={localState}>
+      <DispatchContext.Provider value={setLocal}>
+        <Cart.Provider value={cart}>
+          <SetCart.Provider value={setCart}>{children}</SetCart.Provider>
+        </Cart.Provider>
       </DispatchContext.Provider>
     </StateContext.Provider>
   )

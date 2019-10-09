@@ -1,14 +1,25 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
-import React, { useContext } from "react"
-import { DispatchContext, StateContext } from "./Context"
+import React, { useContext, useEffect, useState } from "react"
+import { Cart } from "./Context"
 // interface Props {
 //   siteTitle: string
 // }
 
 const Header = ({ siteTitle }) => {
-  const dispatch = useContext(DispatchContext)
-  const state = useContext(StateContext)
+  const cart = useContext(Cart)
+  const [amount, setAmount] = useState(0)
+  useEffect(() => {
+    setAmount(
+      cart
+        .map(c => {
+          return c.amount
+        })
+        .reduce((total, num) => {
+          return total + num
+        }, 0)
+    )
+  }, [cart])
 
   return (
     <header>
@@ -24,19 +35,11 @@ const Header = ({ siteTitle }) => {
           </Link>
         </h1>
         <nav>
-          <button
-            type="button"
-            onClick={() => {
-              dispatch({ type: "TOGGLE" })
-            }}
-          >
-            ToGGEL {state.theme}
-          </button>
           <Link activeClassName="active" to="/about">
             About
           </Link>
           <Link activeClassName="active" to="/cart">
-            Cart
+            Cart{amount === 0 ? "" : ` x ${amount}`}
           </Link>
         </nav>
       </div>
