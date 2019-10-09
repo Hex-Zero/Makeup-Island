@@ -1,6 +1,5 @@
-const React = require("react")
-const Context = require("./src/components/Context")
-
-exports.wrapRootElement = ({ element }) => {
+import React from "react"
+import Context from "./src/components/Context"
+export const wrapRootElement = ({ element }) => {
   return <Context>{element}</Context>
 }

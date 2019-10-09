@@ -4,7 +4,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const CartPage = ({}) => {
-  const cart = useContext(Cart)
+  const cart = useContext(Cart ? Cart : [])
 
   return (
     <Layout>
