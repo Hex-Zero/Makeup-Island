@@ -6,7 +6,7 @@ interface Props {}
 const cart: React.FC<Props> = ({}) => {
   return (
     <Layout>
-      <div></div>
+      <ul>{JSON.stringify(cart)}</ul>
     </Layout>
   )
 }
