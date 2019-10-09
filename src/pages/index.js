@@ -1,6 +1,7 @@
 import { graphql, useStaticQuery } from "gatsby"
 import React, { useContext, useEffect } from "react"
 import { DispatchContext, SetCart, StateContext } from "../components/Context"
+import MakeupPlaceholder from "../components/image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -69,10 +70,10 @@ const IndexPage = ({}) => {
     <Layout>
       <SEO title="Home" />
       <div>
-        <ul>
+        <ul className="card-container">
           {state.map(item => {
             return (
-              <li key={item.id}>
+              <li key={item.id} className="item-card-box">
                 {item.title} ${item.price}{" "}
                 <button
                   onClick={() => handleClick(item)}
@@ -81,6 +82,7 @@ const IndexPage = ({}) => {
                   {item.inventory <= 0 ? "Out of stock" : "Add To Basket"}
                 </button>{" "}
                 x {item.inventory} x {item.amount}
+                <MakeupPlaceholder />
               </li>
             )
           })}
