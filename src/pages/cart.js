@@ -32,7 +32,8 @@ const CartPage = ({}) => {
           )
         })}
       </ul>{" "}
-      {amount === 0 ? "" : `Total : ${amount} $`} <button>Purchase</button>
+      {amount === 0 ? "" : `Total : ${amount} $ `}
+      {<button>Purchase</button>}
     </Layout>
   )
 }
