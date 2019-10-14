@@ -33,7 +33,15 @@ const CartPage = ({}) => {
         })}
       </ul>{" "}
       {amount === 0 ? "" : `Total : ${amount} $ `}
-      {<button>Purchase</button>}
+      {
+        <button
+          onClick={() => {
+            console.log(`Purchase`)
+          }}
+        >
+          Purchase
+        </button>
+      }
     </Layout>
   )
 }
