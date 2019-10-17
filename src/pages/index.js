@@ -5,7 +5,7 @@ import MakeupPlaceholder from "../components/image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const IndexPage = ({}) => {
+const IndexPage = () => {
   const state = useContext(StateContext)
   const setState = useContext(DispatchContext)
   const setCart = useContext(SetCart)
@@ -22,10 +22,11 @@ const IndexPage = ({}) => {
       }
     }
   `)
+
   useEffect(() => {
     setState(data.allMongodbMakeupIslandProducts.nodes)
   }, [data.allMongodbMakeupIslandProducts.nodes, setState])
-  function handleClick(item) {
+  const handleClick = item => {
     setState(localState =>
       localState.map(currentLocal => {
         if (currentLocal.id === item.id) {

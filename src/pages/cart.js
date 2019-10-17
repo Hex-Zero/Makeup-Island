@@ -4,7 +4,7 @@ import MakeupPlaceholder from "../components/image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const CartPage = ({}) => {
+const CartPage = () => {
   const cart = useContext(Cart ? Cart : [])
   const [amount, setAmount] = useState(0)
   useEffect(() => {
