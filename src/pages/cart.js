@@ -7,6 +7,7 @@ import SEO from "../components/seo"
 const CartPage = () => {
   const cart = useContext(Cart ? Cart : [])
   const [amount, setAmount] = useState(0)
+  // look
   useEffect(() => {
     setAmount(
       cart
