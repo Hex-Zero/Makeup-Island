@@ -13,7 +13,7 @@ const Checkout = class extends React.Component {
     const { error } = await this.stripe.redirectToCheckout({
       billingAddressCollection: "required",
       items: [{ sku: "sku_G291Q3fa7YtG2h", quantity: 2 }],
-      successUrl: `http://localhost:8000/page-2/`,
+      successUrl: `https://makeupisland.netlify.com/success/`,
       cancelUrl: `http://localhost:8000/`,
     })
     if (error) {
