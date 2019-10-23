@@ -5,8 +5,10 @@
   height: 270px;
   width: 300px;
   padding: 20px;
+  box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.2);
   &:hover {
     border: solid 2px $secondary-color;
+    animation: rotate-diagonal-2 0.4s linear both;
   }
   .soldOut {
     position: absolute;
@@ -25,5 +27,20 @@
   button {
     margin: 5px 0;
     padding: 1px 5px;
+  }
+}
+
+@keyframes rotate-diagonal-2 {
+  0% {
+    -webkit-transform: rotate3d(-1, 1, 0, 0deg);
+    transform: rotate3d(-1, 1, 0, 0deg);
+  }
+  50% {
+    -webkit-transform: rotate3d(-1, 1, 0, 180deg);
+    transform: rotate3d(-1, 1, 0, 180deg);
+  }
+  100% {
+    -webkit-transform: rotate3d(-1, 1, 0, 360deg);
+    transform: rotate3d(-1, 1, 0, 360deg);
   }
 }
