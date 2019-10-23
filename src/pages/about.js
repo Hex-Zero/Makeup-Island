@@ -6,13 +6,16 @@ const Checkout = class extends React.Component {
   // You can find your key in the Dashboard:
   // https://dashboard.stripe.com/account/apikeys
   componentDidMount() {
-    this.stripe = window.Stripe("pk_test_BwXB5S7oyugIOi8pKdt0fEQX00HLZwE78p")
+    this.stripe = window.Stripe("GATSBY_DATABASE")
   }
   async redirectToCheckout(event) {
     event.preventDefault()
     const { error } = await this.stripe.redirectToCheckout({
       billingAddressCollection: "required",
-      items: [{ sku: "sku_G291Q3fa7YtG2h", quantity: 2 }],
+      items: [
+        { sku: "sku_G291Q3fa7YtG2h", quantity: 2 },
+        { sku: "sku_G2qHz3WSUmkA6m", quantity: 1 },
+      ],
       successUrl: `https://makeupisland.netlify.com/success/`,
       cancelUrl: `http://localhost:8000/`,
     })

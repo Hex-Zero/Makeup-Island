@@ -34,15 +34,11 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-mongodb`,
+      resolve: `gatsby-source-stripe`,
       options: {
-        connectionString: `${process.env.GATSBY_DATABASE}`,
-        dbName: `MakeupIsland`,
-        collection: `Products`,
-        map: {
-          posts: { description: `text/markdown` },
-        },
-        clientOptions: { useUnifiedTopology: true, useNewUrlParser: true },
+        objects: ["Sku"],
+        secretKey: `${process.env.GATSBY_STRIPE_RESTRICKTED}`,
+        downloadFiles: true,
       },
     },
   ],

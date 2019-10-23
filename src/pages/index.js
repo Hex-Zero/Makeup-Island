@@ -1,7 +1,6 @@
 import { graphql, useStaticQuery } from "gatsby"
 import React, { useContext, useEffect } from "react"
 import { DispatchContext, SetCart, StateContext } from "../components/Context"
-import MakeupPlaceholder from "../components/image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -12,32 +11,44 @@ const IndexPage = () => {
 
   const data = useStaticQuery(graphql`
     query {
-      allMongodbMakeupIslandProducts {
+      allStripeSku {
         nodes {
+          localFiles {
+            childImageSharp {
+              fluid {
+                src
+              }
+            }
+          }
+          image
           id
+          active
+          attributes {
+            name
+          }
           price
-          title
-          inventory
         }
       }
     }
   `)
 
   useEffect(() => {
-    setState(data.allMongodbMakeupIslandProducts.nodes)
-  }, [data.allMongodbMakeupIslandProducts.nodes, setState])
+    setState(data.allStripeSku.nodes)
+  }, [data.allStripeSku.nodes, setState])
+
   const handleClick = item => {
     setState(localState =>
       localState.map(currentLocal => {
         if (currentLocal.id === item.id) {
-          currentLocal.inventory -= 1
+          // currentLocal.inventory -= 1
           setCart(state => {
             if (!state) {
               return [
                 {
                   id: currentLocal.id,
-                  title: currentLocal.title,
-                  price: currentLocal.price,
+                  title: currentLocal.attributes.name,
+                  price: (currentLocal.price / 100).toFixed(2),
+                  src: currentLocal.localFiles[0].childImageSharp.fluid.src,
                   amount: 1,
                 },
               ]
@@ -46,8 +57,9 @@ const IndexPage = () => {
                 ...state,
                 {
                   id: currentLocal.id,
-                  title: currentLocal.title,
-                  price: currentLocal.price,
+                  title: currentLocal.attributes.name,
+                  price: (currentLocal.price / 100).toFixed(2),
+                  src: currentLocal.localFiles[0].childImageSharp.fluid.src,
                   amount: 1,
                 },
               ]
@@ -67,6 +79,7 @@ const IndexPage = () => {
       })
     )
   }
+
   return (
     <Layout>
       <SEO title="Home" />
@@ -75,15 +88,19 @@ const IndexPage = () => {
           {state.map(item => {
             return (
               <li key={item.id} className="item-card-box">
-                {item.title} ${item.price}{" "}
+                {item.attributes.name} ${item.price / 100}{" "}
                 <button
                   onClick={() => handleClick(item)}
                   disabled={item.inventory <= 0}
                 >
-                  {item.inventory <= 0 ? "Out of stock" : "Add To Basket"}
+                  {/* {item.inventory <= 0 ? "Out of stock" : "Add To Basket"} */}
+                  Add To Basket
                 </button>{" "}
-                x {item.inventory} x {item.amount}
-                <MakeupPlaceholder />
+                <img
+                  src={item.localFiles[0].childImageSharp.fluid.src}
+                  width="170px"
+                  alt={item.attributes.name}
+                ></img>
               </li>
             )
           })}

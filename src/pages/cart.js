@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react"
 import { Cart } from "../components/Context"
-import MakeupPlaceholder from "../components/image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -28,12 +27,12 @@ const CartPage = () => {
           return (
             <li key={item.id} className="item-card-box">
               {item.title} ${item.price} x{item.amount}
-              <MakeupPlaceholder />
+              <img src={item.src} width="170px" alt={item.title}></img>
             </li>
           )
         })}
       </ul>{" "}
-      {amount === 0 ? "" : `Total : ${amount} $ `}
+      {amount === 0 ? "" : `Total : ${amount.toFixed(2)} $ `}
       {<button>Purchase</button>}
     </Layout>
   )
