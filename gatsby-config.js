@@ -41,5 +41,6 @@ module.exports = {
         downloadFiles: true,
       },
     },
+    `gatsby-plugin-transition-link`,
   ],
 }

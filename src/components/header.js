@@ -1,4 +1,4 @@
-import { Link } from "gatsby"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 import PropTypes from "prop-types"
 import React, { useContext, useEffect, useState } from "react"
 import { Cart } from "./Context"
@@ -30,17 +30,41 @@ const Header = ({ siteTitle }) => {
       </div>
       <div className="header-container">
         <h1>
-          <Link activeClassName="active" to="/">
+          <AniLink
+            swipe
+            direction="right"
+            top="entry"
+            hex="#bf4de2"
+            entryOffset={100}
+            duration={1}
+            activeClassName="active"
+            to="/"
+          >
             {siteTitle}
-          </Link>
+          </AniLink>
         </h1>
         <nav>
-          <Link activeClassName="active" to="/about">
+          <AniLink
+            paintDrip
+            hex="#bf4de2"
+            duration={1}
+            activeClassName="active"
+            to="/about"
+          >
             About
-          </Link>
-          <Link activeClassName="active" to="/cart">
+          </AniLink>
+          <AniLink
+            swipe
+            direction="left"
+            top="entry"
+            hex="#bf4de2"
+            entryOffset={100}
+            duration={1}
+            activeClassName="active"
+            to="/cart"
+          >
             Cart{amount === 0 ? "" : ` x ${amount}`}
-          </Link>
+          </AniLink>
         </nav>
       </div>
     </header>

@@ -6,6 +6,7 @@ import SEO from "../components/seo"
 const CartPage = () => {
   const cart = useContext(Cart ? Cart : [])
   const [amount, setAmount] = useState(0)
+  const [stripe, setStripe] = useState([])
 
   useEffect(() => {
     setAmount(
@@ -18,6 +19,27 @@ const CartPage = () => {
         }, 0)
     )
   }, [cart])
+
+  useEffect(() => {
+    setStripe(window.Stripe(process.env.GATSBY_DATABASE))
+  }, [])
+
+  const redirectToCheckout = async event => {
+    event.preventDefault()
+    const { error } = await stripe.redirectToCheckout({
+      billingAddressCollection: "required",
+      items: cart.map(node => {
+        return { sku: node.id, quantity: node.amount }
+      }),
+      successUrl: `https://makeupisland.netlify.com/success/`,
+      cancelUrl: `https://makeupisland.netlify.com/cancel/`,
+    })
+    if (error) {
+      console.warn("Error:", error)
+    }
+  }
+  console.log(cart)
+
   return (
     <Layout>
       {" "}
@@ -33,7 +55,9 @@ const CartPage = () => {
         })}
       </ul>{" "}
       {amount === 0 ? "" : `Total : ${amount.toFixed(2)} $ `}
-      {<button>Purchase</button>}
+      {amount !== 0 && (
+        <button onClick={e => redirectToCheckout(e)}>Purchase</button>
+      )}
     </Layout>
   )
 }
