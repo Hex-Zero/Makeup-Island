@@ -1,4 +1,5 @@
 import { graphql, useStaticQuery } from "gatsby"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 import React, { useContext, useEffect } from "react"
 import { DispatchContext, SetCart, StateContext } from "../components/Context"
 import Layout from "../components/layout"
@@ -106,6 +107,16 @@ const IndexPage = () => {
           })}
         </ul>
       </div>
+
+      <AniLink
+        paintDrip
+        color="red"
+        duration={1}
+        activeClassName="active"
+        to="/lipstick"
+      >
+        About
+      </AniLink>
     </Layout>
   )
 }

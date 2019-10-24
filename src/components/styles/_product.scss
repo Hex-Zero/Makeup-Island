@@ -1,0 +1,9 @@
+.Product_Pages {
+  display: grid;
+  margin: 20px;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  height: 100%;
+  perspective: 1000;
+}

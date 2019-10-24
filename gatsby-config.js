@@ -42,5 +42,11 @@ module.exports = {
       },
     },
     `gatsby-plugin-transition-link`,
+    {
+      resolve: `gatsby-plugin-page-creator`,
+      options: {
+        path: `${__dirname}/src/products`,
+      },
+    },
   ],
 }
