@@ -30,39 +30,15 @@ const Header = ({ siteTitle }) => {
       </div>
       <div className="header-container">
         <h1>
-          <AniLink
-            swipe
-            direction="right"
-            top="entry"
-            hex="#bf4de2"
-            entryOffset={100}
-            duration={1}
-            activeClassName="active"
-            to="/"
-          >
+          <AniLink paintDrip hex="#fa1717" to="/">
             {siteTitle}
           </AniLink>
         </h1>
         <nav>
-          <AniLink
-            paintDrip
-            color="red"
-            duration={1}
-            activeClassName="active"
-            to="/about"
-          >
+          <AniLink paintDrip hex="#fa1717" activeClassName="active" to="/about">
             About
           </AniLink>
-          <AniLink
-            swipe
-            direction="left"
-            top="entry"
-            hex="#bf4de2"
-            entryOffset={100}
-            duration={1}
-            activeClassName="active"
-            to="/cart"
-          >
+          <AniLink paintDrip hex="#fa1717" to="/cart">
             Cart{amount === 0 ? "" : ` x ${amount}`}
           </AniLink>
         </nav>
