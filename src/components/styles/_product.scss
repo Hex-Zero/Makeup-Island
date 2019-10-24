@@ -6,4 +6,13 @@
   grid-row-gap: 20px;
   height: 100%;
   perspective: 1000;
+  @media only screen and (max-width: 1040px) {
+    grid-template-columns: auto;
+  }
+  .Product_Back_Button {
+    position: fixed;
+    left: 50px;
+    z-index: 5;
+    color: var(--main-color);
+  }
 }
