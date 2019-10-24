@@ -41,7 +41,9 @@ const IndexPage = () => {
     setState(localState =>
       localState.map(currentLocal => {
         if (currentLocal.id === item.id) {
-          // currentLocal.inventory -= 1
+          !currentLocal.amount
+            ? (currentLocal.amount = 1)
+            : (currentLocal.amount += 1)
           setCart(state => {
             if (!state) {
               return [
@@ -89,19 +91,23 @@ const IndexPage = () => {
           {state.map(item => {
             return (
               <li key={item.id} className="item-card-box">
-                {item.attributes.name} ${item.price / 100}{" "}
-                <button
-                  onClick={() => handleClick(item)}
-                  disabled={item.inventory <= 0}
-                >
-                  {/* {item.inventory <= 0 ? "Out of stock" : "Add To Basket"} */}
-                  Add To Basket
-                </button>{" "}
+                <div>
+                  {item.attributes.name} ${item.price / 100}{" "}
+                  <button
+                    onClick={() => handleClick(item)}
+                    disabled={item.inventory <= 0}
+                  >
+                    {/* {item.inventory <= 0 ? "Out of stock" : "Add To Basket"} */}
+                    Add To Basket
+                  </button>{" "}
+                  {item.amount}
+                </div>
                 <img
                   src={item.localFiles[0].childImageSharp.fluid.src}
-                  width="170px"
+                  width="280px"
                   alt={item.attributes.name}
                 ></img>
+                <button className="Info_Button">More Information</button>
               </li>
             )
           })}
