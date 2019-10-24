@@ -3,14 +3,14 @@
   width: 100vw;
   overflow: hidden;
   z-index: -1;
-  background: $main-color;
+  background: var(--main-color);
 
   .shadow {
     background: linear-gradient(
       180deg,
-      rgba(255, 255, 255, 0.301) 0%,
+      rgba(255, 255, 255, 0.404) 0%,
       transparent 67%,
-      rgba(0, 0, 0, 0.219) 100%
+      rgba(0, 0, 0, 0.322) 100%
     );
     .slide {
       width: 5011px;

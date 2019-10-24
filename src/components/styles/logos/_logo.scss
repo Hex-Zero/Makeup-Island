@@ -11,7 +11,7 @@
       position: absolute;
       width: 26px;
       height: 26px;
-      border: 2px solid $main-color;
+      border: 2px solid var(--main-color);
       border-radius: 2px;
       overflow: hidden;
     }
@@ -27,33 +27,33 @@
     }
     #Front {
       transform: translateZ(13px);
-      background: $backround-color;
+      background: var(--background-color);
     }
     #Back {
       transform: rotateY(180deg) translateZ(13px);
-      background: $backround-color;
+      background: var(--background-color);
     }
     #Left {
       transform: rotateY(-90deg) translateX(-13px);
       transform-origin: left;
-      background: $backround-color;
+      background: var(--background-color);
     }
     #Right {
       transform: rotateY(90deg) translateX(13px);
       transform-origin: right;
-      background: $backround-color;
+      background: var(--background-color);
     }
 
     // #Top {
     //   transform: rotateX(-90deg) translateY(-13px);
     //   transform-origin: top;
-    //   background: $backround-color;
+    //   background: var(--main-color);
     //   overflow: hidden;
     // }
     // #Bottom {
     //   transform: rotateX(90deg) translateY(13px);
     //   transform-origin: bottom;
-    //   background: $backround-color;
+    //   background: var(--main-color);
     //   overflow: hidden;
     // }
   }

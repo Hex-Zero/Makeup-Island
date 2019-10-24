@@ -46,7 +46,7 @@ const Header = ({ siteTitle }) => {
         <nav>
           <AniLink
             paintDrip
-            hex="#bf4de2"
+            color="red"
             duration={1}
             activeClassName="active"
             to="/about"

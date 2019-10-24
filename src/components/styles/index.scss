@@ -1,9 +1,15 @@
-$backround-color: white;
-$main-color: rgb(173, 27, 218);
-$secondary-color: rgb(255, 243, 73);
-$light-color: rgb(255, 253, 136);
-$text-color: rgb(255, 255, 255);
-$text-color-dark: rgb(0, 0, 0);
+:root {
+  --main-color: rgb(250, 23, 23);
+  --mainL-color: rgb(248, 111, 111);
+  --mainD-color: rgb(134, 1, 1);
+  --sec-color: rgb(255, 243, 73);
+  --secL-color: rgb(253, 248, 178);
+  --secD-color: rgb(204, 190, 0);
+  --background-color: white;
+  --text-color: white;
+  --textD-color: black;
+}
+// var(--main-color)
 @import "./layout";
 @import "./barAnimation";
 @import "./main";
