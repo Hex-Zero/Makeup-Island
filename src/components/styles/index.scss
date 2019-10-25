@@ -10,9 +10,16 @@
   --textD-color: black;
 }
 // var(--main-color)
+$slick-font-path: "~slick-carousel/slick/fonts/" !default;
+$slick-font-family: "slick" !default;
+$slick-loader-path: "~slick-carousel/slick/" !default;
+$slick-arrow-color: black !default;
 @import "./layout";
 @import "./barAnimation";
 @import "./main";
 @import "./itemCard";
 @import "./product";
 @import "./logos/logo";
+
+@import "../../../node_modules/slick-carousel/slick/slick-theme.scss";
+@import "../../../node_modules/slick-carousel/slick/slick.scss";
