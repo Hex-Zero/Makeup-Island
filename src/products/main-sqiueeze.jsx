@@ -1,0 +1,68 @@
+import { graphql, useStaticQuery } from "gatsby"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
+import React, { useEffect, useState } from "react"
+import { TiArrowBackOutline } from "react-icons/ti"
+import Slider from "react-slick"
+import Text from "./main-sqiueeze/text"
+const MainSqiueeze = () => {
+  const [state, setState] = useState([])
+  const data = useStaticQuery(graphql`
+    query {
+      allFile(filter: { relativeDirectory: { eq: "products/main-sqiueeze" } }) {
+        edges {
+          node {
+            childImageSharp {
+              fluid {
+                src
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+  useEffect(() => {
+    setState(data.allFile.edges)
+  }, [data.allFile.edges, setState])
+  var settings = {
+    dots: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  }
+  console.log(data)
+
+  return (
+    <>
+      <div className="Product_Pages">
+        <Slider {...settings} className="Slider">
+          {state.map(item => {
+            if (item.node.childImageSharp) {
+              return (
+                <img
+                  src={item.node.childImageSharp.fluid.src}
+                  width="280px"
+                  alt="name"
+                ></img>
+              )
+            }
+          })}
+        </Slider>
+        <Text />
+      </div>
+      <div className="Product_Back_Button">
+        <AniLink
+          paintDrip
+          color="red"
+          duration={1}
+          activeClassName="active"
+          to="/"
+        >
+          <TiArrowBackOutline size={60} />
+        </AniLink>
+      </div>
+    </>
+  )
+}
+
+export default MainSqiueeze

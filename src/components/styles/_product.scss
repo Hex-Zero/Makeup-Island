@@ -1,22 +1,24 @@
 .Product_Pages {
   display: grid;
-  margin: 20px;
+  margin: 0 20px;
   grid-template-columns: 50vw 1fr;
   justify-content: center;
   align-items: center;
-  grid-column-gap: 20px;
-  grid-row-gap: 20px;
-  height: 95vh;
-  perspective: 1000;
-
+  grid-column-gap: 50px;
+  height: 100%;
   @media only screen and (max-width: 1040px) {
     grid-template-columns: 90vw;
   }
-  .Product_Back_Button {
-    position: fixed;
-    left: 50px;
-    bottom: 50px;
-    z-index: 5;
-    color: var(--main-color);
+  .Slider {
+    border-radius: 10px;
+    @media only screen and (max-width: 1040px) {
+    }
   }
+}
+.Product_Back_Button {
+  position: fixed;
+  left: 50px;
+  bottom: 50px;
+  z-index: 5;
+  color: var(--main-color);
 }

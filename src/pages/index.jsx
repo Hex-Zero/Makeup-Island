@@ -104,25 +104,24 @@ const IndexPage = () => {
                 </div>
                 <img
                   src={item.localFiles[0].childImageSharp.fluid.src}
-                  width="280px"
+                  width="200px"
                   alt={item.attributes.name}
                 ></img>
-                <button className="Info_Button">More Information</button>
+                <AniLink
+                  paintDrip
+                  color="red"
+                  duration={1}
+                  activeClassName="active"
+                  to="/main-sqiueeze"
+                  className="Info_Button"
+                >
+                  <button>More</button>
+                </AniLink>
               </li>
             )
           })}
         </ul>
       </div>
-
-      <AniLink
-        paintDrip
-        color="red"
-        duration={1}
-        activeClassName="active"
-        to="/lipstick"
-      >
-        About
-      </AniLink>
     </Layout>
   )
 }
