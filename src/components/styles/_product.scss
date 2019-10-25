@@ -6,8 +6,9 @@
   align-items: center;
   grid-column-gap: 20px;
   grid-row-gap: 20px;
-  height: 100%;
+  height: 95vh;
   perspective: 1000;
+
   @media only screen and (max-width: 1040px) {
     grid-template-columns: 90vw;
   }
