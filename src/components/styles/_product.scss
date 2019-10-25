@@ -1,13 +1,15 @@
 .Product_Pages {
   display: grid;
   margin: 20px;
-  grid-template-columns: 500px 1fr;
+  grid-template-columns: 50vw 1fr;
+  justify-content: center;
+  align-items: center;
   grid-column-gap: 20px;
   grid-row-gap: 20px;
   height: 100%;
   perspective: 1000;
   @media only screen and (max-width: 1040px) {
-    grid-template-columns: auto;
+    grid-template-columns: 90vw;
   }
   .Product_Back_Button {
     position: fixed;
