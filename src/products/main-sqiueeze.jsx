@@ -3,7 +3,9 @@ import AniLink from "gatsby-plugin-transition-link/AniLink"
 import React, { useEffect, useState } from "react"
 import { TiArrowBackOutline } from "react-icons/ti"
 import Slider from "react-slick"
+import Layout from "../components/layout"
 import Text from "./main-sqiueeze/text"
+
 const MainSqiueeze = () => {
   const [state, setState] = useState([])
   const data = useStaticQuery(graphql`
@@ -33,7 +35,7 @@ const MainSqiueeze = () => {
   console.log(data)
 
   return (
-    <>
+    <Layout>
       <div className="Product_Pages">
         <Slider {...settings} className="Slider">
           {state.map(item => {
@@ -61,7 +63,7 @@ const MainSqiueeze = () => {
           <TiArrowBackOutline size={60} />
         </AniLink>
       </div>
-    </>
+    </Layout>
   )
 }
 

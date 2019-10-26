@@ -2,10 +2,11 @@
   display: grid;
   margin: 0 20px;
   grid-template-columns: 50vw 1fr;
+  grid-template-rows: 88vh;
   justify-content: center;
   align-items: center;
   grid-column-gap: 50px;
-  height: 100%;
+  overflow-y: hidden;
   @media only screen and (max-width: 1040px) {
     grid-template-columns: 90vw;
   }
