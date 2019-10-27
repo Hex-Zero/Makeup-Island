@@ -37,19 +37,20 @@ const MainSqiueeze = () => {
   return (
     <Layout>
       <div className="Product_Pages">
-        <Slider {...settings} className="Slider">
-          {state.map(item => {
-            if (item.node.childImageSharp) {
-              return (
-                <img
-                  src={item.node.childImageSharp.fluid.src}
-                  width="280px"
-                  alt="name"
-                ></img>
-              )
-            }
-          })}
-        </Slider>
+        <div className="Slider">
+          <Slider {...settings}>
+            {state.map(item => {
+              if (item.node.childImageSharp) {
+                return (
+                  <img
+                    src={item.node.childImageSharp.fluid.src}
+                    alt="name"
+                  ></img>
+                )
+              }
+            })}
+          </Slider>
+        </div>
         <Text />
       </div>
       <div className="Product_Back_Button">

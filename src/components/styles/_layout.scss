@@ -40,6 +40,23 @@ header {
     text-align: center;
   }
 }
+.sub-header {
+  width: 50vh;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgb(224, 236, 251) 100%
+  );
+  text-align: center;
+  color: black;
+  p {
+    border-style: ridge;
+    border-width: 0px 1px 0px 1px;
+  }
+}
 .layout-footer {
   width: 100vw;
   display: flex;

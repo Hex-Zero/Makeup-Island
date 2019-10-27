@@ -3,24 +3,29 @@ import React from "react"
 const Text = () => {
   return (
     <div>
-      shadow palette
-      <p>
+      <p className="brand">shadow palette</p>
+
+      <span className="title">
+        shadow palette
+        <button>Add to Bag o44$</button>
+      </span>
+      <p className="size">NET WEIGHT 9 x 1 g (0.04 oz)</p>
+
+      <p className="description">
+        PRESSED POWDER SHADOW highly pigmented shadow that applies evenly and
+        feels ultra-velvety and silky. this long wearing formula contains a
+        unique combination of softer powders which adheres easily to the eyes,
+        gives a soft focus effect, and blends smoothly and evenly.
+      </p>
+
+      <p className="more-info">
         frosè: matte coral red juicy fruit: metallic coral with a gold flip home
         slice: metallic strawberry red like it's hot: matte true red maraschino:
         metallic red with a gold flip big gulp: matte burnt coral red seed
         money: matte red brown bay watch: metallic red bronze red bottoms: matte
         red plum
       </p>
-      <p>
-        PRESSED POWDER SHADOW highly pigmented shadow that applies evenly and
-        feels ultra-velvety and silky. this long wearing formula contains a
-        unique combination of softer powders which adheres easily to the eyes,
-        gives a soft focus effect, and blends smoothly and evenly.
-      </p>
-      <p>FINISH matte, metallic</p>
-      <p>SHADE reds, oranges/corals, golds, pinks, purples</p>
-      <p>NET WEIGHT 9 x 1 g (0.04 oz)</p>
-      <p>
+      <p className="ingredients">
         INGREDIENTS main squeeze FROSÈ: Talc, Synthetic Fluorphlogopite, Boron
         Nitride, Lauroyl Lysine, Magnesium Stearate, Zinc Stearate, Dimethicone,
         Caprylic/Capric Triglyceride, Silica, Phenoxyethanol, Caprylyl Glycol,
