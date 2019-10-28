@@ -91,22 +91,6 @@ const IndexPage = () => {
           {state.map(item => {
             return (
               <li key={item.id} className="item-card-box">
-                <div>
-                  {item.attributes.name} ${item.price / 100}{" "}
-                  <button
-                    onClick={() => handleClick(item)}
-                    disabled={item.inventory <= 0}
-                  >
-                    {/* {item.inventory <= 0 ? "Out of stock" : "Add To Basket"} */}
-                    Add To Basket
-                  </button>{" "}
-                  {item.amount}
-                </div>
-                <img
-                  src={item.localFiles[0].childImageSharp.fluid.src}
-                  width="200px"
-                  alt={item.attributes.name}
-                ></img>
                 <AniLink
                   paintDrip
                   color="red"
@@ -117,6 +101,22 @@ const IndexPage = () => {
                 >
                   <button>More</button>
                 </AniLink>
+                <img
+                  src={item.localFiles[0].childImageSharp.fluid.src}
+                  width="200px"
+                  alt={item.attributes.name}
+                ></img>
+                <div>
+                  <button
+                    onClick={() => handleClick(item)}
+                    disabled={item.inventory <= 0}
+                  >
+                    {/* {item.inventory <= 0 ? "Out of stock" : "Add To Basket"} */}
+                    Add To Basket
+                  </button>{" "}
+                  {item.amount}
+                </div>
+                {item.attributes.name} ${item.price / 100}{" "}
               </li>
             )
           })}
