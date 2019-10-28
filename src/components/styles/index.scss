@@ -9,14 +9,23 @@
   --text-color: white;
   --textD-color: black;
 }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  // Disable selection
+  user-select: none;
+}
+
 // var(--main-color)
 $slick-font-path: "~slick-carousel/slick/fonts/" !default;
 $slick-font-family: "slick" !default;
 $slick-loader-path: "~slick-carousel/slick/" !default;
 $slick-arrow-color: black !default;
-@import "./layout";
 @import "./barAnimation";
 @import "./main";
+@import "./header";
+@import "./footer";
 @import "./itemCard";
 @import "./product";
 @import "./logos/logo";

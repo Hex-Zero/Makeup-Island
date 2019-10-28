@@ -36,6 +36,18 @@ const MainSqiueeze = () => {
 
   return (
     <Layout>
+      <div>
+        <AniLink
+          className="Product_Back_Button"
+          paintDrip
+          color="red"
+          duration={1}
+          activeClassName="active"
+          to="/"
+        >
+          <TiArrowBackOutline size={60} />
+        </AniLink>
+      </div>
       <div className="Product_Pages">
         <div className="Slider">
           <Slider {...settings}>
@@ -52,17 +64,6 @@ const MainSqiueeze = () => {
           </Slider>
         </div>
         <Text />
-      </div>
-      <div className="Product_Back_Button">
-        <AniLink
-          paintDrip
-          color="red"
-          duration={1}
-          activeClassName="active"
-          to="/"
-        >
-          <TiArrowBackOutline size={60} />
-        </AniLink>
       </div>
     </Layout>
   )

@@ -1,10 +1,23 @@
+main {
+  margin: 60px 20px 0 20px;
+  padding-top: 5px;
+  align-self: center;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  // Sticky footer
+}
 .card-container {
   display: grid;
-  margin: 20px 0;
+  margin: 60px 20px 0 20px;
   grid-template-columns: auto auto auto auto;
   grid-column-gap: 20px;
   grid-row-gap: 20px;
-  height: 100%;
   perspective: 1000;
   @media only screen and (max-width: 1340px) {
     grid-template-columns: auto auto auto;
@@ -15,4 +28,10 @@
   @media only screen and (max-width: 680px) {
     grid-template-columns: auto;
   }
+}
+
+.btn {
+  background: var(--sec-color);
+  padding: 20px 150px;
+  border-radius: 20px;
 }
