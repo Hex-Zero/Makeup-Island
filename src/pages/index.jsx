@@ -7,9 +7,10 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" />
+      
       <ItemList />
     </Layout>
   )
 }
-
+// new windowe with linux bash terminal
 export default IndexPage
