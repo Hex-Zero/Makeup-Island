@@ -12,5 +12,4 @@ const IndexPage = () => {
     </Layout>
   )
 }
-// new windowe with linux bash terminal
 export default IndexPage
