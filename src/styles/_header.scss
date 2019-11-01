@@ -1,6 +1,16 @@
 header {
   background: var(--main-color);
-
+  position: fixed;
+  width: 100vw;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  .active {
+    color: var(--sec-color);
+    text-shadow: 0 0 4px rgb(0, 0, 0);
+  }
   a {
     margin: 20px;
     color: var(--textD-color);
@@ -11,16 +21,6 @@ header {
       text-shadow: 0 0 5px black;
     }
   }
-  .header-container {
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    .active {
-      color: var(--sec-color);
-      text-shadow: 0 0 4px rgb(0, 0, 0);
-    }
-  }
   @media only screen and (max-width: 1040px) {
     h1 {
       font-size: 22px;
@@ -29,19 +29,24 @@ header {
 }
 
 .sub-header {
+  position: fixed;
+  top: 60px;
+  z-index: 1000;
   width: 40vw;
-  margin: 0 auto;
+  left: 27.3vw;
   display: grid;
   grid-template-columns: auto auto auto;
   background: linear-gradient(0deg, var(--mainL-color), var(--main-color));
   text-align: center;
   color: black;
+  overflow: hidden;
   p {
     border-style: ridge;
     border-width: 0px 1px 0px 1px;
   }
   @media only screen and (max-width: 1040px) {
-    width: 100vw;
+    width: 100%;
+    left: 0;
     p {
       font-size: 10px;
     }

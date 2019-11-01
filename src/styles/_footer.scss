@@ -1,6 +1,6 @@
 .layout-footer {
   background-color: var(--main-color);
-  width: 100vw;
+  overflow-x: hidden;
   display: grid;
   grid-template-columns: auto auto auto;
   align-items: center;

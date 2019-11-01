@@ -22,21 +22,19 @@ const Header = ({ siteTitle }) => {
   }, [cart])
   return (
     <header>
-      <div className="header-container">
-        <h1>
-          <Link activeClassName="active" to="/">
-            {siteTitle}
-          </Link>
-        </h1>
-        <nav>
-          <Link activeClassName="active" to="/about">
-            About
-          </Link>
-          <Link activeClassName="active" to="/cart">
-            Cart{amount === 0 ? "" : ` x ${amount}`}
-          </Link>
-        </nav>
-      </div>
+      <h1>
+        <Link activeClassName="active" to="/">
+          {siteTitle}
+        </Link>
+      </h1>
+      <nav>
+        <Link activeClassName="active" to="/about">
+          About
+        </Link>
+        <Link activeClassName="active" to="/cart">
+          Cart{amount === 0 ? "" : ` x ${amount}`}
+        </Link>
+      </nav>
     </header>
   )
 }

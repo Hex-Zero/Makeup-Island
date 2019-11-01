@@ -4,9 +4,11 @@ import Cube from "../styles/logos/Cube"
 const Footer = ({ author }) => {
   return (
     <div className="layout-footer">
-      © {new Date().getFullYear()}, Built by
-      {` `}
-      {author}
+      <p className="copy-right">
+        © {new Date().getFullYear()}
+        {` `}
+        {author}
+      </p>
       <p>Contact</p>
       <Cube />
     </div>
