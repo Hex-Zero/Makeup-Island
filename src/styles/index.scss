@@ -1,8 +1,8 @@
 :root {
-  --main-color: rgb(250, 23, 23);
-  --mainL-color: rgb(248, 111, 111);
-  --mainD-color: rgb(134, 1, 1);
-  --sec-color: rgb(255, 243, 73);
+  --main-color: rgba(150, 3, 125, 0.904);
+  --mainL-color: rgb(242, 123, 253);
+  --mainD-color: rgb(102, 10, 90);
+  --sec-color: #ffffff;
   --secL-color: rgb(253, 248, 178);
   --secD-color: rgb(204, 190, 0);
   --background-color: white;
@@ -22,7 +22,6 @@ $slick-font-path: "~slick-carousel/slick/fonts/" !default;
 $slick-font-family: "slick" !default;
 $slick-loader-path: "~slick-carousel/slick/" !default;
 $slick-arrow-color: black !default;
-@import "./barAnimation";
 @import "./main";
 @import "./header";
 @import "./footer";

@@ -33,11 +33,7 @@ header {
   margin: 0 auto;
   display: grid;
   grid-template-columns: auto auto auto;
-  background: linear-gradient(
-    0deg,
-    rgba(255, 255, 255, 1) 0%,
-    rgb(224, 236, 251) 100%
-  );
+  background: linear-gradient(0deg, var(--mainL-color), var(--main-color));
   text-align: center;
   color: black;
   p {

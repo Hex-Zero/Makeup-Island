@@ -24,11 +24,17 @@ const Header = ({ siteTitle }) => {
     <header>
       <div className="header-container">
         <h1>
-          <Link>{siteTitle}</Link>
+          <Link activeClassName="active" to="/">
+            {siteTitle}
+          </Link>
         </h1>
         <nav>
-          <Link>About</Link>
-          <Link>Cart{amount === 0 ? "" : ` x ${amount}`}</Link>
+          <Link activeClassName="active" to="/about">
+            About
+          </Link>
+          <Link activeClassName="active" to="/cart">
+            Cart{amount === 0 ? "" : ` x ${amount}`}
+          </Link>
         </nav>
       </div>
     </header>
