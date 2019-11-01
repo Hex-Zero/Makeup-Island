@@ -1,5 +1,5 @@
 import { graphql, useStaticQuery } from "gatsby"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
+import { Link } from "gatsby"
 import React, { useContext, useEffect } from "react"
 import { DispatchContext, SetCart, StateContext } from "../components/Context"
 const ItemList = () => {
@@ -86,7 +86,7 @@ const ItemList = () => {
         {state.map(item => {
           return (
             <li key={item.id} className="item-card-box">
-              <AniLink
+              <Link
                 paintDrip
                 color="red"
                 duration={1}
@@ -99,7 +99,7 @@ const ItemList = () => {
                   width="200px"
                   alt={item.attributes.name}
                 ></img>{" "}
-              </AniLink>
+              </Link>
               {item.attributes.name} ${item.price / 100}{" "}
               <div>
                 <button

@@ -1,5 +1,4 @@
-import { graphql, useStaticQuery } from "gatsby"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
+import { graphql, useStaticQuery, Link } from "gatsby"
 import React, { useEffect, useState } from "react"
 import { TiArrowBackOutline } from "react-icons/ti"
 import Slider from "react-slick"
@@ -37,16 +36,9 @@ const MainSqiueeze = () => {
   return (
     <Layout>
       <div>
-        <AniLink
-          className="Product_Back_Button"
-          paintDrip
-          color="red"
-          duration={1}
-          activeClassName="active"
-          to="/"
-        >
+        <Link className="Product_Back_Button">
           <TiArrowBackOutline size={60} />
-        </AniLink>
+        </Link>
       </div>
       <div className="Product_Pages">
         <div className="Slider">

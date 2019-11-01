@@ -1,8 +1,9 @@
 .layout-footer {
+  background-color: var(--main-color);
   width: 100vw;
   display: grid;
   grid-template-columns: auto auto auto;
   align-items: center;
   justify-content: space-between;
-  color: var(--text-color);
+  color: var(--textD-color);
 }

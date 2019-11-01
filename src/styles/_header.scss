@@ -1,8 +1,9 @@
 header {
-  background: transparent;
+  background: var(--main-color);
+
   a {
     margin: 20px;
-    color: var(--text-color);
+    color: var(--textD-color);
     text-decoration: none;
     font-weight: 600;
     &:hover {

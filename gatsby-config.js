@@ -41,7 +41,6 @@ module.exports = {
         downloadFiles: true,
       },
     },
-    `gatsby-plugin-transition-link`,
     {
       resolve: `gatsby-plugin-page-creator`,
       options: {
