@@ -1,7 +1,8 @@
 import React from "react"
+import Layout from "../components/layout"
 
 const Sale = () => {
-  return <div>Sale</div>
+  return <Layout>Sale</Layout>
 }
 
 export default Sale
