@@ -12,7 +12,7 @@ header {
     text-shadow: 0 0 4px rgb(0, 0, 0);
     .amount {
       color: var(--text-color);
-      background-color: var(--textD-color);
+      background-color: var(--main-color);
     }
   }
   nav {
@@ -27,18 +27,20 @@ header {
     &:hover {
       color: var(--sec-color);
       text-shadow: 0 0 5px black;
+      .amount {
+        color: var(--text-color);
+        background-color: var(--main-color);
+      }
     }
     .amount {
       padding: 1px 4px;
-      background-color: var(--text-color);
+      background-color: var(--main-color);
       position: absolute;
       right: 25px;
-      color: var(--textD-color);
+      color: var(--text-color);
       top: 25px;
       font-size: 11px;
       border-radius: 100%;
-      .active {
-      }
     }
   }
 
