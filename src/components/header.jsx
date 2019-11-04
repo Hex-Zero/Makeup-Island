@@ -35,10 +35,10 @@ const Header = ({ siteTitle }) => {
         <FaDribbble size="60" />
       </Link>
       <nav>
-        <Link activeClassName="active" to="/about">
+        <Link activeClassName="active" to="/new">
           New
         </Link>
-        <Link activeClassName="active" to="/about">
+        <Link activeClassName="active" to="/sale">
           Sale
         </Link>
         <Link activeClassName="active" to="/about">
