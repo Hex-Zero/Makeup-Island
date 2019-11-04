@@ -2,7 +2,7 @@ import PropTypes from "prop-types"
 import React, { useContext, useEffect, useState } from "react"
 import { Cart } from "./Context"
 import { Link } from "gatsby"
-import { FaDribbble } from "react-icons/fa"
+import { FaDribbble, FaShoppingBag } from "react-icons/fa"
 // interface Props {
 //   siteTitle: string
 // }
@@ -45,7 +45,7 @@ const Header = ({ siteTitle }) => {
           About
         </Link>
         <Link activeClassName="active" to="/cart">
-          Cart{amount === 0 ? "" : ` x ${amount}`}
+          <FaShoppingBag size="20" />
         </Link>
       </nav>
     </header>
