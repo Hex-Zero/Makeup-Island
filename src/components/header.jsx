@@ -45,7 +45,7 @@ const Header = ({ siteTitle }) => {
           About
         </Link>
         <Link activeClassName="active" to="/cart">
-          <FaShoppingBag size="20" />
+          <FaShoppingBag size="23" /> <div className="amount">{amount}</div>
         </Link>
       </nav>
     </header>

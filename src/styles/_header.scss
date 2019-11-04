@@ -12,7 +12,8 @@ header {
     text-shadow: 0 0 4px rgb(0, 0, 0);
   }
   nav {
-    margin-left: 90px;
+    margin-left: 80px;
+    align-items: center;
   }
   a {
     margin: 20px;
@@ -23,7 +24,14 @@ header {
       color: var(--sec-color);
       text-shadow: 0 0 5px black;
     }
+    .amount {
+      position: absolute;
+      right: 25px;
+      color: var(--text-color);
+      top: 25px;
+    }
   }
+
   @media only screen and (max-width: 1040px) {
     h1 {
       font-size: 22px;
@@ -36,7 +44,7 @@ header {
   top: 60px;
   z-index: 1000;
   width: 40vw;
-  left: 27.3vw;
+  left: 29vw;
   display: grid;
   grid-template-columns: auto auto auto;
   background: linear-gradient(0deg, var(--mainL-color), var(--main-color));
