@@ -7,7 +7,11 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" />
-      
+      <div className="sub-header">
+        <p>Only Best Products</p>
+        <p>One Day Delivery</p>
+        <p>Highest Quality</p>
+      </div>
       <ItemList />
     </Layout>
   )
