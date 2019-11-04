@@ -10,6 +10,10 @@ header {
   .active {
     color: var(--sec-color);
     text-shadow: 0 0 4px rgb(0, 0, 0);
+    .amount {
+      color: var(--text-color);
+      background-color: var(--textD-color);
+    }
   }
   nav {
     margin-left: 80px;
@@ -25,10 +29,16 @@ header {
       text-shadow: 0 0 5px black;
     }
     .amount {
+      padding: 1px 4px;
+      background-color: var(--text-color);
       position: absolute;
       right: 25px;
-      color: var(--text-color);
+      color: var(--textD-color);
       top: 25px;
+      font-size: 11px;
+      border-radius: 100%;
+      .active {
+      }
     }
   }
 
