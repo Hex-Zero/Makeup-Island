@@ -109,7 +109,7 @@ const ItemList = () => {
                   {/* {item.inventory <= 0 ? "Out of stock" : "Add To Basket"} */}
                   Add To Basket
                 </button>{" "}
-                {item.amount}
+                {item.amount} {item.id}
               </div>
             </li>
           )
