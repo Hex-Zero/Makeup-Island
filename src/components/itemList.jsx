@@ -106,7 +106,7 @@ const ItemList = () => {
                   onClick={() => handleClick(item)}
                   disabled={item.inventory <= 0}
                 >
-                  {/* {item.inventory <= 0 ? "Out of stock" : "Add To Basket"} */}
+                  {/* {item.inventory <= 0 ? "Out of stock" : "Add To Basket"} hh*/}
                   Add To Basket
                 </button>{" "}
                 {item.amount} {item.id}
