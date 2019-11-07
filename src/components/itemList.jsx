@@ -86,13 +86,7 @@ const ItemList = () => {
         {state.map(item => {
           return (
             <li key={item.id} className="item-card-box">
-              <Link
-                paintDrip
-                color="red"
-                duration={1}
-                activeClassName="active"
-                to="/main-sqiueeze"
-              >
+              <Link activeClassName="active" to="/main-sqiueeze">
                 <button className="Info_Button">More</button>
                 <img
                   src={item.localFiles[0].childImageSharp.fluid.src}
