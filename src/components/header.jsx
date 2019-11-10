@@ -45,7 +45,8 @@ const Header = ({ siteTitle }) => {
           About
         </Link>
         <Link activeClassName="active" to="/cart">
-          <FaShoppingBag size="23" /> <div className="amount">{amount}</div>
+          <FaShoppingBag size="23" />
+          {amount ? <div className="amount">{amount}</div> : null}
         </Link>
       </nav>
     </header>

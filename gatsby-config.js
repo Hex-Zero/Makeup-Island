@@ -42,6 +42,18 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-mongodb`,
+      options: {
+        connectionString: `${process.env.GATSBY_DATABASEMO}`,
+        dbName: `MakeupIsland`,
+        collection: `Products`,
+        clientOptions: { useUnifiedTopology: true, useNewUrlParser: true },
+      },
+      map: {
+        posts: { description: `text/markdown` },
+      },
+    },
+    {
       resolve: `gatsby-plugin-page-creator`,
       options: {
         path: `${__dirname}/src/products`,
