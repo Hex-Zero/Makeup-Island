@@ -1,14 +1,33 @@
 import { graphql, useStaticQuery } from "gatsby"
 import { Link } from "gatsby"
-import React, { useContext, useEffect } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import { DispatchContext, SetCart, StateContext } from "../components/Context"
 const ItemList = () => {
   const state = useContext(StateContext)
   const setState = useContext(DispatchContext)
   const setCart = useContext(SetCart)
+  const [info, setInfo] = useState()
 
   const data = useStaticQuery(graphql`
     query {
+      allMongodbMakeupIslandProducts(filter: { template: { eq: false } }) {
+        edges {
+          node {
+            title
+            sku
+            size
+            sale
+            new
+            more
+            inventory
+            description
+            brand
+            ingredients
+            template
+            local
+          }
+        }
+      }
       allStripeSku {
         nodes {
           localFiles {
@@ -34,6 +53,9 @@ const ItemList = () => {
     setState(data.allStripeSku.nodes)
   }, [data.allStripeSku.nodes, setState])
 
+  useEffect(() => {
+    setInfo(data.allMongodbMakeupIslandProducts.edges)
+  }, [])
   const handleClick = item => {
     setState(localState =>
       localState.map(currentLocal => {
@@ -79,6 +101,9 @@ const ItemList = () => {
       })
     )
   }
+  const handleMoreLink = id => {
+    return "/" + id
+  }
   return (
     <div>
       {" "}
@@ -86,7 +111,7 @@ const ItemList = () => {
         {state.map(item => {
           return (
             <li key={item.id} className="item-card-box">
-              <Link activeClassName="active" to="/main-sqiueeze">
+              <Link activeClassName="active" to={handleMoreLink(item.id)}>
                 <button className="Info_Button">More</button>
                 <img
                   src={item.localFiles[0].childImageSharp.fluid.src}

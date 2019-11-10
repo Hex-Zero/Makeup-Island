@@ -3,16 +3,13 @@ import React, { useEffect, useState } from "react"
 import Slider from "react-slick"
 import Layout from "../components/layout"
 
-const MainSqiueeze = () => {
+const Sol = () => {
   const [state, setState] = useState([])
   const [info, setInfo] = useState({})
   const data = useStaticQuery(graphql`
-    query MyQuery {
+    query {
       allMongodbMakeupIslandProducts(
-        filter: {
-          template: { eq: false }
-          local: { eq: "main-squeeze-shadow-palette" }
-        }
+        filter: { template: { eq: false }, local: { eq: "sol-shadow-palette" } }
       ) {
         edges {
           node {
@@ -31,7 +28,9 @@ const MainSqiueeze = () => {
           }
         }
       }
-      allFile(filter: { relativeDirectory: { eq: "products/main-sqiueeze" } }) {
+      allFile(
+        filter: { relativeDirectory: { eq: "products/sol-shadow-palette" } }
+      ) {
         edges {
           node {
             childImageSharp {
@@ -48,12 +47,11 @@ const MainSqiueeze = () => {
   useEffect(() => {
     setState(data.allFile.edges)
   }, [data.allFile.edges, setState])
+
   useEffect(() => {
     let newData = data.allMongodbMakeupIslandProducts.edges[0]
-
     setInfo(newData.node)
   }, [setInfo, data.allMongodbMakeupIslandProducts.edges])
-  console.log(info)
 
   var settings = {
     dots: true,
@@ -99,4 +97,4 @@ const MainSqiueeze = () => {
   )
 }
 
-export default MainSqiueeze
+export default Sol
