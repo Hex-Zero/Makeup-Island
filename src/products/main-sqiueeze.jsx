@@ -35,11 +35,6 @@ const MainSqiueeze = () => {
 
   return (
     <Layout>
-      <div>
-        <Link className="Product_Back_Button">
-          <TiArrowBackOutline size={60} />
-        </Link>
-      </div>
       <div className="Product_Pages">
         <div className="Slider">
           <Slider {...settings}>
