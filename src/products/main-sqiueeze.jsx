@@ -2,11 +2,10 @@ import { graphql, useStaticQuery } from "gatsby"
 import React, { useEffect, useState } from "react"
 import Slider from "react-slick"
 import Layout from "../components/layout"
-import Text from "./main-sqiueeze/text"
 
 const MainSqiueeze = () => {
   const [state, setState] = useState([])
-  const [info, setInfo] = useState()
+  const [info, setInfo] = useState({})
   const data = useStaticQuery(graphql`
     query MyQuery {
       allMongodbMakeupIslandProducts(
@@ -50,8 +49,10 @@ const MainSqiueeze = () => {
     setState(data.allFile.edges)
   }, [data.allFile.edges, setState])
   useEffect(() => {
-    setInfo(data.allMongodbMakeupIslandProducts.edges[0].node)
-  }, [data.allMongodbMakeupIslandProducts.edges[0].node, setInfo])
+    let newData = data.allMongodbMakeupIslandProducts.edges[0]
+
+    setInfo(newData.node)
+  }, [setInfo, data.allMongodbMakeupIslandProducts.edges])
   console.log(info)
 
   var settings = {
@@ -70,6 +71,7 @@ const MainSqiueeze = () => {
               if (item.node.childImageSharp) {
                 return (
                   <img
+                    key={item.node.childImageSharp.fluid.src}
                     src={item.node.childImageSharp.fluid.src}
                     alt="name"
                   ></img>
@@ -82,7 +84,15 @@ const MainSqiueeze = () => {
           <div>{info.title}</div>
           <div>{info.description}</div>
           <div>{info.more}</div>
-          <div>{info.sku}</div>
+          <div>
+            {info.ingredients ? (
+              info.ingredients.map(item => {
+                return <div key={item}>{item}</div>
+              })
+            ) : (
+              <div></div>
+            )}
+          </div>
         </div>
       </div>
     </Layout>
