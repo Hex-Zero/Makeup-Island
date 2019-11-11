@@ -33,7 +33,12 @@ module.exports = {
         icon: `src/images/fav.png`,
       },
     },
-    `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        precachePages: [`/*`],
+      },
+    },
     {
       resolve: `gatsby-source-stripe`,
       options: {
