@@ -55,7 +55,7 @@ const ItemList = () => {
 
   useEffect(() => {
     setInfo(data.allMongodbMakeupIslandProducts.edges)
-  }, [])
+  }, [data.allMongodbMakeupIslandProducts.edges])
   const handleClick = item => {
     setState(localState =>
       localState.map(currentLocal => {
@@ -104,15 +104,20 @@ const ItemList = () => {
   const handleMoreLink = id => {
     return "/" + id
   }
+  console.log(info)
+
   return (
     <div>
-      {" "}
       <ul className="card-container">
         {state.map(item => {
           return (
             <li key={item.id} className="item-card-box">
-              <Link activeClassName="active" to={handleMoreLink(item.id)}>
-                <button className="Info_Button">More</button>
+              <Link
+                activeClassName="active"
+                to={handleMoreLink(item.id)}
+                alt="More informtion about the selected product"
+              >
+                <button className="Info_Button">Product Informtion</button>
                 <img
                   src={item.localFiles[0].childImageSharp.fluid.src}
                   width="200px"

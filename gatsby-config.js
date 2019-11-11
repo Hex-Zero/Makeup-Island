@@ -34,6 +34,12 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        precachePages: [`/*`],
+      },
+    },
+    {
       resolve: `gatsby-source-stripe`,
       options: {
         objects: ["Sku"],
