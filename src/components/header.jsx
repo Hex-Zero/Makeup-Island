@@ -23,7 +23,7 @@ const Header = ({ siteTitle }) => {
   }, [cart])
   return (
     <header>
-      <h1 className="hidden-links">
+      <h1 className="hidden-links-low">
         <Link activeClassName="active" to="/">
           {siteTitle}
         </Link>
@@ -31,21 +31,32 @@ const Header = ({ siteTitle }) => {
           Store
         </Link>
       </h1>
-      <Link activeClassName="active" to="/">
+      <Link activeClassName="active" to="/" className="main-logo">
         <FaDribbble size="60" />
       </Link>
       <nav>
-        <Link activeClassName="active" to="/new">
+        <Link
+          activeClassName="active"
+          to="/"
+          className="hidden-links-high header-nav-links"
+        >
+          Store
+        </Link>
+        <Link activeClassName="active" to="/new" className="header-nav-links">
           New
         </Link>
-        <Link activeClassName="active" to="/sale">
+        <Link activeClassName="active" to="/sale" className="header-nav-links">
           Sale
         </Link>
-        <Link activeClassName="active" to="/about">
+        <Link
+          activeClassName="active"
+          to="/about"
+          className="hidden-links-low header-nav-links"
+        >
           About
         </Link>
         <Link activeClassName="active" to="/cart">
-          <FaShoppingBag size="23" />
+          <FaShoppingBag size="25" />
           {amount ? <div className="amount">{amount}</div> : null}
         </Link>
       </nav>
