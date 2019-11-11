@@ -49,6 +49,11 @@ header {
       font-size: 22px;
     }
   }
+  @media only screen and (max-width: 750px) {
+    .hidden-links {
+      display: none;
+    }
+  }
 }
 
 .sub-header {

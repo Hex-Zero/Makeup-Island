@@ -2,6 +2,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import { Link } from "gatsby"
 import React, { useContext, useEffect, useState } from "react"
 import { DispatchContext, SetCart, StateContext } from "../components/Context"
+
 const ItemList = () => {
   const state = useContext(StateContext)
   const setState = useContext(DispatchContext)

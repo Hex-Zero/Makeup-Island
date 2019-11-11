@@ -23,7 +23,7 @@ const Header = ({ siteTitle }) => {
   }, [cart])
   return (
     <header>
-      <h1>
+      <h1 className="hidden-links">
         <Link activeClassName="active" to="/">
           {siteTitle}
         </Link>
