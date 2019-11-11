@@ -74,6 +74,8 @@ const Sol = () => {
                     alt="name"
                   ></img>
                 )
+              } else {
+                return null
               }
             })}
           </Slider>

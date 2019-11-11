@@ -79,6 +79,8 @@ const MainSqiueeze = () => {
                     alt="name"
                   ></img>
                 )
+              } else {
+                return null
               }
             })}
           </Slider>
