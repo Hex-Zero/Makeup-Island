@@ -54,6 +54,7 @@ const Sol = () => {
   }, [setInfo, data.allMongodbMakeupIslandProducts.edges])
 
   var settings = {
+    initialSlide: 2,
     dots: true,
     speed: 500,
     slidesToShow: 1,
