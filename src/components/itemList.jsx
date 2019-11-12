@@ -118,14 +118,14 @@ const ItemList = () => {
                 to={handleMoreLink(item.id)}
                 alt="More informtion about the selected product"
               >
-                <button className="Info_Button">Product Informtion</button>
+                <button className="Info_Button">i</button>
                 <img
                   src={item.localFiles[0].childImageSharp.fluid.src}
                   width="200px"
                   alt={item.attributes.name}
                 ></img>{" "}
               </Link>
-              {item.attributes.name} ${item.price / 100}{" "}
+              {item.attributes.name} £{item.price / 100}{" "}
               <div>
                 <button
                   onClick={() => handleClick(item)}
@@ -134,7 +134,7 @@ const ItemList = () => {
                   {/* {item.inventory <= 0 ? "Out of stock" : "Add To Basket"} */}
                   Add To Basket
                 </button>{" "}
-                {item.amount} {item.id}
+                {item.amount}
               </div>
             </li>
           )
