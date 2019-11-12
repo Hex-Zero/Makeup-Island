@@ -1,8 +1,8 @@
 import { graphql, useStaticQuery } from "gatsby"
 import React, { useEffect, useState } from "react"
-import Slider from "react-slick"
 import Layout from "../components/layout"
 import ProductInfo from "../components/productInfo"
+import PictureSlides from "../components/pictureSlides"
 
 const MainSqiueeze = () => {
   const [state, setState] = useState([])
@@ -59,34 +59,10 @@ const MainSqiueeze = () => {
     setInfo(newData.node)
   }, [setInfo, data.allMongodbMakeupIslandProducts.edges])
 
-  var settings = {
-    dots: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    initialSlide: 1,
-  }
-
   return (
     <Layout>
       <div className="Product_Pages">
-        <div className="Slider">
-          <Slider {...settings}>
-            {state.map(item => {
-              if (item.node.childImageSharp) {
-                return (
-                  <img
-                    key={item.node.childImageSharp.fluid.src}
-                    src={item.node.childImageSharp.fluid.src}
-                    alt="name"
-                  ></img>
-                )
-              } else {
-                return null
-              }
-            })}
-          </Slider>
-        </div>
+        <PictureSlides pictures={state} />
         <ProductInfo
           title={info.title}
           description={info.description}
