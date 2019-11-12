@@ -2,6 +2,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import React, { useEffect, useState } from "react"
 import Slider from "react-slick"
 import Layout from "../components/layout"
+import ProductInfo from "../components/productInfo"
 
 const MainSqiueeze = () => {
   const [state, setState] = useState([])
@@ -86,20 +87,12 @@ const MainSqiueeze = () => {
             })}
           </Slider>
         </div>
-        <div>
-          <div>{info.title}</div>
-          <div>{info.description}</div>
-          <div>{info.more}</div>
-          <div>
-            {info.ingredients ? (
-              info.ingredients.map(item => {
-                return <div key={item}>{item}</div>
-              })
-            ) : (
-              <div></div>
-            )}
-          </div>
-        </div>
+        <ProductInfo
+          title={info.title}
+          description={info.description}
+          more={info.more}
+          ingredients={info.ingredients}
+        />
       </div>
     </Layout>
   )
