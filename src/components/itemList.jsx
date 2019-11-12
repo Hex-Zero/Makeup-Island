@@ -125,16 +125,17 @@ const ItemList = () => {
                   alt={item.attributes.name}
                 ></img>{" "}
               </Link>
-              {item.attributes.name} £{item.price / 100}{" "}
-              <div>
+              <div className="title">{item.attributes.name}</div>
+              <div className="add-price">
+                £{item.price / 100}{" "}
                 <button
                   onClick={() => handleClick(item)}
                   disabled={item.inventory <= 0}
+                  className="add-button"
                 >
                   {/* {item.inventory <= 0 ? "Out of stock" : "Add To Basket"} */}
-                  Add To Basket
+                  Add
                 </button>{" "}
-                {item.amount}
               </div>
             </li>
           )
