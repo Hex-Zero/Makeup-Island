@@ -9,6 +9,7 @@
     grid-template-columns: 100vw;
   }
   .product-info-container {
+    position: relative;
     padding: 20px;
     background-color: rgba(255, 196, 247, 0.301);
     min-height: calc(100vh - 109px);
@@ -26,6 +27,8 @@
       margin-bottom: 13px;
     }
     .add-button {
+      position: absolute;
+      top: 15px;
       margin-left: 0px;
       border-radius: 5px;
       border: none;
@@ -51,6 +54,8 @@
     justify-self: center;
     border-radius: 10px;
     width: 45vw;
+    margin-top: 35px;
+
     @media only screen and (max-width: 1040px) {
       margin-top: 35px;
       width: 80vw;
