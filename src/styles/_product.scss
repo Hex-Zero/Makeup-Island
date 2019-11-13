@@ -12,6 +12,40 @@
     padding: 20px;
     background-color: rgba(255, 196, 247, 0.301);
     min-height: calc(100vh - 109px);
+    .title {
+      font-size: 1.3rem;
+      font-weight: 800;
+      margin-bottom: 13px;
+    }
+    .description {
+      font-size: 1.1rem;
+      margin-bottom: 13px;
+    }
+    .more {
+      color: rgb(63, 63, 63);
+      margin-bottom: 13px;
+    }
+    .add-button {
+      margin-left: 0px;
+      border-radius: 5px;
+      border: none;
+      font-weight: 800;
+      font-size: 1rem;
+      top: 6;
+      right: 20px;
+      padding: 5px 12px;
+      background-color: var(--main-color);
+      color: var(--text-color);
+      &:hover {
+        background-color: var(--mainL-color);
+      }
+      &:focus {
+        outline: none;
+      }
+      &:active {
+        transform: scale(0.87);
+      }
+    }
   }
   .Slider {
     justify-self: center;
@@ -22,11 +56,4 @@
       width: 80vw;
     }
   }
-}
-.Product_Back_Button {
-  position: fixed;
-  left: 50px;
-  bottom: 50px;
-  z-index: 5;
-  color: var(--main-color);
 }

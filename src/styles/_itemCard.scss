@@ -33,6 +33,10 @@
   .info-container {
     width: 300px;
     height: 210px;
+
+    &:focus {
+      outline: none;
+    }
   }
   .info-button {
     border-radius: 100%;

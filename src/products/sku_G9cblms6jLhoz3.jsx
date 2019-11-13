@@ -63,6 +63,7 @@ const Sol = () => {
           description={info.description}
           more={info.more}
           ingredients={info.ingredients}
+          sku={info.sku}
         />
       </div>
     </Layout>
