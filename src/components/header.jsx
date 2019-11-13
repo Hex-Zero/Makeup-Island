@@ -27,19 +27,15 @@ const Header = ({ siteTitle }) => {
         <Link activeClassName="active" to="/">
           {siteTitle}
         </Link>
-        <Link activeClassName="active" to="/">
+        {/* <Link activeClassName="active" to="/">
           Store
-        </Link>
+        </Link> */}
       </h1>
       <Link activeClassName="active" to="/" className="main-logo">
         <FaDribbble size="60" />
       </Link>
       <nav>
-        <Link
-          activeClassName="active"
-          to="/"
-          className="hidden-links-high header-nav-links"
-        >
+        <Link activeClassName="active" to="/" className=" header-nav-links">
           Store
         </Link>
         <Link activeClassName="active" to="/new" className="header-nav-links">
@@ -48,13 +44,13 @@ const Header = ({ siteTitle }) => {
         <Link activeClassName="active" to="/sale" className="header-nav-links">
           Sale
         </Link>
-        <Link
+        {/* <Link
           activeClassName="active"
           to="/about"
           className="hidden-links-low header-nav-links"
         >
           About
-        </Link>
+        </Link> */}
         <Link activeClassName="active" to="/cart">
           <FaShoppingBag size="25" />
           {amount ? <div className="amount">{amount}</div> : null}

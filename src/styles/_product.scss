@@ -5,8 +5,8 @@
   align-items: start;
   @media only screen and (max-width: 1040px) {
     justify-content: center;
-    gap: 50px;
-    grid-template-columns: 90vw;
+    gap: 35px;
+    grid-template-columns: 100vw;
   }
   .product-info-container {
     padding: 20px;
@@ -18,7 +18,8 @@
     border-radius: 10px;
     width: 45vw;
     @media only screen and (max-width: 1040px) {
-      width: 85vw;
+      margin-top: 35px;
+      width: 80vw;
     }
   }
 }
