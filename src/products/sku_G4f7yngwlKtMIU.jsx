@@ -62,7 +62,7 @@ const MainSqiueeze = () => {
   return (
     <Layout>
       <div className="Product_Pages">
-        <PictureSlides pictures={state} />
+        <PictureSlides pictures={state} location="1" />
         <ProductInfo
           title={info.title}
           description={info.description}

@@ -1,14 +1,14 @@
-import React from "react"
+import React, { useState } from "react"
 import Slider from "react-slick"
 
-const PictureSlides = ({ pictures }) => {
-  const settings = {
+const PictureSlides = ({ pictures, location }) => {
+  const [settings] = useState({
     dots: true,
-    speed: 500,
+    speed: 400,
     slidesToShow: 1,
     slidesToScroll: 1,
-    initialSlide: 2,
-  }
+    initialSlide: location,
+  })
 
   return (
     <>

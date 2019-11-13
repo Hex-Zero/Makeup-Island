@@ -105,7 +105,6 @@ const ItemList = () => {
   const handleMoreLink = id => {
     return "/" + id
   }
-  console.log(info)
 
   return (
     <div>
