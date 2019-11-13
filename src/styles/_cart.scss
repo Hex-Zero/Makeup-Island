@@ -1,0 +1,25 @@
+.cart-container {
+  .remove-button {
+    position: absolute;
+    bottom: 15px;
+    margin-left: 0px;
+    border-radius: 5px;
+    border: none;
+    font-weight: 800;
+    font-size: 0.8rem;
+    top: 6;
+    right: 20px;
+    padding: 5px 12px;
+    background-color: var(--main-color);
+    color: var(--text-color);
+    &:hover {
+      background-color: var(--mainL-color);
+    }
+    &:focus {
+      outline: none;
+    }
+    &:active {
+      transform: scale(0.87);
+    }
+  }
+}

@@ -33,7 +33,7 @@
       border-radius: 5px;
       border: none;
       font-weight: 800;
-      font-size: 1rem;
+      font-size: 0.8rem;
       top: 6;
       right: 20px;
       padding: 5px 12px;
@@ -48,6 +48,12 @@
       &:active {
         transform: scale(0.87);
       }
+      @media only screen and (max-width: 1040px) {
+        top: -14px;
+      }
+    }
+    @media only screen and (max-width: 1040px) {
+      min-height: calc(100vh - 130px);
     }
   }
   .Slider {

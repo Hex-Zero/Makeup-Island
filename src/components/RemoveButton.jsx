@@ -19,7 +19,9 @@ const RemoveButton = ({ sku }) => {
   }
   return (
     <>
-      <button onClick={() => handleRemove(sku)}>X</button>
+      <button onClick={() => handleRemove(sku)} className="remove-button">
+        X
+      </button>
     </>
   )
 }

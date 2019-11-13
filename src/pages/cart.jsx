@@ -51,7 +51,7 @@ const CartPage = () => {
       {amount === 0 ? (
         <div>empty</div>
       ) : (
-        <ul className="card-container">
+        <ul className="cart-container card-container">
           {cart.map(item => {
             if (item.amount > 0) {
               return (
