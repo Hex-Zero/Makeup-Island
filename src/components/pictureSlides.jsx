@@ -8,8 +8,9 @@ const PictureSlides = ({ pictures, location }) => {
     slidesToShow: 1,
     slidesToScroll: 1,
     initialSlide: location,
+    focusOnSelect: true,
+    infinite: false,
   })
-
   return (
     <>
       <div className="Slider">

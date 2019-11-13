@@ -111,22 +111,30 @@ const ItemList = () => {
       <ul className="card-container">
         {state.map(item => {
           return (
-            <li key={item.id} className="item-card-box">
+            <li
+              key={item.id}
+              className="item-card-box"
+              style={{
+                backgroundImage: `url(${item.localFiles[0].childImageSharp.fluid.src}) `,
+                backgroundSize: "97%",
+              }}
+            >
               <Link
                 activeClassName="active"
                 to={handleMoreLink(item.id)}
                 alt="More informtion about the selected product"
+                className="info-container"
               >
-                <button className="Info_Button">i</button>
-                <img
+                <button className="info-button">i</button>
+                {/* <img
                   src={item.localFiles[0].childImageSharp.fluid.src}
                   width="200px"
                   alt={item.attributes.name}
-                ></img>{" "}
+                ></img>{" "} */}
               </Link>
-              <div className="title">{item.attributes.name}</div>
+              {/* <div className="title">{item.attributes.name}</div> */}
               <div className="add-price">
-                £{item.price / 100}{" "}
+                <div className="price">£{item.price / 100}</div>
                 <button
                   onClick={() => handleClick(item)}
                   disabled={item.inventory <= 0}

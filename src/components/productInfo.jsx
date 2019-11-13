@@ -2,7 +2,7 @@ import React from "react"
 
 const ProductInfo = ({ title, description, more, ingredients }) => {
   return (
-    <div>
+    <div className="product-info-container">
       <div>{title}</div>
       <div>{description}</div>
       <div>{more}</div>

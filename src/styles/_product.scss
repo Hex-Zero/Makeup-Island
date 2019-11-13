@@ -1,13 +1,17 @@
 .Product_Pages {
   display: grid;
   grid-template-columns: 50vw 1fr;
-  justify-content: center;
+  justify-content: space-between;
   align-items: start;
-  grid-column-gap: 50px;
   @media only screen and (max-width: 1040px) {
     justify-content: center;
     gap: 50px;
     grid-template-columns: 90vw;
+  }
+  .product-info-container {
+    padding: 20px;
+    background-color: rgba(230, 230, 230, 0.301);
+    min-height: calc(100vh - 109px);
   }
   .Slider {
     justify-self: center;
