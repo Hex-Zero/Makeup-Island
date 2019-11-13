@@ -8,12 +8,12 @@
   height: 300px;
   width: 320px;
   padding: 20px;
-  box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.2);
-  background-color: var(--background-color);
+  box-shadow: 3px 3px 3px 2px rgba(82, 82, 82, 0.2);
+  // background-color: var(--background-color);
   transform: translateZ(-100px);
 
   &:hover {
-    border: solid 2px var(--mainD-color);
+    border: solid 2px var(--mainL-color);
     animation: shadow-drop-2-center 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)
       forwards;
   }
@@ -25,10 +25,74 @@
     margin: 5px 0;
     padding: 1px 5px;
   }
-  .Info_Button {
+  .title {
+    font-weight: 800;
+    font-size: 1.2rem;
+    margin: 2px 0;
+  }
+  .info-container {
+    width: 300px;
+    height: 210px;
+  }
+  .info-button {
+    border-radius: 100%;
+    border: none;
+    font-style: italic;
+    font-weight: 800;
+    font-size: 1rem;
     position: absolute;
-    top: 0;
+    top: 2px;
+    right: 6px;
+    padding: 3px 10px;
+    background-color: var(--mainL-color);
+    color: var(--text-color);
+    cursor: pointer;
+    &:hover {
+      background-color: var(--main-color);
+    }
+    &:focus {
+      outline: none;
+    }
+    &:active {
+      transform: scale(0.87);
+    }
+  }
+  .add-price {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .price {
+    border-radius: 5px;
+    padding: 7px 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: rgb(255, 187, 0);
+    color: white;
+    cursor: default;
+  }
+  .add-button {
+    margin-left: 0px;
+    border-radius: 5px;
+    border: none;
+    font-weight: 800;
+    font-size: 1rem;
+    top: 6;
     right: 20px;
+    padding: 5px 12px;
+    background-color: var(--main-color);
+    color: var(--text-color);
+    &:hover {
+      background-color: var(--mainL-color);
+    }
+    &:focus {
+      outline: none;
+    }
+    &:active {
+      transform: scale(0.87);
+    }
   }
 }
 

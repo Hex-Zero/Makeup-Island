@@ -2,6 +2,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import { Link } from "gatsby"
 import React, { useContext, useEffect, useState } from "react"
 import { DispatchContext, SetCart, StateContext } from "../components/Context"
+
 const ItemList = () => {
   const state = useContext(StateContext)
   const setState = useContext(DispatchContext)
@@ -104,36 +105,44 @@ const ItemList = () => {
   const handleMoreLink = id => {
     return "/" + id
   }
-  console.log(info)
 
   return (
     <div>
       <ul className="card-container">
         {state.map(item => {
           return (
-            <li key={item.id} className="item-card-box">
+            <li
+              key={item.id}
+              className="item-card-box"
+              style={{
+                backgroundImage: `url(${item.localFiles[0].childImageSharp.fluid.src}) `,
+                backgroundSize: "97%",
+              }}
+            >
               <Link
                 activeClassName="active"
                 to={handleMoreLink(item.id)}
                 alt="More informtion about the selected product"
+                className="info-container"
               >
-                <button className="Info_Button">Product Informtion</button>
-                <img
+                <button className="info-button">i</button>
+                {/* <img
                   src={item.localFiles[0].childImageSharp.fluid.src}
                   width="200px"
                   alt={item.attributes.name}
-                ></img>{" "}
+                ></img>{" "} */}
               </Link>
-              {item.attributes.name} ${item.price / 100}{" "}
-              <div>
+              {/* <div className="title">{item.attributes.name}</div> */}
+              <div className="add-price">
+                <div className="price">£{item.price / 100}</div>
                 <button
                   onClick={() => handleClick(item)}
                   disabled={item.inventory <= 0}
+                  className="add-button"
                 >
                   {/* {item.inventory <= 0 ? "Out of stock" : "Add To Basket"} */}
-                  Add To Basket
+                  Add
                 </button>{" "}
-                {item.amount} {item.id}
               </div>
             </li>
           )
