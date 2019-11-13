@@ -1,10 +1,13 @@
 import React, { useContext, useEffect, useState } from "react"
-import { Cart } from "../components/Context"
+import { Cart, SetCart } from "../components/Context"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import RemoveButton from "../components/RemoveButton"
 
 const CartPage = () => {
   const cart = useContext(Cart ? Cart : [])
+  const setCart = useContext(SetCart)
+
   const [amount, setAmount] = useState(0)
   const [stripe, setStripe] = useState([])
 
@@ -12,7 +15,9 @@ const CartPage = () => {
     setAmount(
       cart
         .map(c => {
-          return c.price * c.amount
+          if (c) {
+            return c.price * c.amount
+          }
         })
         .reduce((total, num) => {
           return total + num
@@ -42,18 +47,24 @@ const CartPage = () => {
 
   return (
     <Layout>
-      {" "}
       <SEO title="Cart" />
-      <ul className="card-container">
-        {cart.map(item => {
-          return (
-            <li key={item.id} className="item-card-box">
-              {item.title} ${item.price} x{item.amount}
-              <img src={item.src} width="170px" alt={item.title}></img>
-            </li>
-          )
-        })}
-      </ul>{" "}
+      {amount === 0 ? (
+        <div>empty</div>
+      ) : (
+        <ul className="card-container">
+          {cart.map(item => {
+            if (item.amount > 0) {
+              return (
+                <li key={item.id} className="item-card-box">
+                  {item.title} ${item.price} x{item.amount}
+                  <img src={item.src} width="170px" alt={item.title}></img>
+                  <RemoveButton sku={item.id} />
+                </li>
+              )
+            }
+          })}
+        </ul>
+      )}
       {amount === 0 ? "" : `Total : ${amount.toFixed(2)} $ `}
       {amount !== 0 && (
         <button onClick={e => redirectToCheckout(e)}>Purchase</button>

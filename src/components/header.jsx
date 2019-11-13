@@ -14,7 +14,9 @@ const Header = ({ siteTitle }) => {
     setAmount(
       cart
         .map(c => {
-          return c.amount
+          if (c) {
+            return c.amount
+          }
         })
         .reduce((total, num) => {
           return total + num
