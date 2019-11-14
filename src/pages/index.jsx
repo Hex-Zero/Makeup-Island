@@ -12,7 +12,7 @@ const IndexPage = () => {
         <p>One Day Delivery</p>
         <p>Highest Quality</p>
       </div>
-      <ItemList />
+      <ItemList condition="product" />
     </Layout>
   )
 }

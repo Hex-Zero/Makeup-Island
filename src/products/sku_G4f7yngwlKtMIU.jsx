@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react"
 import Layout from "../components/layout"
 import ProductInfo from "../components/productInfo"
 import PictureSlides from "../components/pictureSlides"
+import SEO from "../components/seo"
 
 const MainSqiueeze = () => {
   const [state, setState] = useState([])
@@ -61,6 +62,7 @@ const MainSqiueeze = () => {
 
   return (
     <Layout>
+      <SEO title={info.title} />
       <div className="Product_Pages">
         <PictureSlides pictures={state} location="1" />
         <ProductInfo

@@ -49,7 +49,9 @@ const CartPage = () => {
     <Layout>
       <SEO title="Cart" />
       {amount === 0 ? (
-        <div>empty</div>
+        <div>
+          Your Bag Is Currently Empty. Please add some products to continue
+        </div>
       ) : (
         <ul className="cart-container card-container">
           {cart.map(item => {

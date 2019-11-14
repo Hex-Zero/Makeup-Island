@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react"
 import Layout from "../components/layout"
 import ProductInfo from "../components/productInfo"
 import PictureSlides from "../components/pictureSlides"
+import SEO from "../components/seo"
 
 const Sol = () => {
   const [state, setState] = useState([])
@@ -56,6 +57,7 @@ const Sol = () => {
 
   return (
     <Layout>
+      <SEO title={info.title} />
       <div className="Product_Pages">
         <PictureSlides pictures={state} location="2" />
         <ProductInfo
