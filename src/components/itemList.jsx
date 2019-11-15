@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 import React, { useContext, useEffect, useState } from "react"
 import { DispatchContext, SetCart, StateContext } from "../components/Context"
 import AddButton from "./AddButton"
+import Banner from "./Banner"
 
 const ItemList = ({ condition }) => {
   const state = useContext(StateContext)
@@ -95,6 +96,7 @@ const ItemList = ({ condition }) => {
                     backgroundSize: "97%",
                   }}
                 >
+                  <Banner sku={item.id}></Banner>
                   <Link
                     activeClassName="active"
                     to={handleMoreLink(item.id)}
