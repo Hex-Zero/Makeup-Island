@@ -1,19 +1,21 @@
 .banner {
-  position: absolute;
-
-  transform: rotate(-45deg);
-  top: 10px;
-  left: -42px;
-  font-size: 0.9rem;
-  width: 140px;
+  color: rgb(255, 255, 255);
   cursor: default;
+  font-size: 0.9rem;
   .new {
+    position: absolute;
     background-color: var(--main-color);
-    color: white;
+    transform: rotate(-45deg);
+    top: 14px;
+    left: -46px;
+    width: 140px;
   }
   .sale {
-    background-color: #ffaf1c;
-    color: rgb(255, 255, 255);
-    margin-top: 3px;
+    position: absolute;
+    background-color: #f87800;
+    transform: rotate(-45deg);
+    top: 30px;
+    left: -30px;
+    width: 140px;
   }
 }
