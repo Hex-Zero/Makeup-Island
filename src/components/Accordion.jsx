@@ -4,7 +4,7 @@ import { IoIosArrowDown } from "react-icons/io"
 const Accortion = ({ ingredients }) => {
   return (
     <div activeClassName="active" className="ingredients accordion">
-      <div className="title">
+      <div className="accortion-title">
         Ingredients <IoIosArrowDown size={30} className="arrow" />
       </div>
       <div className="list">

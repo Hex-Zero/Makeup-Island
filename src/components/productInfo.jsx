@@ -10,6 +10,7 @@ const ProductInfo = ({ title, description, more, ingredients, sku }) => {
       <div className="more">{more}</div>
       <AddButton product={sku} />
       <Accordion ingredients={ingredients} />
+      <div className="other-products">Other Products You May Like</div>
     </div>
   )
 }
