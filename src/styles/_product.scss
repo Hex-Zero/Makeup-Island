@@ -10,21 +10,41 @@
   }
   .product-info-container {
     position: relative;
+    display: grid;
     padding: 20px;
     background-color: rgba(255, 196, 247, 0.301);
     min-height: calc(100vh - 109px);
+    justify-content: center;
+    align-content: start;
     .title {
-      font-size: 1.3rem;
+      font-size: 2rem;
       font-weight: 800;
       margin-bottom: 13px;
     }
     .description {
+      justify-self: center;
       font-size: 1.1rem;
       margin-bottom: 13px;
+      width: 30vw;
+      @media only screen and (max-width: 1040px) {
+        width: 90vw;
+      }
     }
     .more {
       color: rgb(63, 63, 63);
       margin-bottom: 13px;
+      width: 30vw;
+      justify-self: center;
+      @media only screen and (max-width: 1040px) {
+        width: 90vw;
+      }
+    }
+
+    .other-products {
+      font-weight: 700;
+      font-size: 1.6rem;
+      margin-top: 50px;
+      color: goldenrod;
     }
     .add-button {
       position: absolute;

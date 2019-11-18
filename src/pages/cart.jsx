@@ -56,10 +56,18 @@ const CartPage = () => {
         <ul className="cart-container card-container">
           {cart.map(item => {
             if (item.amount > 0) {
+              console.log(item)
+
               return (
-                <li key={item.id} className="item-card-box">
+                <li
+                  key={item.id}
+                  className="item-card-box"
+                  style={{
+                    backgroundImage: `url(${item.src}) `,
+                    backgroundSize: "97%",
+                  }}
+                >
                   {item.title} ${item.price} x{item.amount}
-                  <img src={item.src} width="170px" alt={item.title}></img>
                   <RemoveButton sku={item.id} />
                 </li>
               )

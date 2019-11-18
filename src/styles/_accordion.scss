@@ -1,0 +1,53 @@
+.accordion {
+  background-color: var(--mainL-color);
+  position: relative;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  margin-top: 55px;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 1rem;
+  max-height: 55px;
+  transition: max-height 2.3s ease-in-out, margin-top 0.4s linear;
+  overflow: hidden;
+  border-radius: 3px;
+  .arrow {
+    position: absolute;
+    right: 20px;
+    top: 13px;
+    transform: rotateX(0deg);
+    transition: transform 1.5s ease;
+  }
+  .accortion-title {
+    font-size: 1.5rem;
+    padding-bottom: 15px;
+    text-align: center;
+    @media only screen and (max-width: 1040px) {
+      font-size: 1.3rem;
+    }
+  }
+  &:hover {
+    margin-top: 0px;
+
+    max-height: 5000px;
+  }
+  &:hover .arrow {
+    transform: rotateX(520deg);
+  }
+  @media only screen and (max-width: 1040px) {
+    margin-top: 0px;
+  }
+  .panel {
+    border-radius: 3px;
+
+    opacity: 0.9;
+    padding: 12px 18px;
+    background-color: rgb(255, 236, 209);
+    &:nth-child(even) {
+      background-color: var(--mainL-color);
+    }
+  }
+}
