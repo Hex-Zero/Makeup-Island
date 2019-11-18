@@ -1,5 +1,6 @@
 import React from "react"
 import AddButton from "./AddButton"
+import Accortion from "./Accortion"
 
 const ProductInfo = ({ title, description, more, ingredients, sku }) => {
   return (
@@ -8,16 +9,7 @@ const ProductInfo = ({ title, description, more, ingredients, sku }) => {
       <div className="description">{description}</div>
       <div className="more">{more}</div>
       <AddButton product={sku} />
-
-      {/* <div className="ingredients">
-        {ingredients ? (
-          ingredients.map(item => {
-            return <div key={item}>{item}</div>
-          })
-        ) : (
-          <div></div>
-        )}
-      </div> */}
+      <Accortion ingredients={ingredients} />
     </div>
   )
 }
