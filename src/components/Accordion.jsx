@@ -1,5 +1,4 @@
 import React from "react"
-import { TiArrowSortedDown } from "react-icons/ti"
 import { IoIosArrowDown } from "react-icons/io"
 const Accortion = ({ ingredients }) => {
   return (

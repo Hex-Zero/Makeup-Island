@@ -1,27 +1,19 @@
 import React, { useContext, useEffect, useState } from "react"
-import { Cart, SetCart } from "../components/Context"
+import { Cart } from "../components/Context"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import RemoveButton from "../components/RemoveButton"
 
 const CartPage = () => {
   const cart = useContext(Cart ? Cart : [])
-  const setCart = useContext(SetCart)
+  // const setCart = useContext(SetCart)
 
   const [amount, setAmount] = useState(0)
   const [stripe, setStripe] = useState([])
 
   useEffect(() => {
     setAmount(
-      cart
-        .map(c => {
-          if (c) {
-            return c.price * c.amount
-          }
-        })
-        .reduce((total, num) => {
-          return total + num
-        }, 0)
+      cart.map(c => c.price * c.amount).reduce((total, num) => total + num, 0)
     )
   }, [cart])
 
@@ -43,7 +35,6 @@ const CartPage = () => {
       console.warn("Error:", error)
     }
   }
-  console.log(cart)
 
   return (
     <Layout>
@@ -71,6 +62,8 @@ const CartPage = () => {
                   <RemoveButton sku={item.id} />
                 </li>
               )
+            } else {
+              return <></>
             }
           })}
         </ul>

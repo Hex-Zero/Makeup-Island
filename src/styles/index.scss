@@ -1,6 +1,6 @@
 :root {
   --main-color: rgb(219, 18, 119);
-  --mainL-color: rgb(253, 158, 205);
+  --mainL-color: rgba(253, 158, 206, 0.5);
   --mainD-color: rgb(102, 10, 90);
   --sec-color: #ffffff;
   --secL-color: rgb(253, 248, 178);
@@ -14,6 +14,9 @@
   padding: 0;
   box-sizing: border-box;
   // Disable selection
+  &::selection {
+    background: #ffc0c0; /* WebKit/Blink Browsers */
+  }
 }
 
 // var(--main-color)

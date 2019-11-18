@@ -1,7 +1,7 @@
 import { graphql, useStaticQuery } from "gatsby"
 import { Link } from "gatsby"
 import React, { useContext, useEffect, useState } from "react"
-import { DispatchContext, SetCart, StateContext } from "../components/Context"
+import { DispatchContext, StateContext } from "../components/Context"
 import AddButton from "./AddButton"
 import Banner from "./Banner"
 

@@ -15,13 +15,39 @@ const Banner = ({ sku }) => {
       }
     }
   `)
-  const [info, setInfo] = useState(data.allMongodbMakeupIslandProducts.edges)
-  console.log(info)
+  const [info] = useState(data.allMongodbMakeupIslandProducts.edges)
 
   return (
     <div className="banner">
-      <div className="new">NEW</div>
-      <div className="sale">SALE</div>
+      {info.map(item => {
+        if (item.node.sku === sku) {
+          if (item.node.new && item.node.sale) {
+            return (
+              <>
+                <div className="new" key={sku}>
+                  NEW
+                </div>
+                <div className="sale" key="sale">
+                  SALE
+                </div>
+              </>
+            )
+          } else if (item.node.new) {
+            return (
+              <div className="new" key={sku}>
+                NEW
+              </div>
+            )
+          } else if (item.node.sale) {
+            return (
+              <div className="sale" key="sku">
+                SALE
+              </div>
+            )
+          }
+        }
+        return false
+      })}
     </div>
   )
 }
