@@ -24,14 +24,26 @@ const Banner = ({ sku }) => {
           if (item.node.new && item.node.sale) {
             return (
               <>
-                <div className="new">NEW</div>
-                <div className="sale">SALE</div>
+                <div className="new" key={sku}>
+                  NEW
+                </div>
+                <div className="sale" key="sale">
+                  SALE
+                </div>
               </>
             )
           } else if (item.node.new) {
-            return <div className="new">NEW</div>
+            return (
+              <div className="new" key={sku}>
+                NEW
+              </div>
+            )
           } else if (item.node.sale) {
-            return <div className="sale">SALE</div>
+            return (
+              <div className="sale" key="sku">
+                SALE
+              </div>
+            )
           }
         }
         return false
