@@ -1,14 +1,13 @@
-import React, { useContext, useEffect, useState } from "react"
-import { DispatchContext, SetCart, StateContext } from "../components/Context"
+import React, { useContext } from "react"
+import { DispatchContext, SetCart } from "../components/Context"
 
 const AddButton = ({ product }) => {
-  const state = useContext(StateContext)
   const setState = useContext(DispatchContext)
   const setCart = useContext(SetCart)
   const handleAdd = productId => {
     setState(localState =>
       localState.map(currentLocal => {
-        if (currentLocal.id == productId) {
+        if (currentLocal.id === productId) {
           !currentLocal.amount
             ? (currentLocal.amount = 1)
             : (currentLocal.amount += 1)
@@ -52,12 +51,7 @@ const AddButton = ({ product }) => {
   }
   return (
     <>
-      <button
-        onClick={() => handleAdd(product)}
-        // disabled={item.inventory <= 0}
-        className="add-button"
-      >
-        {/* {item.inventory <= 0 ? "Out of stock" : "Add To Basket"} */}
+      <button onClick={() => handleAdd(product)} className="add-button">
         Add
       </button>
     </>

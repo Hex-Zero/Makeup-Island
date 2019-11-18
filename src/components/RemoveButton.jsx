@@ -9,7 +9,6 @@ const RemoveButton = ({ sku }) => {
     setCart(
       cart.map(item => {
         if (item.id === itemId) {
-          //   return { ...item, amount: (item.amount -= 1) }
           return { ...item, amount: 0 }
         } else {
           return item
