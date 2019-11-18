@@ -15,7 +15,7 @@ const Banner = ({ sku }) => {
       }
     }
   `)
-  const [info, setInfo] = useState(data.allMongodbMakeupIslandProducts.edges)
+  const [info] = useState(data.allMongodbMakeupIslandProducts.edges)
 
   return (
     <div className="banner">
@@ -34,6 +34,7 @@ const Banner = ({ sku }) => {
             return <div className="sale">SALE</div>
           }
         }
+        return false
       })}
     </div>
   )
