@@ -1,2 +1,42 @@
 .accordion {
+  background-color: var(--mainL-color);
+  position: relative;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 1rem;
+  max-height: 56px;
+  transition: max-height 2.9s ease-in-out;
+  overflow: hidden;
+  border-radius: 3px;
+  .arrow {
+    position: absolute;
+    right: 20px;
+    top: 13px;
+    transform: rotateX(0deg);
+
+    transition: transform 1.5s ease;
+  }
+  .title {
+    text-align: center;
+  }
+  &:hover {
+    max-height: 5000px;
+  }
+  &:hover .arrow {
+    transform: rotateX(520deg);
+  }
+
+  .panel {
+    opacity: 0.9;
+    padding: 12px 18px;
+    background-color: rgb(255, 236, 209);
+    &:nth-child(even) {
+      background-color: var(--mainL-color);
+    }
+  }
 }

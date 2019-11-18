@@ -1,6 +1,6 @@
 import React from "react"
 import AddButton from "./AddButton"
-import Accortion from "./Accortion"
+import Accordion from "./Accordion"
 
 const ProductInfo = ({ title, description, more, ingredients, sku }) => {
   return (
@@ -9,7 +9,7 @@ const ProductInfo = ({ title, description, more, ingredients, sku }) => {
       <div className="description">{description}</div>
       <div className="more">{more}</div>
       <AddButton product={sku} />
-      <Accortion ingredients={ingredients} />
+      <Accordion ingredients={ingredients} />
     </div>
   )
 }
