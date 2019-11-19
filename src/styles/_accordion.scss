@@ -29,9 +29,15 @@
       font-size: 1.3rem;
     }
   }
+  &:active {
+    max-height: 55px;
+  }
   &:hover {
     margin-top: 0px;
     max-height: 5000px;
+  }
+  &:hover .retraction {
+    z-index: 3;
   }
   &:hover .arrow {
     transform: rotateX(520deg);
