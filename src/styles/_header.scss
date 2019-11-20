@@ -9,6 +9,7 @@ header {
   justify-content: space-between;
   align-items: center;
   .branding {
+    color: var(--sec-color);
     width: 200px;
     height: 40px;
   }
@@ -17,15 +18,16 @@ header {
     margin-left: 10px;
   }
   .main-logo {
+    color: var(--sec-color);
     position: fixed;
     top: 4px;
     left: calc(50% - 45px);
     .logo {
       width: 90px;
       height: 90px;
-      background-color: var(--main-color);
+      background-color: var(--mainL-color);
       border-radius: 100px;
-      padding: 8px;
+      padding: 9px;
     }
   }
   .active {
@@ -78,7 +80,6 @@ header {
     grid-template-columns: auto auto;
     .main-logo {
       position: relative;
-      margin-left: 10px;
     }
   }
   .hidden-links-low {
