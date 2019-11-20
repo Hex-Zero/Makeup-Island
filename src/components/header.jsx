@@ -2,9 +2,10 @@ import PropTypes from "prop-types"
 import React, { useContext, useEffect, useState } from "react"
 import { Cart } from "./Context"
 import { Link } from "gatsby"
-import { FaDribbble, FaShoppingBag } from "react-icons/fa"
+import Logo from "../assets/makeup-islandlogo.svg"
+import Title from "../assets/makeup-islandtitle.svg"
 
-const Header = ({ siteTitle }) => {
+const Header = () => {
   const cart = useContext(Cart)
   const [amount, setAmount] = useState(0)
   useEffect(() => {
@@ -14,11 +15,11 @@ const Header = ({ siteTitle }) => {
     <header>
       <h1 className="hidden-links-low">
         <Link activeClassName="active" to="/">
-          {siteTitle}
+          <Title className="branding" />
         </Link>
       </h1>
       <Link activeClassName="active" to="/" className="main-logo">
-        <FaDribbble size="60" />
+        <Logo className="logo" />
       </Link>
       <nav>
         <Link activeClassName="active" to="/" className=" header-nav-links">

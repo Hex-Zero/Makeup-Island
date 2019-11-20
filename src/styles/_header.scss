@@ -8,14 +8,25 @@ header {
   grid-template-columns: auto auto;
   justify-content: space-between;
   align-items: center;
+  .branding {
+    width: 200px;
+    height: 40px;
+  }
   h1 {
     font-size: 22px;
     margin-left: 10px;
   }
   .main-logo {
     position: fixed;
-    top: 0;
-    left: calc(50% - 32px);
+    top: 4px;
+    left: calc(50% - 45px);
+    .logo {
+      width: 90px;
+      height: 90px;
+      background-color: var(--main-color);
+      border-radius: 100px;
+      padding: 8px;
+    }
   }
   .active {
     color: var(--sec-color);
