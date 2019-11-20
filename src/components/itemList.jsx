@@ -4,6 +4,7 @@ import React, { useContext, useEffect, useState } from "react"
 import { DispatchContext, StateContext } from "../components/Context"
 import AddButton from "./AddButton"
 import Banner from "./Banner"
+import Info from "../assets/info.svg"
 
 const ItemList = ({ condition }) => {
   const state = useContext(StateContext)
@@ -103,7 +104,9 @@ const ItemList = ({ condition }) => {
                     alt="More informtion about the selected product"
                     className="info-container"
                   >
-                    <button className="info-button">i</button>
+                    <button className="info-button">
+                      <Info className="info-logo" />
+                    </button>
                   </Link>
                   <div className="add-price">
                     <div className="price">£{item.price / 100}</div>

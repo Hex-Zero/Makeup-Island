@@ -2,6 +2,7 @@ import PropTypes from "prop-types"
 import React, { useContext, useEffect, useState } from "react"
 import { Cart } from "./Context"
 import { Link } from "gatsby"
+import { FaShoppingBag } from "react-icons/fa"
 import Logo from "../assets/makeup-islandlogo.svg"
 import Title from "../assets/makeup-islandtitle.svg"
 
@@ -14,11 +15,11 @@ const Header = () => {
   return (
     <header>
       <h1 className="hidden-links-low">
-        <Link activeClassName="active" to="/">
+        <Link to="/">
           <Title className="branding" />
         </Link>
       </h1>
-      <Link activeClassName="active" to="/" className="main-logo">
+      <Link to="/" className="main-logo">
         <Logo className="logo" />
       </Link>
       <nav>
