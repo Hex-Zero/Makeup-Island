@@ -4,7 +4,7 @@ import React, { useContext, useEffect, useState } from "react"
 import { DispatchContext, StateContext } from "../components/Context"
 import AddButton from "./AddButton"
 import Banner from "./Banner"
-import Info from "../assets/info.svg"
+import Info from "./assets/info.svg"
 
 const ItemList = ({ condition }) => {
   const state = useContext(StateContext)

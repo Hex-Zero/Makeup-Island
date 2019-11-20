@@ -20,10 +20,10 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-react-svg",
+      resolve: `gatsby-plugin-react-svg`,
       options: {
         rule: {
-          include: /assets/,
+          include: /components/,
         },
       },
     },
@@ -38,7 +38,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/fav.png`,
+        icon: `src/images/logo.png`,
       },
     },
     {
