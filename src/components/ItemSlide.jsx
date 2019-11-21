@@ -1,3 +1,4 @@
+import Slider from "react-slick"
 import { graphql, useStaticQuery } from "gatsby"
 import { Link } from "gatsby"
 import React, { useContext, useEffect, useState } from "react"
@@ -5,8 +6,7 @@ import { DispatchContext, StateContext } from "../components/Context"
 import AddButton from "./AddButton"
 import Banner from "./Banner"
 import Info from "./assets/info.svg"
-
-const ItemList = ({ condition }) => {
+const ItemSlide = ({ condition }) => {
   const state = useContext(StateContext)
   const setState = useContext(DispatchContext)
   const data = useStaticQuery(graphql`
@@ -62,9 +62,18 @@ const ItemList = ({ condition }) => {
     return "/" + id
   }
 
+  const [settings] = useState({
+    dots: true,
+    speed: 400,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    initialSlide: 1,
+    focusOnSelect: true,
+    infinite: false,
+  })
   return (
-    <>
-      <ul className="card-container">
+    <div className="more-item-slide">
+      <Slider {...settings}>
         {state.map(item => {
           {
             if (
@@ -89,37 +98,39 @@ const ItemList = ({ condition }) => {
                 .includes(true)
             ) {
               return (
-                <li
-                  key={item.id}
-                  className="item-card-box"
-                  style={{
-                    backgroundImage: `url(${item.localFiles[0].childImageSharp.fluid.src}) `,
-                    backgroundSize: "97%",
-                  }}
-                >
-                  <Banner sku={item.id}></Banner>
-                  <Link
-                    activeClassName="active"
-                    to={handleMoreLink(item.id)}
-                    alt="More informtion about the selected product"
-                    className="info-container"
+                <div>
+                  <li
+                    key={item.id}
+                    className="item-card-box"
+                    style={{
+                      backgroundImage: `url(${item.localFiles[0].childImageSharp.fluid.src}) `,
+                      backgroundSize: "97%",
+                    }}
                   >
-                    <button className="info-button">
-                      <Info className="info-logo" />
-                    </button>
-                  </Link>
-                  <div className="add-price">
-                    <div className="price">£{item.price / 100}</div>
-                    <AddButton product={item.id} className="add-button" />
-                  </div>
-                </li>
+                    <Banner sku={item.id}></Banner>
+                    <Link
+                      activeClassName="active"
+                      to={handleMoreLink(item.id)}
+                      alt="More informtion about the selected product"
+                      className="info-container"
+                    >
+                      <button className="info-button">
+                        <Info className="info-logo" />
+                      </button>
+                    </Link>
+                    <div className="add-price">
+                      <div className="price">£{item.price / 100}</div>
+                      <AddButton product={item.id} className="add-button" />
+                    </div>
+                  </li>
+                </div>
               )
             }
           }
         })}
-      </ul>
-    </>
+      </Slider>
+    </div>
   )
 }
 
-export default ItemList
+export default ItemSlide

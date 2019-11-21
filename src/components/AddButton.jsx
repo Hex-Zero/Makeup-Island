@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 import { DispatchContext, SetCart } from "../components/Context"
 
-const AddButton = ({ product }) => {
+const AddButton = ({ product, className }) => {
   const setState = useContext(DispatchContext)
   const setCart = useContext(SetCart)
   const handleAdd = productId => {
@@ -51,7 +51,7 @@ const AddButton = ({ product }) => {
   }
   return (
     <>
-      <button onClick={() => handleAdd(product)} className="add-button">
+      <button onClick={() => handleAdd(product)} className={className}>
         Add
       </button>
     </>
