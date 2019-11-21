@@ -110,7 +110,7 @@ const ItemList = ({ condition }) => {
                   </Link>
                   <div className="add-price">
                     <div className="price">£{item.price / 100}</div>
-                    <AddButton product={item.id} />
+                    <AddButton product={item.id} className="add-button" />
                   </div>
                 </li>
               )
