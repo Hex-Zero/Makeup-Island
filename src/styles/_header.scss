@@ -33,52 +33,49 @@ header {
   .active {
     color: var(--sec-color);
     text-shadow: 0 0 4px rgb(0, 0, 0);
-    .amount {
-      color: var(--text-color);
-      background-color: var(--main-color);
-    }
   }
   nav {
+    position: relative;
     justify-self: end;
+    align-self: center;
+    margin-right: 40px;
     .header-nav-links {
       position: relative;
-      top: -3px;
       font-size: 18px;
+      letter-spacing: 2px;
+    }
+    .cart-link {
+      position: absolute;
+      top: -4px;
+      .amount {
+        position: absolute;
+        top: 9px;
+        left: 8px;
+        font-weight: 900;
+        font-size: 0.83rem;
+        color: var(--mainD-color);
+        border-radius: 100%;
+      }
     }
   }
-
   a {
-    color: var(--textD-color);
+    color: var(--text-color);
     text-decoration: none;
-    margin-right: 15px;
+    margin-right: 18px;
     &:hover {
       color: var(--sec-color);
       text-shadow: 0 0 5px black;
-      .amount {
-        color: var(--text-color);
-        background-color: var(--main-color);
-      }
     }
-
-    .amount {
-      padding: 1px 3px;
-      background-color: var(--main-color);
-      position: absolute;
-      right: 22px;
-      color: var(--text-color);
-      top: 29px;
-      font-size: 10px;
-      border-radius: 100%;
-    }
-  }
-
-  @media only screen and (max-width: 2040px) {
   }
 }
 @media only screen and (max-width: 750px) {
   header {
     grid-template-columns: auto auto;
+    nav {
+      top: -15px;
+    }
     .main-logo {
+      margin: 0 2px;
       position: relative;
     }
   }

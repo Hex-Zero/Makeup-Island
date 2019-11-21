@@ -32,8 +32,8 @@ const Header = () => {
         <Link activeClassName="active" to="/sale" className="header-nav-links">
           Sale
         </Link>
-        <Link activeClassName="active" to="/cart">
-          <FaShoppingBag size="25" />
+        <Link to="/cart" className="cart-link">
+          <FaShoppingBag size="24" className="bag" />
           {amount ? <div className="amount">{amount}</div> : null}
         </Link>
       </nav>
