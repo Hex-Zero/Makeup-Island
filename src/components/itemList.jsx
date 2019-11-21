@@ -63,7 +63,7 @@ const ItemList = ({ condition }) => {
   }
 
   return (
-    <div>
+    <>
       <ul className="card-container">
         {state.map(item => {
           {
@@ -118,7 +118,7 @@ const ItemList = ({ condition }) => {
           }
         })}
       </ul>
-    </div>
+    </>
   )
 }
 

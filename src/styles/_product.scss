@@ -18,9 +18,9 @@
     background-color: rgba(255, 196, 247, 0.301);
     min-height: calc(100vh - 109px);
     justify-content: center;
-    align-content: start;
+    align-content: space-between;
     .title {
-      font-size: 2rem;
+      font-size: 3.5rem;
       font-weight: 800;
       margin-bottom: 17px;
       max-width: 75%;
@@ -31,7 +31,7 @@
     }
     .description {
       justify-self: center;
-      font-size: 1.1rem;
+      font-size: 2rem;
       margin-bottom: 13px;
       width: 35vw;
       @media only screen and (max-width: 1040px) {
@@ -41,18 +41,27 @@
     .more {
       color: rgb(63, 63, 63);
       margin-bottom: 13px;
+      font-size: 1.3rem;
+
       width: 35vw;
       justify-self: center;
       @media only screen and (max-width: 1040px) {
         width: 90vw;
       }
     }
-
     .other-products {
-      font-weight: 700;
-      font-size: 1.6rem;
-      margin-top: 50px;
-      color: goldenrod;
+      align-self: center;
+      display: grid;
+      h2 {
+        font-weight: 700;
+        margin: 16px 0;
+        color: goldenrod;
+      }
+      .more-item-slide {
+        justify-self: center;
+        align-self: center;
+        width: 320px;
+      }
     }
     .info-add-button {
       position: absolute;
