@@ -20,7 +20,6 @@
     justify-content: center;
     align-content: space-between;
     .title {
-      font-size: 3.5rem;
       font-weight: 800;
       margin-bottom: 17px;
       max-width: 75%;
@@ -31,7 +30,6 @@
     }
     .description {
       justify-self: center;
-      font-size: 2rem;
       margin-bottom: 13px;
       width: 35vw;
       @media only screen and (max-width: 1040px) {
@@ -41,7 +39,6 @@
     .more {
       color: rgb(63, 63, 63);
       margin-bottom: 13px;
-      font-size: 1.3rem;
       overflow-y: hidden;
       width: 35vw;
       justify-self: center;
