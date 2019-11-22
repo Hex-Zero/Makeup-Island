@@ -3,8 +3,8 @@
   grid-template-columns: 50vw 1fr;
   justify-content: space-between;
   align-items: start;
-  overflow: hidden;
-
+  overflow-y: hidden;
+  max-width: 99vw;
   @media only screen and (max-width: 1040px) {
     justify-content: center;
     gap: 35px;
@@ -42,7 +42,7 @@
       color: rgb(63, 63, 63);
       margin-bottom: 13px;
       font-size: 1.3rem;
-
+      overflow-y: hidden;
       width: 35vw;
       justify-self: center;
       @media only screen and (max-width: 1040px) {

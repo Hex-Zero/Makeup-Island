@@ -14,11 +14,14 @@
   padding: 0;
   box-sizing: border-box;
   // Disable selection
+
   &::selection {
     background: #ffc0c0; /* WebKit/Blink Browsers */
   }
 }
-
+main {
+  max-width: 99vw;
+}
 // var(--main-color)
 $slick-font-path: "~slick-carousel/slick/fonts/" !default;
 $slick-font-family: "slick" !default;
