@@ -22,6 +22,7 @@ header {
     position: fixed;
     top: 4px;
     left: calc(50% - 45px);
+    margin: 0;
     .logo {
       width: 90px;
       height: 90px;
@@ -34,11 +35,12 @@ header {
     color: var(--sec-color);
     text-shadow: 0 0 4px rgb(0, 0, 0);
   }
+
   nav {
     position: relative;
     justify-self: end;
     align-self: center;
-    margin-right: 40px;
+    margin-right: 55px;
     .header-nav-links {
       position: relative;
       font-size: 18px;
