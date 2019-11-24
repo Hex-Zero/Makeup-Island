@@ -68,7 +68,7 @@ const CartPage = () => {
                     backgroundSize: "97%",
                   }}
                 >
-                  {item.title} ${item.price} x{item.amount}
+                  {item.title} {item.price}£ x{item.amount}
                   <RemoveButton sku={item.id} />
                 </li>
               )
@@ -78,9 +78,14 @@ const CartPage = () => {
           })}
         </ul>
       )}
-      {amount === 0 ? "" : `Total : ${amount.toFixed(2)} $ `}
       {amount !== 0 && (
-        <button onClick={e => redirectToCheckout(e)}>Purchase</button>
+        <button
+          onClick={e => redirectToCheckout(e)}
+          className="checkout-button"
+        >
+          {`Total : ${amount.toFixed(2)} £ `}
+          <br></br> Continue To Checkout >>>
+        </button>
       )}
     </Layout>
   )

@@ -29,3 +29,22 @@
   justify-self: center;
   color: rgb(248, 133, 2);
 }
+.checkout-button {
+  border-radius: 5px;
+  justify-self: center;
+  margin-top: 30px;
+  max-width: 350px;
+  border: none;
+  font-weight: 800;
+  font-size: 1.2rem;
+  top: 6;
+  right: 20px;
+  padding: 8px 12px;
+  background-color: var(--main-color);
+  color: var(--text-color);
+  cursor: pointer;
+  box-shadow: 3px 3px 3px 2px rgba(82, 82, 82, 0.13);
+  &:hover {
+    border: solid 2px var(--mainL-color);
+  }
+}
