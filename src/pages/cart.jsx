@@ -3,10 +3,10 @@ import { Cart } from "../components/Context"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import RemoveButton from "../components/RemoveButton"
+import ItemSlide from "../components/ItemSlide"
 
 const CartPage = () => {
   const cart = useContext(Cart ? Cart : [])
-  // const setCart = useContext(SetCart)
 
   const [amount, setAmount] = useState(0)
   const [stripe, setStripe] = useState([])
@@ -40,15 +40,25 @@ const CartPage = () => {
     <Layout>
       <SEO title="Cart" />
       {amount === 0 ? (
-        <div>
-          Your Bag Is Currently Empty. Please add some products to continue
-        </div>
+        <>
+          <h1 className="empty-notice">
+            Your Bag Is Currently Empty. Please add some products to continue
+          </h1>
+          <div
+            className="other-products"
+            style={{
+              maxWidth: "320px",
+              justifySelf: "center",
+              marginTop: "40px",
+            }}
+          >
+            <ItemSlide condition="product" />
+          </div>
+        </>
       ) : (
         <ul className="cart-container card-container">
           {cart.map(item => {
             if (item.amount > 0) {
-              console.log(item)
-
               return (
                 <li
                   key={item.id}
