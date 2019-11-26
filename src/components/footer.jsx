@@ -1,5 +1,6 @@
 import React from "react"
 import Cube from "../styles/logos/Cube"
+import { Link } from "@reach/router"
 
 const Footer = ({ author }) => {
   return (
@@ -9,7 +10,7 @@ const Footer = ({ author }) => {
         {` `}
         {author}
       </p>
-      <p>Contact</p>
+      <Link to="/contact">Contact</Link>
       <Cube />
     </div>
   )
