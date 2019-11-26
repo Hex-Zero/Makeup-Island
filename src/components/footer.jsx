@@ -12,6 +12,7 @@ const Footer = ({ author }) => {
       </p>
       <Link to="/contact">
         Contact <MdMailOutline size="20" style={{ verticalAlign: "bottom" }} />
+        {/*The style above allows the svg to align with the text */}
       </Link>
       <Cube />
     </div>
