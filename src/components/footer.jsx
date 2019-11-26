@@ -1,7 +1,7 @@
 import React from "react"
 import Cube from "../styles/logos/Cube"
 import { Link } from "@reach/router"
-
+import { MdMailOutline } from "react-icons/md"
 const Footer = ({ author }) => {
   return (
     <div className="layout-footer">
@@ -10,7 +10,9 @@ const Footer = ({ author }) => {
         {` `}
         {author}
       </p>
-      <Link to="/contact">Contact</Link>
+      <Link to="/contact">
+        Contact <MdMailOutline size="20" style={{ verticalAlign: "bottom" }} />
+      </Link>
       <Cube />
     </div>
   )

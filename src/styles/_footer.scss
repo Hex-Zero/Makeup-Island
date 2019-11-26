@@ -10,5 +10,11 @@
   a {
     text-decoration: none;
     color: var(--text-color);
+    &:hover {
+      transform: scale(1.015);
+    }
+    &:active {
+      transform: scale(0.98);
+    }
   }
 }
