@@ -1,5 +1,5 @@
 .form-container {
-  margin-top: 32px;
+  margin-top: 64px;
   justify-self: center;
   display: grid;
   justify-content: center;
@@ -11,6 +11,13 @@
   box-shadow: 3px 3px 3px 2px rgba(82, 82, 82, 0.2);
   background-color: var(--background-color);
   overflow: hidden;
+  .send-button {
+    background-color: var(--main-color);
+    color: var(--text-color);
+    font-weight: 800;
+    margin-top: 20px;
+    margin-bottom: 0;
+  }
   form {
     color: var(--main-color);
     display: grid;
@@ -27,10 +34,11 @@
         border: solid 2px var(--mainL-color);
       }
       padding: 5px;
-      margin-top: 32px;
+      margin-bottom: 32px;
       border-radius: 2px;
       border: solid 2px var(--main-color);
     }
+
     textarea {
       &::placeholder {
         color: var(--main-color);
@@ -42,7 +50,6 @@
       }
       border: solid 2px var(--main-color);
       border-radius: 2px;
-      margin-top: 32px;
       height: 300px;
       max-width: 500px;
       min-width: 320px;
