@@ -1,4 +1,5 @@
 .form-container {
+  margin-top: 32px;
   justify-self: center;
   display: grid;
   justify-content: center;
@@ -8,21 +9,43 @@
   border-radius: 4px;
   padding: 20px;
   box-shadow: 3px 3px 3px 2px rgba(82, 82, 82, 0.2);
-  // background-color: var(--background-color);
-  transform: translateZ(-100px);
+  background-color: var(--background-color);
   overflow: hidden;
   form {
+    color: var(--main-color);
     display: grid;
     justify-content: center;
     list-style-type: none;
     grid-template-columns: auto;
     input {
+      &::placeholder {
+        color: var(--main-color);
+        text-align: center;
+      }
+      &:focus {
+        outline-color: var(--mainL-color);
+        border: solid 2px var(--mainL-color);
+      }
+      padding: 5px;
       margin-top: 32px;
+      border-radius: 2px;
+      border: solid 2px var(--main-color);
     }
     textarea {
+      &::placeholder {
+        color: var(--main-color);
+        text-align: center;
+      }
+      &:focus {
+        outline-color: var(--mainL-color);
+        border: solid 2px var(--mainL-color);
+      }
+      border: solid 2px var(--main-color);
+      border-radius: 2px;
       margin-top: 32px;
-      width: 500px;
       height: 300px;
+      max-width: 500px;
+      min-width: 320px;
     }
   }
   &:hover {
