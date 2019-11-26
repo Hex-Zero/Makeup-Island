@@ -1,0 +1,33 @@
+.form-container {
+  justify-self: center;
+  display: grid;
+  justify-content: center;
+  list-style-type: none;
+  grid-template-columns: auto;
+  border: solid 2px var(--main-color);
+  border-radius: 4px;
+  padding: 20px;
+  box-shadow: 3px 3px 3px 2px rgba(82, 82, 82, 0.2);
+  // background-color: var(--background-color);
+  transform: translateZ(-100px);
+  overflow: hidden;
+  form {
+    display: grid;
+    justify-content: center;
+    list-style-type: none;
+    grid-template-columns: auto;
+    input {
+      margin-top: 32px;
+    }
+    textarea {
+      margin-top: 32px;
+      width: 500px;
+      height: 300px;
+    }
+  }
+  &:hover {
+    border: solid 2px var(--mainL-color);
+    animation: shadow-drop-2-center 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+      forwards;
+  }
+}
