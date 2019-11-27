@@ -6,9 +6,7 @@ const Footer = ({ author }) => {
   return (
     <div className="layout-footer">
       <p className="copy-right">
-        © {new Date().getFullYear()}
-        {` `}
-        {author}
+        <Link to="/contact">© {author}</Link>
       </p>
       <Link to="/contact">
         Contact <MdMailOutline size="20" style={{ verticalAlign: "bottom" }} />

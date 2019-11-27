@@ -19,8 +19,8 @@
     background: #ffc0c0; /* WebKit/Blink Browsers */
   }
 }
-main {
-  max-width: 99vw;
+html {
+  overflow-x: hidden;
 }
 // var(--main-color)
 $slick-font-path: "~slick-carousel/slick/fonts/" !default;
