@@ -11,7 +11,7 @@ const contact = () => {
       <h1>PHONE: ntesrnt</h1>
       <h1>Name: ntesrnt</h1>
       <h1>Info</h1> */}
-      <div className="form-container">
+      <div>
         <Formik>
           {() => (
             <form
@@ -20,7 +20,6 @@ const contact = () => {
               method="post"
               netlify-honeypot="bot-field"
               data-netlify="true"
-              data-netlify-recaptcha="true"
             >
               <input type="hidden" name="bot-field" />
               <input
