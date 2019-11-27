@@ -6,6 +6,7 @@
   "author": "Hex",
   "dependencies": {
     "dotenv": "^8.2.0",
+    "formik": "^2.0.6",
     "fs": "^0.0.1-security",
     "gatsby": "^2.18.4",
     "gatsby-cli": "^2.8.14",
