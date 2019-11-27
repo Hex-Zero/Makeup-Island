@@ -21,9 +21,9 @@ const contact = () => {
         >
           <input type="hidden" name="bot-field" />
           <input type="hidden" name="form-name" value="contact" />
-          <input placeholder="Your e-mail address"></input>
-          <input placeholder="Subject"></input>
-          <textarea placeholder="Your message"></textarea>
+          <input type="email" placeholder="Your e-mail address"></input>
+          <input type="text" placeholder="Subject"></input>
+          <textarea type="text" placeholder="Your message"></textarea>
           <input type="submit" value="Send" className="send-button"></input>
         </form>
       </div>
