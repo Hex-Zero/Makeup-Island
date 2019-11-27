@@ -5,10 +5,10 @@ import { MdMailOutline } from "react-icons/md"
 const Footer = ({ author }) => {
   return (
     <div className="layout-footer">
-      <p className="copy-right">
-        <Link to="/contact">© {author}</Link>
-      </p>
-      <Link to="/contact">
+      <Link to="/contact" className="author-link">
+        © {author}
+      </Link>
+      <Link to="/contact" className="contact-link">
         Contact <MdMailOutline size="20" style={{ verticalAlign: "bottom" }} />
         {/*The style above allows the svg to align with the text */}
       </Link>

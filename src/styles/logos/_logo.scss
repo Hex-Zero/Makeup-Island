@@ -3,15 +3,18 @@
   perspective: 70px;
   position: relative;
   bottom: 16px;
+  width: 32px;
+  justify-self: end;
   .box-cubediv {
     width: 26px;
     transform-style: preserve-3d;
     animation: boxRotate 16s linear infinite;
+
     div {
       position: absolute;
       width: 26px;
       height: 26px;
-      border: 2px solid var(--main-color);
+      border: 2px solid var(--mainL-color);
       border-radius: 2px;
       overflow: hidden;
     }
