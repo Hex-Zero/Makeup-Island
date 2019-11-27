@@ -11,18 +11,21 @@ const contact = () => {
       <h1>PHONE: ntesrnt</h1>
       <h1>Name: ntesrnt</h1>
       <h1>Info</h1> */}
-
-      <form name="contact" method="POST" data-netlify="true">
-        <input type="hidden" name="form-name" value="contact" />
-        <p>
-          <label>
-            Your Name: <input type="text" name="name" />
-          </label>
-        </p>
-        <p>
-          <button type="submit">Send</button>
-        </p>
-      </form>
+      <div className="form-container">
+        <form
+          // action="/successForm"
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+        >
+          <input type="hidden" name="bot-field" />
+          <input type="hidden" name="form-name" value="contact" />
+          <input placeholder="Your e-mail address"></input>
+          <input placeholder="Subject"></input>
+          <textarea placeholder="Your message"></textarea>
+        </form>
+      </div>
     </Layout>
   )
 }
