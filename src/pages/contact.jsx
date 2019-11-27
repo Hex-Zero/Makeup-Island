@@ -1,10 +1,12 @@
 import React from "react"
 import Layout from "../components/layout"
 import { Formik } from "formik"
+import SEO from "../components/seo"
 
 const contact = () => {
   return (
     <Layout>
+      <SEO title="Contact" />
       {/* <h1>EMAIL: ntesrnt</h1>
       <h1>PHONE: ntesrnt</h1>
       <h1>Name: ntesrnt</h1>
