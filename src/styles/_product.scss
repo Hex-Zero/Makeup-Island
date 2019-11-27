@@ -92,8 +92,8 @@
     justify-self: center;
     border-radius: 10px;
     width: 44vw;
-    margin-top: 35px;
-
+    margin-top: 32px;
+    max-width: 80vh;
     @media only screen and (max-width: 1040px) {
       margin-top: 35px;
       width: 80vw;

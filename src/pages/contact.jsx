@@ -8,7 +8,7 @@ const contact = () => {
       <h1>Name: ntesrnt</h1>
       <h1>Info</h1> */}
       <div className="form-container">
-        <form>
+        <form action="/successForm">
           <input placeholder="Your e-mail address"></input>
           <input placeholder="Subject"></input>
           <textarea placeholder="Your message"></textarea>
