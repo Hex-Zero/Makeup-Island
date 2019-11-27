@@ -13,6 +13,7 @@ const contact = () => {
         <Formik>
           {() => (
             <form
+              action="#"
               name="contact"
               method="post"
               netlify-honeypot="bot-field"
