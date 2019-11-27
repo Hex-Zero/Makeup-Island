@@ -9,11 +9,12 @@ const contact = () => {
       <h1>Info</h1> */}
       <div className="form-container">
         <form
-          action="/successForm"
-          method="POST"
+          method="post"
+          netlify-honeypot="bot-field"
           data-netlify="true"
-          data-netlify-honeypot="bot-field"
+          data-netlify-recaptcha="true"
         >
+          <input type="hidden" name="bot-field" />
           <input placeholder="Your e-mail address"></input>
           <input placeholder="Subject"></input>
           <textarea placeholder="Your message"></textarea>
