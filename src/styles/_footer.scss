@@ -1,12 +1,17 @@
 .layout-footer {
   background-color: var(--main-color);
   overflow: hidden;
-
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
   justify-content: space-between;
   color: var(--textD-color);
+  .contact-link {
+    justify-self: center;
+  }
+  .author-link {
+    margin-left: 12px;
+  }
   a {
     text-decoration: none;
     color: var(--text-color);

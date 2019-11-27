@@ -6,9 +6,9 @@ import ItemSlide from "./ItemSlide"
 const ProductInfo = ({ title, description, more, ingredients, sku }) => {
   return (
     <div className="product-info-container">
-      <h1 className="title">{title}</h1>
-      <h2 className="description">{description}</h2>
-      <h3 className="more">{more}</h3>
+      <h2 className="title">{title}</h2>
+      <h3 className="description">{description}</h3>
+      <h4 className="more">{more}</h4>
       <AddButton product={sku} className="info-add-button" />
       <Accordion ingredients={ingredients} />
       <div className="other-products">
