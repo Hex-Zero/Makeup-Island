@@ -8,7 +8,12 @@ const contact = () => {
       <h1>Name: ntesrnt</h1>
       <h1>Info</h1> */}
       <div className="form-container">
-        <form action="/successForm">
+        <form
+          action="/successForm"
+          method="POST"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+        >
           <input placeholder="Your e-mail address"></input>
           <input placeholder="Subject"></input>
           <textarea placeholder="Your message"></textarea>
