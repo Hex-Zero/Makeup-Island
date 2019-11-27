@@ -1,5 +1,7 @@
 import React from "react"
 import Layout from "../components/layout"
+import { Formik } from "formik"
+
 const contact = () => {
   return (
     <Layout>
@@ -8,19 +10,27 @@ const contact = () => {
       <h1>Name: ntesrnt</h1>
       <h1>Info</h1> */}
       <div className="form-container">
-        <form
-          method="post"
-          netlify-honeypot="bot-field"
-          data-netlify="true"
-          data-netlify-recaptcha="true"
-        >
-          <input type="hidden" name="bot-field" />
-          <input placeholder="Your e-mail address"></input>
-          <input placeholder="Subject"></input>
-          <textarea placeholder="Your message"></textarea>
-          {/* <input type="submit" value="Send" className="send-button"></input> */}
-          <button>Send</button>
-        </form>
+        <Formik>
+          {() => (
+            <form
+              name="contact"
+              method="post"
+              netlify-honeypot="bot-field"
+              data-netlify="true"
+              data-netlify-recaptcha="true"
+            >
+              <input type="hidden" name="bot-field" />
+              <input
+                name="email"
+                type="text"
+                placeholder="Your e-mail address"
+              ></input>
+              {/* <input placeholder="Subject"></input>
+              <textarea placeholder="Your message"></textarea> */}
+              <input type="submit" value="Send" className="send-button"></input>
+            </form>
+          )}
+        </Formik>
       </div>
     </Layout>
   )
