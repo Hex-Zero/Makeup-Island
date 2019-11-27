@@ -18,9 +18,8 @@ const contact = () => {
           <input placeholder="Your e-mail address"></input>
           <input placeholder="Subject"></input>
           <textarea placeholder="Your message"></textarea>
-          <label>
-            <input type="submit" value="Send" className="send-button"></input>
-          </label>
+          {/* <input type="submit" value="Send" className="send-button"></input> */}
+          <button>Send</button>
         </form>
       </div>
     </Layout>
