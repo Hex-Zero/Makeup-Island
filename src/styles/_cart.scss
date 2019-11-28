@@ -1,7 +1,7 @@
 .cart-container {
   .remove-button {
     position: absolute;
-    bottom: 15px;
+    top: 15px;
     margin-left: 0px;
     border-radius: 5px;
     border: none;
@@ -22,8 +22,14 @@
       transform: scale(0.87);
     }
   }
+  .item-card-box {
+    .add-price {
+      align-self: end;
+      justify-content: space-between;
+      width: 280px;
+    }
+  }
 }
-
 .empty-notice {
   margin-top: 20vh;
   max-width: 80vw;

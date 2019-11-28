@@ -8,11 +8,11 @@ import ItemSlide from "../components/ItemSlide"
 const CartPage = () => {
   const cart = useContext(Cart ? Cart : [])
 
-  const [amount, setAmount] = useState(0)
+  const [amountTotal, setAmountTotal] = useState(0)
   const [stripe, setStripe] = useState([])
 
   useEffect(() => {
-    setAmount(
+    setAmountTotal(
       cart.map(c => c.price * c.amount).reduce((total, num) => total + num, 0)
     )
   }, [cart])
@@ -35,11 +35,12 @@ const CartPage = () => {
       console.warn("Error:", error)
     }
   }
+  console.log(cart)
 
   return (
     <Layout>
       <SEO title="Cart" />
-      {amount === 0 ? (
+      {amountTotal === 0 ? (
         <>
           <h1 className="empty-notice">Your Bag Is Currently Empty</h1>
           <div className="other-products">
@@ -59,7 +60,10 @@ const CartPage = () => {
                     backgroundSize: "97%",
                   }}
                 >
-                  {item.title} {item.price}£ x{item.amount}
+                  <div className="add-price">
+                    <div className="price">£{item.price} </div>
+                    <div className="amount">{item.amount}</div>
+                  </div>
                   <RemoveButton sku={item.id} />
                 </li>
               )
@@ -69,13 +73,13 @@ const CartPage = () => {
           })}
         </ul>
       )}
-      {amount !== 0 && (
+      {amountTotal !== 0 && (
         <button
           onClick={e => redirectToCheckout(e)}
           className="checkout-button"
         >
-          {`Total : ${amount.toFixed(2)} £ `}
-          <br></br> Continue To Checkout >>>
+          {`Total : ${amountTotal.toFixed(2)} £ `}
+          <br></br> Continue To Checkout
         </button>
       )}
     </Layout>
