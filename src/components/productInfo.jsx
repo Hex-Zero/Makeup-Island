@@ -26,7 +26,7 @@ const ProductInfo = ({ title, description, more, ingredients, sku }) => {
       <h2 className="title">{title}</h2>
       <h3 className="description">{description}</h3>
       <h4 className="more">{more}</h4>
-      <AddButton product={sku} className="info-add-button" />
+      <AddButton product={sku} className="info-add-button" value="Add" />
       <Accordion ingredients={ingredients} />
       <div className="other-products">
         <h2>Other Products You May Like</h2>

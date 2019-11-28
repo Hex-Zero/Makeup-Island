@@ -4,6 +4,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import RemoveButton from "../components/RemoveButton"
 import ItemSlide from "../components/ItemSlide"
+import AddButton from "../components/AddButton"
 
 const CartPage = () => {
   const cart = useContext(Cart ? Cart : [])
@@ -62,9 +63,27 @@ const CartPage = () => {
                 >
                   <div className="add-price">
                     <div className="price">£{item.price} </div>
-                    <div className="amount">{item.amount}</div>
+                    <div className="amount-container">
+                      <RemoveButton
+                        sku={item.id}
+                        toZero={false}
+                        value="-"
+                        className="add-button"
+                      />
+                      <div className="amount">{item.amount}</div>
+                      <AddButton
+                        product={item.id}
+                        className="add-button"
+                        value="+"
+                      />
+                    </div>
                   </div>
-                  <RemoveButton sku={item.id} />
+                  <RemoveButton
+                    sku={item.id}
+                    toZero={true}
+                    value="X"
+                    className="remove-button"
+                  />
                 </li>
               )
             } else {

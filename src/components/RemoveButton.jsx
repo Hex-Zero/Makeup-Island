@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 import { Cart, SetCart } from "../components/Context"
 
-const RemoveButton = ({ sku }) => {
+const RemoveButton = ({ sku, toZero, value, className }) => {
   const cart = useContext(Cart)
   const setCart = useContext(SetCart)
 
@@ -9,7 +9,9 @@ const RemoveButton = ({ sku }) => {
     setCart(
       cart.map(item => {
         if (item.id === itemId) {
-          return { ...item, amount: 0 }
+          return !toZero
+            ? { ...item, amount: (item.amount -= 1) }
+            : { ...item, amount: 0 }
         } else {
           return item
         }
@@ -18,8 +20,8 @@ const RemoveButton = ({ sku }) => {
   }
   return (
     <>
-      <button onClick={() => handleRemove(sku)} className="remove-button">
-        X
+      <button onClick={() => handleRemove(sku)} className={className}>
+        {value}
       </button>
     </>
   )

@@ -10,7 +10,7 @@
     top: 6;
     right: 20px;
     padding: 5px 12px;
-    background-color: var(--main-color);
+    background-color: red;
     color: var(--text-color);
     &:hover {
       background-color: var(--mainL-color);
@@ -27,6 +27,23 @@
       align-self: end;
       justify-content: space-between;
       width: 280px;
+      .amount-container {
+        .amount {
+          background-color: var(--mainL-color);
+          align-self: center;
+          padding: 4px 12px;
+          width: 40px;
+          font-weight: 900;
+          font-size: 1.2rem;
+          color: var(--text-color);
+        }
+        .add-button {
+          padding: 5px 12px;
+          width: 40px;
+        }
+        display: grid;
+        grid-template-columns: auto auto auto;
+      }
     }
   }
 }

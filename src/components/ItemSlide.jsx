@@ -100,10 +100,11 @@ const ItemSlide = ({ condition }) => {
               return (
                 <div key={item.id}>
                   <li
-                    className="item-card-box"
+                    className="item-card-box "
                     style={{
                       backgroundImage: `url(${item.localFiles[0].childImageSharp.fluid.src}) `,
                       backgroundSize: "97%",
+                      margin: "0",
                     }}
                   >
                     <Banner sku={item.id}></Banner>
@@ -119,7 +120,11 @@ const ItemSlide = ({ condition }) => {
                     </Link>
                     <div className="add-price">
                       <div className="price">£{item.price / 100}</div>
-                      <AddButton product={item.id} className="add-button" />
+                      <AddButton
+                        product={item.id}
+                        className="add-button"
+                        value="Add"
+                      />
                     </div>
                   </li>
                 </div>
