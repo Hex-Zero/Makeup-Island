@@ -75,61 +75,49 @@ const ItemSlide = ({ condition }) => {
     <div className="more-item-slide">
       <Slider {...settings}>
         {state.map(item => {
-          {
-            if (
-              info
-                .map(current => {
-                  if (current.node.sku === item.id) {
-                    if (condition === "new") {
-                      if (current.node.new) {
-                        return true
-                      }
-                    } else if (condition === "product") {
-                      return true
-                    } else if (condition === "sale") {
-                      if (current.node.sale) {
-                        return true
-                      }
-                    }
-                  } else {
-                    return false
-                  }
-                })
-                .includes(true)
-            ) {
-              return (
-                <div key={item.id}>
-                  <li
-                    className="item-card-box "
-                    style={{
-                      backgroundImage: `url(${item.localFiles[0].childImageSharp.fluid.src}) `,
-                      backgroundSize: "97%",
-                      margin: "0",
-                    }}
+          let status = info.filter(current => current.node.sku === item.id)[0]
+            .node
+          if (
+            condition === "product" || condition === "new"
+              ? status.new
+              : false || condition === "sale"
+              ? status.sale
+              : false
+          ) {
+            return (
+              <div key={item.id}>
+                <li
+                  className="item-card-box "
+                  style={{
+                    backgroundImage: `url(${item.localFiles[0].childImageSharp.fluid.src}) `,
+                    backgroundSize: "97%",
+                    margin: "0",
+                  }}
+                >
+                  <Banner sku={item.id}></Banner>
+                  <Link
+                    activeClassName="active"
+                    to={handleMoreLink(item.id)}
+                    alt="More informtion about the selected product"
+                    className="info-container"
                   >
-                    <Banner sku={item.id}></Banner>
-                    <Link
-                      activeClassName="active"
-                      to={handleMoreLink(item.id)}
-                      alt="More informtion about the selected product"
-                      className="info-container"
-                    >
-                      <button className="info-button">
-                        <Info className="info-logo" />
-                      </button>
-                    </Link>
-                    <div className="add-price">
-                      <div className="price">£{item.price / 100}</div>
-                      <AddButton
-                        product={item.id}
-                        className="add-button"
-                        value="Add"
-                      />
-                    </div>
-                  </li>
-                </div>
-              )
-            }
+                    <button className="info-button">
+                      <Info className="info-logo" />
+                    </button>
+                  </Link>
+                  <div className="add-price">
+                    <div className="price">£{item.price / 100}</div>
+                    <AddButton
+                      product={item.id}
+                      className="add-button"
+                      value="Add"
+                    />
+                  </div>
+                </li>
+              </div>
+            )
+          } else {
+            return false
           }
         })}
       </Slider>
