@@ -31,16 +31,12 @@ header {
       padding: 9px;
     }
   }
-  .active {
-    color: var(--sec-color);
-    text-shadow: 0 0 4px rgb(0, 0, 0);
-  }
-
   nav {
     position: relative;
     justify-self: end;
     align-self: center;
     margin-right: 55px;
+    font-weight: 900;
     .header-nav-links {
       position: relative;
       font-size: 18px;
@@ -49,6 +45,7 @@ header {
     .cart-link {
       position: absolute;
       top: -4px;
+      color: var(--text-color);
       .amount {
         position: absolute;
         top: 9px;
@@ -60,14 +57,16 @@ header {
       }
     }
   }
-  a {
+  .header-nav-links {
     color: var(--text-color);
-    text-decoration: none;
     margin-right: 18px;
-    &:hover {
-      color: var(--sec-color);
-      text-shadow: 0 0 5px black;
-    }
+    text-decoration: none;
+    padding: 4px;
+  }
+  .active {
+    // border-top: solid 2px var(--mainL-color);
+    border-bottom: solid 2px var(--mainL-color);
+    border-radius: 13%;
   }
 }
 @media only screen and (max-width: 750px) {
