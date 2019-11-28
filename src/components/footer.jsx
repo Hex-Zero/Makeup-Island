@@ -5,9 +5,9 @@ import { MdMailOutline } from "react-icons/md"
 const Footer = ({ author }) => {
   return (
     <div className="layout-footer">
-      <Link to="/contact" className="author-link">
+      <a href="https://github.com/Hex-Zero" className="author-link">
         © {author}
-      </Link>
+      </a>
       <Link to="/contact" className="contact-link">
         Contact <MdMailOutline size="20" style={{ verticalAlign: "bottom" }} />
         {/*The style above allows the svg to align with the text */}
