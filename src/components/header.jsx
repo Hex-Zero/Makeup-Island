@@ -32,7 +32,7 @@ const Header = () => {
         <Link activeClassName="active" to="/sale" className="header-nav-links">
           Sale
         </Link>
-        <Link to="/cart" className="cart-link">
+        <Link activeClassName="active" to="/cart" className="cart-link">
           <FaShoppingBag size="24" className="bag" />
           {amount ? <div className="amount">{amount}</div> : null}
         </Link>

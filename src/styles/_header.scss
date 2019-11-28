@@ -61,12 +61,10 @@ header {
     color: var(--text-color);
     margin-right: 18px;
     text-decoration: none;
-    padding: 7px;
   }
   .active {
-    border-top: solid 2px var(--mainL-color);
-    border-bottom: solid 4px var(--mainL-color);
-    border-radius: 47%;
+    // border-top: solid 2px var(--mainL-color);
+    border-bottom: solid 2px var(--mainL-color);
     background-color: rgba(255, 255, 255, 0.041);
   }
 }
