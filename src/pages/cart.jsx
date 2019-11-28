@@ -44,14 +44,7 @@ const CartPage = () => {
           <h1 className="empty-notice">
             Your Bag Is Currently Empty. Please add some products to continue
           </h1>
-          <div
-            className="other-products"
-            style={{
-              maxWidth: "320px",
-              justifySelf: "center",
-              marginTop: "40px",
-            }}
-          >
+          <div className="other-products">
             <ItemSlide condition="product" />
           </div>
         </>

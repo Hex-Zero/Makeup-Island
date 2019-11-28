@@ -1,5 +1,17 @@
-.form-container {
+.contact-text {
+  color: var(--main-color);
+  width: 480px;
+  max-width: 80vw;
   margin-top: 64px;
+  justify-self: center;
+  text-align: left;
+  line-height: 1.9rem;
+  span {
+    color: var(--mainL-color);
+  }
+}
+.form-container {
+  margin: 40px;
   justify-self: center;
   display: grid;
   justify-content: center;
@@ -19,9 +31,12 @@
     margin-bottom: 0;
     padding: 6px 12px;
     justify-self: center;
-    transition: transform 300ms ease;
+    transition: transform 300ms ease, background-color 600ms ease,
+      color 600ms ease;
     &:hover {
+      background-color: var(--text-color);
       transform: scale(1.12);
+      color: var(--mainL-color);
     }
   }
   form {

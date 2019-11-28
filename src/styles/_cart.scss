@@ -23,11 +23,19 @@
     }
   }
 }
+
 .empty-notice {
-  margin-top: 40px;
+  margin-top: 20vh;
   max-width: 80vw;
   justify-self: center;
+  align-self: center;
   color: rgb(248, 133, 2);
+}
+.other-products {
+  margin-top: 30px;
+  max-width: 320px;
+  justify-self: center;
+  align-self: end;
 }
 .checkout-button {
   border-radius: 5px;

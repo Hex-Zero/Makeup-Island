@@ -17,5 +17,9 @@
     text-decoration: none;
     font-weight: 900;
     color: var(--mainL-color);
+    transition: transform 300ms ease;
+    &:hover {
+      transform: scale(1.095);
+    }
   }
 }

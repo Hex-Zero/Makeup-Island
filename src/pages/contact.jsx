@@ -7,13 +7,14 @@ const contact = () => {
   return (
     <Layout>
       <SEO title="Contact" />
-      {/* <h1>EMAIL: ntesrnt</h1>
-      <h1>PHONE: ntesrnt</h1>
-      <h1>Name: ntesrnt</h1>
-      <h1>Info</h1> */}
+      <h2 className="contact-text">
+        If you have any concerns please contact me via e-mail at:
+        <span> Makeup.Island.help@gmail.com</span> or fill the form bellow. I
+        shall respond to your message as soon as posible.
+      </h2>
       <div className="form-container">
         <form
-          // action="/successForm"
+          action="/successForm"
           name="contact"
           method="POST"
           data-netlify="true"
