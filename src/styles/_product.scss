@@ -19,6 +19,7 @@
     align-content: space-between;
     .title {
       font-weight: 800;
+      margin-top: 20px;
       margin-bottom: 17px;
       max-width: 75%;
       justify-self: center;
@@ -58,9 +59,27 @@
         width: 320px;
       }
     }
+    .price {
+      position: absolute;
+      top: 30px;
+      margin-left: 0px;
+      border-radius: 5px;
+      border: none;
+      font-weight: 800;
+      font-size: 0.8rem;
+      top: 6;
+      left: 20px;
+      padding: 5px 12px;
+      background-color: var(--main-color);
+      color: var(--text-color);
+      font-size: 1rem;
+      @media only screen and (max-width: 1040px) {
+        top: -14px;
+      }
+    }
     .info-add-button {
       position: absolute;
-      top: 15px;
+      top: 30px;
       margin-left: 0px;
       border-radius: 5px;
       border: none;
@@ -71,6 +90,7 @@
       padding: 5px 12px;
       background-color: var(--main-color);
       color: var(--text-color);
+      cursor: pointer;
       &:hover {
         background-color: var(--mainL-color);
       }

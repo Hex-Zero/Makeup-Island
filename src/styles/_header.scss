@@ -61,12 +61,13 @@ header {
     color: var(--text-color);
     margin-right: 18px;
     text-decoration: none;
-    padding: 4px;
+    padding: 7px;
   }
   .active {
-    // border-top: solid 2px var(--mainL-color);
-    border-bottom: solid 2px var(--mainL-color);
-    border-radius: 13%;
+    border-top: solid 2px var(--mainL-color);
+    border-bottom: solid 4px var(--mainL-color);
+    border-radius: 47%;
+    background-color: rgba(255, 255, 255, 0.041);
   }
 }
 @media only screen and (max-width: 750px) {

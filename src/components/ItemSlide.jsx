@@ -98,9 +98,8 @@ const ItemSlide = ({ condition }) => {
                 .includes(true)
             ) {
               return (
-                <div>
+                <div key={item.id}>
                   <li
-                    key={item.id}
                     className="item-card-box"
                     style={{
                       backgroundImage: `url(${item.localFiles[0].childImageSharp.fluid.src}) `,
