@@ -31,15 +31,16 @@
         .amount {
           background-color: var(--mainL-color);
           align-self: center;
-          padding: 4px 12px;
-          width: 40px;
+          padding: 1px 6px;
+          width: 30px;
           font-weight: 900;
+          margin: 1px;
           font-size: 1.2rem;
           color: var(--text-color);
         }
         .add-button {
-          padding: 5px 12px;
-          width: 40px;
+          padding: 1px 6px;
+          width: 30px;
         }
         display: grid;
         grid-template-columns: auto auto auto;
