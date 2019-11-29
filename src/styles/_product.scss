@@ -3,6 +3,7 @@
   grid-template-columns: 1fr 1fr;
   justify-content: space-between;
   align-items: start;
+  background-color: rgb(255, 255, 255);
   @media only screen and (max-width: 1040px) {
     justify-content: center;
     gap: 35px;

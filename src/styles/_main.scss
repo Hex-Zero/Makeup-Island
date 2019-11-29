@@ -8,6 +8,16 @@ main {
   display: grid;
 }
 
+body {
+  background: linear-gradient(120deg, transparent, rgba(255, 0, 43, 0.11)),
+    repeating-linear-gradient(
+      45deg,
+      rgba(255, 192, 203, 0.125) 0%,
+      rgba(255, 192, 203, 0.075) 8%,
+      white 8%,
+      white 12%
+    );
+}
 .wrapper {
   display: flex;
   flex-direction: column;
