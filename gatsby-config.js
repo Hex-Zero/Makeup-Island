@@ -73,5 +73,11 @@ module.exports = {
         path: `${__dirname}/src/products`,
       },
     },
+    {
+      resolve: `gatsby-plugin-page-creator`,
+      options: {
+        path: `${__dirname}/src/messages`,
+      },
+    },
   ],
 }
