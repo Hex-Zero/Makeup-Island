@@ -61,54 +61,52 @@ const ItemList = ({ condition }) => {
   }
 
   return (
-    <>
-      <ul className="card-container">
-        {state.map(item => {
-          let status = info.filter(current => current.node.sku === item.id)[0]
-            .node
-          if (
-            condition === "product" || condition === "new"
-              ? status.isnew
-              : false || condition === "sale"
-              ? status.sale
-              : false
-          ) {
-            return (
-              <li
-                key={item.id}
-                className="item-card-box"
-                style={{
-                  backgroundImage: `url(${item.localFiles[0].childImageSharp.fluid.src}) `,
-                  backgroundSize: "97%",
-                }}
+    <ul className="card-container">
+      {state.map(item => {
+        let status = info.filter(current => current.node.sku === item.id)[0]
+          .node
+        if (
+          condition === "product" || condition === "new"
+            ? status.isnew
+            : false || condition === "sale"
+            ? status.sale
+            : false
+        ) {
+          return (
+            <li
+              key={item.id}
+              className="item-card-box"
+              style={{
+                backgroundImage: `url(${item.localFiles[0].childImageSharp.fluid.src}) `,
+                backgroundSize: "97%",
+              }}
+            >
+              <Banner sku={item.id}></Banner>
+              <Link
+                activeClassName="active"
+                to={handleMoreLink(status.local)}
+                alt="More informtion about the selected product"
+                className="info-container"
               >
-                <Banner sku={item.id}></Banner>
-                <Link
-                  activeClassName="active"
-                  to={handleMoreLink(status.local)}
-                  alt="More informtion about the selected product"
-                  className="info-container"
-                >
-                  <button className="info-button">
-                    <Info className="info-logo" />
-                  </button>
-                </Link>
-                <div className="add-price">
-                  <div className="price">£{item.price / 100}</div>
-                  <AddButton
-                    product={item.id}
-                    className="add-button"
-                    value="Add"
-                  />
-                </div>
-              </li>
-            )
-          } else {
-            return false
-          }
-        })}
-      </ul>
-    </>
+                <button className="info-button">
+                  <Info className="info-logo" />
+                </button>
+              </Link>
+              <div className="add-price">
+                <div className="price">£{item.price / 100}</div>
+                <AddButton
+                  product={item.id}
+                  className="add-button"
+                  value="Add"
+                />
+              </div>
+            </li>
+          )
+        } else {
+          return false
+        }
+      })}
+    </ul>
   )
 }
 
