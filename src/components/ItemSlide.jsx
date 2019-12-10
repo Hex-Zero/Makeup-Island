@@ -95,7 +95,7 @@ const ItemSlide = ({ condition }) => {
                   <Banner sku={item.id}></Banner>
                   <Link
                     activeClassName="active"
-                    to={handleMoreLink(item.id)}
+                    to={handleMoreLink(status.local)}
                     alt="More informtion about the selected product"
                     className="info-container"
                   >
