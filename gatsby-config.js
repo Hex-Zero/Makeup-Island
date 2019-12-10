@@ -60,7 +60,7 @@ module.exports = {
       options: {
         connectionString: `${process.env.GATSBY_DATABASEMO}`,
         dbName: `MakeupIsland`,
-        collection: `Products`,
+        collection: `products`,
         clientOptions: { useUnifiedTopology: true, useNewUrlParser: true },
       },
       map: {

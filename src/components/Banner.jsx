@@ -4,12 +4,12 @@ import { useStaticQuery, graphql } from "gatsby"
 const Banner = ({ sku }) => {
   const data = useStaticQuery(graphql`
     query {
-      allMongodbMakeupIslandProducts(filter: { template: { eq: false } }) {
+      allMongodbMakeupIslandProducts {
         edges {
           node {
             sku
             sale
-            new
+            isnew
           }
         }
       }
@@ -21,7 +21,7 @@ const Banner = ({ sku }) => {
     <div className="banner">
       {info.map(item => {
         if (item.node.sku === sku) {
-          if (item.node.new && item.node.sale) {
+          if (item.node.isnew && item.node.sale) {
             return (
               <>
                 <div className="new" key={sku}>
@@ -32,7 +32,7 @@ const Banner = ({ sku }) => {
                 </div>
               </>
             )
-          } else if (item.node.new) {
+          } else if (item.node.isnew) {
             return (
               <div className="new" key={sku}>
                 NEW

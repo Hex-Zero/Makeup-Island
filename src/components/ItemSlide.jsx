@@ -11,20 +11,18 @@ const ItemSlide = ({ condition }) => {
   const setState = useContext(DispatchContext)
   const data = useStaticQuery(graphql`
     query {
-      allMongodbMakeupIslandProducts(filter: { template: { eq: false } }) {
+      allMongodbMakeupIslandProducts {
         edges {
           node {
             title
             sku
             size
             sale
-            new
-            more
+            isnew
             inventory
             description
             brand
             ingredients
-            template
             local
           }
         }
@@ -79,7 +77,7 @@ const ItemSlide = ({ condition }) => {
             .node
           if (
             condition === "product" || condition === "new"
-              ? status.new
+              ? status.isnew
               : false || condition === "sale"
               ? status.sale
               : false

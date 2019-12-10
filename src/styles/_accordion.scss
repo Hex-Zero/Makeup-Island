@@ -5,13 +5,13 @@
   cursor: pointer;
   padding: 18px;
   width: 100%;
-  margin-top: 55px;
+  // margin-top: 55px;
   border: none;
   text-align: left;
   outline: none;
   font-size: 1rem;
   max-height: 55px;
-  transition: max-height 2s ease-in-out, margin-top 0.4s linear;
+  transition: max-height 1s ease-in-out;
   overflow: hidden;
   border-radius: 3px;
   .arrow {
@@ -47,8 +47,7 @@
   }
 }
 .extended {
-  margin-top: 0px;
-  max-height: 5000px;
+  max-height: 1000px;
   .arrow {
     transform: rotateX(520deg);
   }

@@ -11,7 +11,7 @@ const Sol = () => {
   const data = useStaticQuery(graphql`
     query {
       allMongodbMakeupIslandProducts(
-        filter: { template: { eq: false }, local: { eq: "sol-shadow-palette" } }
+        filter: { local: { eq: "sol-shadow-palette" } }
       ) {
         edges {
           node {
@@ -19,13 +19,11 @@ const Sol = () => {
             sku
             size
             sale
-            new
-            more
+            isnew
             inventory
             description
             brand
             ingredients
-            template
             local
           }
         }

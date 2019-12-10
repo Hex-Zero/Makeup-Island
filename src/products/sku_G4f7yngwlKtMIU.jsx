@@ -11,10 +11,7 @@ const MainSqiueeze = () => {
   const data = useStaticQuery(graphql`
     query {
       allMongodbMakeupIslandProducts(
-        filter: {
-          template: { eq: false }
-          local: { eq: "main-squeeze-shadow-palette" }
-        }
+        filter: { local: { eq: "shadow-palette--main-squeeze" } }
       ) {
         edges {
           node {
@@ -22,20 +19,18 @@ const MainSqiueeze = () => {
             sku
             size
             sale
-            new
-            more
+            isnew
             inventory
             description
             brand
             ingredients
-            template
             local
           }
         }
       }
       allFile(
         filter: {
-          relativeDirectory: { eq: "products/main-squeeze-shadow-palette" }
+          relativeDirectory: { eq: "products/shadow-palette--main-squeeze" }
         }
       ) {
         edges {
