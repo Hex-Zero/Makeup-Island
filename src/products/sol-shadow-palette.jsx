@@ -36,7 +36,7 @@ const Sol = () => {
             childImageSharp {
               fluid(maxWidth: 1000) {
                 src
-                ...GatsbyImageSharpFluid
+                ...GatsbyImageSharpFluid_tracedSVG
               }
             }
           }
