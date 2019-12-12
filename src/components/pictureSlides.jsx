@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import Slider from "react-slick"
+import Img from "gatsby-image"
 
 const PictureSlides = ({ pictures, location }) => {
   const [settings] = useState({
@@ -18,11 +19,11 @@ const PictureSlides = ({ pictures, location }) => {
           {pictures.map(item => {
             if (item.node.childImageSharp) {
               return (
-                <img
+                <Img
                   key={item.node.childImageSharp.fluid.src}
-                  src={item.node.childImageSharp.fluid.src}
+                  fluid={item.node.childImageSharp.fluid}
                   alt="name"
-                ></img>
+                ></Img>
               )
             } else {
               return null

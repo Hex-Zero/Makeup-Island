@@ -36,8 +36,9 @@ const MainSqiueeze = () => {
         edges {
           node {
             childImageSharp {
-              fluid {
+              fluid(maxWidth: 1000) {
                 src
+                ...GatsbyImageSharpFluid
               }
             }
           }
