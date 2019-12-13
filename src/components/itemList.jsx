@@ -7,8 +7,8 @@ import Banner from "./Banner"
 import Info from "./assets/info.svg"
 
 const ItemList = ({ condition }) => {
-  const state = useContext(StateContext)
-  const setState = useContext(DispatchContext)
+  // const state = useContext(StateContext)
+  // const setState = useContext(DispatchContext)
   const data = useStaticQuery(graphql`
     query {
       allMongodbMakeupIslandProducts {
@@ -47,14 +47,15 @@ const ItemList = ({ condition }) => {
       }
     }
   `)
-  const [info, setInfo] = useState(data.allMongodbMakeupIslandProducts.edges)
-  useEffect(() => {
-    setState(data.allStripeSku.nodes)
-  }, [data.allStripeSku.nodes, setState])
+  const [info] = useState(data.allMongodbMakeupIslandProducts.edges)
+  const [state] = useState(data.allStripeSku.nodes)
+  // useEffect(() => {
+  //   setState(data.allStripeSku.nodes)
+  // }, [data.allStripeSku.nodes, setState])
 
-  useEffect(() => {
-    setInfo(data.allMongodbMakeupIslandProducts.edges)
-  }, [data.allMongodbMakeupIslandProducts.edges])
+  // useEffect(() => {
+  //   setInfo(data.allMongodbMakeupIslandProducts.edges)
+  // }, [data.allMongodbMakeupIslandProducts.edges])
 
   const handleMoreLink = id => {
     return "/" + id
@@ -81,7 +82,7 @@ const ItemList = ({ condition }) => {
                 backgroundSize: "97%",
               }}
             >
-              <Banner sku={item.id}></Banner>
+              <Banner key={item.id} sku={item.id}></Banner>
               <Link
                 activeClassName="active"
                 to={handleMoreLink(status.local)}

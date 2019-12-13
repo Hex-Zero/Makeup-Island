@@ -40,7 +40,7 @@ const Banner = ({ sku }) => {
             )
           } else if (item.node.sale) {
             return (
-              <div className="sale" key="sku">
+              <div className="sale" key={sku}>
                 SALE
               </div>
             )
