@@ -5,6 +5,8 @@ import React, { useState } from "react"
 import Banner from "./Banner"
 import Info from "./assets/info.svg"
 import ShopButton from "./ShopButton"
+import Img from "gatsby-image"
+
 const ItemSlide = ({ condition }) => {
   const data = useStaticQuery(graphql`
     query {
@@ -28,8 +30,8 @@ const ItemSlide = ({ condition }) => {
         nodes {
           localFiles {
             childImageSharp {
-              fluid {
-                src
+              fluid(maxWidth: 300) {
+                ...GatsbyImageSharpFluid_tracedSVG
               }
             }
           }
@@ -75,14 +77,12 @@ const ItemSlide = ({ condition }) => {
           ) {
             return (
               <div key={item.id}>
-                <li
-                  className="item-card-box "
-                  style={{
-                    backgroundImage: `url(${item.localFiles[0].childImageSharp.fluid.src}) `,
-                    backgroundSize: "97%",
-                    margin: "0",
-                  }}
-                >
+                <li className="item-card-box ">
+                  <Img
+                    style={{ position: "absolute" }}
+                    className="item-image-background"
+                    fluid={item.localFiles[0].childImageSharp.fluid}
+                  ></Img>
                   <Banner sku={item.id}></Banner>
                   <Link
                     activeClassName="active"

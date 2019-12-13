@@ -4,6 +4,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import ItemSlide from "../components/ItemSlide"
 import ShopButton from "../components/ShopButton"
+import Img from "gatsby-image"
 
 const CartPage = () => {
   const cart = useContext(Cart)
@@ -51,14 +52,12 @@ const CartPage = () => {
           {cart ? (
             cart.map(item => {
               return (
-                <li
-                  key={item.id}
-                  className="item-card-box"
-                  style={{
-                    backgroundImage: `url(${item.src}) `,
-                    backgroundSize: "97%",
-                  }}
-                >
+                <li key={item.id} className="item-card-box">
+                  <Img
+                    style={{ position: "absolute" }}
+                    className="item-image-background"
+                    fluid={item.src}
+                  ></Img>
                   <div className="add-price">
                     <div className="price">£{item.price} </div>
                     <div className="amount-container">

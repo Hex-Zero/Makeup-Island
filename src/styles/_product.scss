@@ -46,21 +46,7 @@
         width: 90vw;
       }
     }
-    .other-products {
-      align-self: center;
-      display: grid;
-      h2 {
-        font-weight: 700;
-        margin: 16px 0;
-        color: goldenrod;
-      }
-      .more-item-slide {
-        justify-self: center;
-        align-self: center;
-        width: 320px;
-        margin-bottom: 16px;
-      }
-    }
+
     .info-price {
       position: absolute;
       top: 30px;
@@ -111,6 +97,21 @@
     }
     @media only screen and (max-width: 1040px) {
       min-height: calc(100vh - 130px);
+    }
+  }
+  .other-products {
+    align-self: center;
+    display: grid;
+    h2 {
+      font-weight: 700;
+      margin: 16px 0;
+      color: goldenrod;
+    }
+    .more-item-slide {
+      justify-self: center;
+      align-self: center;
+      width: 350px;
+      margin-bottom: 16px;
     }
   }
   .Slider {

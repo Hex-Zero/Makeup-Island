@@ -20,8 +20,8 @@ const ShopButton = ({ product, className, value, toZero, remove }) => {
         nodes {
           localFiles {
             childImageSharp {
-              fluid {
-                src
+              fluid(maxWidth: 300) {
+                ...GatsbyImageSharpFluid_tracedSVG
               }
             }
           }
@@ -68,7 +68,7 @@ const ShopButton = ({ product, className, value, toZero, remove }) => {
             id: state.id,
             title: state.attributes.name,
             price: (state.price / 100).toFixed(2),
-            src: state.localFiles[0].childImageSharp.fluid.src,
+            src: state.localFiles[0].childImageSharp.fluid,
             inventory: inventory,
           },
         ]
@@ -104,7 +104,7 @@ const ShopButton = ({ product, className, value, toZero, remove }) => {
           className={className}
           disabled={blocked}
           style={{
-            background: blocked ? "black" : "var(--main-color)",
+            background: blocked ? "gray" : "var(--main-color)",
           }}
         >
           {value}

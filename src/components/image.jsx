@@ -8,7 +8,7 @@ const MakeupPlaceholder = () => {
       placeholderImage: file(relativePath: { eq: "images/makeup.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 4000) {
-            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_tracedSVG
           }
         }
       }
