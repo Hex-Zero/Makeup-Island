@@ -9,9 +9,9 @@ import Title from "./assets/makeup-islandtitle.svg"
 const Header = () => {
   const cart = useContext(Cart)
   const [amount, setAmount] = useState(0)
-  useEffect(() => {
-    setAmount(cart.map(c => c.amount).reduce((total, num) => total + num, 0))
-  }, [cart])
+  // useEffect(() => {
+  //   setAmount(cart.map(c => c.amount).reduce((total, num) => total + num, 0))
+  // }, [cart])
   return (
     <header>
       <h1 className="hidden-links-low">

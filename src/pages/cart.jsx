@@ -7,16 +7,16 @@ import ItemSlide from "../components/ItemSlide"
 import AddButton from "../components/AddButton"
 
 const CartPage = () => {
-  const cart = useContext(Cart ? Cart : [])
+  const cart = useContext(Cart)
 
   const [amountTotal, setAmountTotal] = useState(0)
   const [stripe, setStripe] = useState([])
 
-  useEffect(() => {
-    setAmountTotal(
-      cart.map(c => c.price * c.amount).reduce((total, num) => total + num, 0)
-    )
-  }, [cart])
+  // useEffect(() => {
+  //   setAmountTotal(
+  //     cart.map(c => c.price * c.amount).reduce((total, num) => total + num, 0)
+  //   )
+  // }, [cart])
 
   useEffect(() => {
     setStripe(window.Stripe(process.env.GATSBY_DATABASE))
@@ -36,12 +36,11 @@ const CartPage = () => {
       console.warn("Error:", error)
     }
   }
-  console.log(cart)
 
   return (
     <Layout>
       <SEO title="Cart" />
-      {amountTotal === 0 ? (
+      {cart === undefined ? (
         <>
           <h1 className="empty-notice">Your Bag Is Currently Empty</h1>
           <div className="other-products">
@@ -51,44 +50,40 @@ const CartPage = () => {
       ) : (
         <ul className="cart-container card-container">
           {cart.map(item => {
-            if (item.amount > 0) {
-              return (
-                <li
-                  key={item.id}
-                  className="item-card-box"
-                  style={{
-                    backgroundImage: `url(${item.src}) `,
-                    backgroundSize: "97%",
-                  }}
-                >
-                  <div className="add-price">
-                    <div className="price">£{item.price} </div>
-                    <div className="amount-container">
-                      <RemoveButton
-                        sku={item.id}
-                        toZero={false}
-                        value="-"
-                        className="add-button"
-                      />
-                      <div className="amount">{item.amount}</div>
-                      <AddButton
-                        product={item.id}
-                        className="add-button"
-                        value="+"
-                      />
-                    </div>
+            return (
+              <li
+                key={item.id}
+                className="item-card-box"
+                style={{
+                  backgroundImage: `url(${item.src}) `,
+                  backgroundSize: "97%",
+                }}
+              >
+                <div className="add-price">
+                  <div className="price">£{item.price} </div>
+                  <div className="amount-container">
+                    <RemoveButton
+                      sku={item.id}
+                      toZero={false}
+                      value="-"
+                      className="add-button"
+                    />
+                    <div className="amount">{item.amount}</div>
+                    <AddButton
+                      product={item.id}
+                      className="add-button"
+                      value="+"
+                    />
                   </div>
-                  <RemoveButton
-                    sku={item.id}
-                    toZero={true}
-                    value="X"
-                    className="remove-button"
-                  />
-                </li>
-              )
-            } else {
-              return <></>
-            }
+                </div>
+                <RemoveButton
+                  sku={item.id}
+                  toZero={true}
+                  value="X"
+                  className="remove-button"
+                />
+              </li>
+            )
           })}
         </ul>
       )}

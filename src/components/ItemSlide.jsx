@@ -1,14 +1,11 @@
 import Slider from "react-slick"
 import { graphql, useStaticQuery } from "gatsby"
 import { Link } from "gatsby"
-import React, { useContext, useEffect, useState } from "react"
-import { DispatchContext, StateContext } from "../components/Context"
+import React, { useState } from "react"
 import AddButton from "./AddButton"
 import Banner from "./Banner"
 import Info from "./assets/info.svg"
 const ItemSlide = ({ condition }) => {
-  // const state = useContext(StateContext)
-  // const setState = useContext(DispatchContext)
   const data = useStaticQuery(graphql`
     query {
       allMongodbMakeupIslandProducts {

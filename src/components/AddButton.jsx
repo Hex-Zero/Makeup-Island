@@ -1,16 +1,18 @@
 import React, { useContext, useState } from "react"
-import { DispatchContext, SetCart } from "../components/Context"
+import { SetCart, Cart } from "../components/Context"
 import { graphql, useStaticQuery } from "gatsby"
 
 const AddButton = ({ product, className, value }) => {
-  // const setState = useContext(DispatchContext)
   const setCart = useContext(SetCart)
+  const cart = useContext(Cart)
+
   const data = useStaticQuery(graphql`
     query {
       allMongodbMakeupIslandProducts {
         edges {
           node {
             inventory
+            sku
           }
         }
       }
@@ -32,64 +34,57 @@ const AddButton = ({ product, className, value }) => {
       }
     }
   `)
-  const [state] = useState(
-    data.allStripeSku.nodes.filter(item => item.id === product)
+  const [state, setState] = useState(
+    data.allStripeSku.nodes.filter(item => item.id === product)[0]
   )
 
   console.log(state)
 
-  const handle = productId => {
-    setCart(state.filter())
+  const handleAdd = productId => {
+    setState({
+      ...state,
+      amount: !state.amount ? (state.amount = 1) : (state.amount += 1),
+    })
+
+    setCart(currentState => {
+      if (currentState === undefined) {
+        return [
+          {
+            amount: state.amount,
+            id: state.id,
+            title: state.attributes.name,
+            price: (state.price / 100).toFixed(2),
+            src: state.localFiles[0].childImageSharp.fluid.src,
+          },
+        ]
+      } else {
+        if (currentState.filter(item => item.id === state.id)[0]) {
+          currentState.map(item => {
+            return item.id === state.id
+              ? { ...item, amount: (item.amount += 1) }
+              : item
+          })
+        } else {
+          return [
+            ...currentState,
+            {
+              amount: state.amount,
+              id: state.id,
+              title: state.attributes.name,
+              price: (state.price / 100).toFixed(2),
+              src: state.localFiles[0].childImageSharp.fluid.src,
+            },
+          ]
+        }
+        return [...currentState]
+      }
+    })
   }
-  // const handleAdd = productId => {
-  //   setState(localState =>
-  //     localState.map(currentLocal => {
-  //       if (currentLocal.id === productId) {
-  //         !currentLocal.amount
-  //           ? (currentLocal.amount = 1)
-  //           : (currentLocal.amount += 1)
-  //         setCart(state => {
-  //           if (!state) {
-  //             return [
-  //               {
-  //                 id: currentLocal.id,
-  //                 title: currentLocal.attributes.name,
-  //                 price: (currentLocal.price / 100).toFixed(2),
-  //                 src: currentLocal.localFiles[0].childImageSharp.fluid.src,
-  //                 amount: 1,
-  //               },
-  //             ]
-  //           } else if (state.every(e => e.id !== currentLocal.id)) {
-  //             return [
-  //               ...state,
-  //               {
-  //                 id: currentLocal.id,
-  //                 title: currentLocal.attributes.name,
-  //                 price: (currentLocal.price / 100).toFixed(2),
-  //                 src: currentLocal.localFiles[0].childImageSharp.fluid.src,
-  //                 amount: 1,
-  //               },
-  //             ]
-  //           } else {
-  //             return state.map(c => {
-  //               if (c.id === currentLocal.id) {
-  //                 c.amount += 1
-  //                 return c
-  //               }
-  //               return c
-  //             })
-  //           }
-  //         })
-  //         return currentLocal
-  //       }
-  //       return currentLocal
-  //     })
-  //   )
-  // }
+
   return (
     <>
       <button
-        onClick={() => handle(product)}
+        onClick={() => handleAdd(product)}
         className={className}
         disabled={false}
       >

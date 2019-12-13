@@ -7,13 +7,13 @@ export const SetCart = createContext()
 
 const Context = ({ children }) => {
   const [localState, setLocal] = useState([])
-  const [cart, setCart] = useState([])
+  const [cart, setCart] = useState()
   return (
     <StateContext.Provider value={localState}>
       <DispatchContext.Provider value={setLocal}>
-        <Cart.Provider value={cart}>
-          <SetCart.Provider value={setCart}>{children}</SetCart.Provider>
-        </Cart.Provider>
+        <SetCart.Provider value={setCart}>
+          <Cart.Provider value={cart}>{children} </Cart.Provider>
+        </SetCart.Provider>
       </DispatchContext.Provider>
     </StateContext.Provider>
   )

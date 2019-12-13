@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
-
+import uuid from "uuid"
 const Banner = ({ sku }) => {
   const data = useStaticQuery(graphql`
     query {
@@ -23,24 +23,24 @@ const Banner = ({ sku }) => {
         if (item.node.sku === sku) {
           if (item.node.isnew && item.node.sale) {
             return (
-              <>
-                <div className="new" key={sku}>
+              <div key={uuid()}>
+                <div className="new" key={uuid()}>
                   NEW
                 </div>
-                <div className="sale" key="sale">
+                <div className="sale" key={uuid()}>
                   SALE
                 </div>
-              </>
+              </div>
             )
           } else if (item.node.isnew) {
             return (
-              <div className="new" key={sku}>
+              <div className="new" key={uuid()}>
                 NEW
               </div>
             )
           } else if (item.node.sale) {
             return (
-              <div className="sale" key={sku}>
+              <div className="sale" key={uuid()}>
                 SALE
               </div>
             )
