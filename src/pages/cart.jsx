@@ -2,9 +2,8 @@ import React, { useContext, useEffect, useState } from "react"
 import { Cart } from "../components/Context"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import RemoveButton from "../components/RemoveButton"
 import ItemSlide from "../components/ItemSlide"
-import AddButton from "../components/AddButton"
+import ShopButton from "../components/ShopButton"
 
 const CartPage = () => {
   const cart = useContext(Cart)
@@ -12,11 +11,11 @@ const CartPage = () => {
   const [amountTotal, setAmountTotal] = useState(0)
   const [stripe, setStripe] = useState([])
 
-  // useEffect(() => {
-  //   setAmountTotal(
-  //     cart.map(c => c.price * c.amount).reduce((total, num) => total + num, 0)
-  //   )
-  // }, [cart])
+  useEffect(() => {
+    setAmountTotal(
+      cart.map(c => c.price * c.amount).reduce((total, num) => total + num, 0)
+    )
+  }, [cart])
 
   useEffect(() => {
     setStripe(window.Stripe(process.env.GATSBY_DATABASE))
@@ -40,7 +39,7 @@ const CartPage = () => {
   return (
     <Layout>
       <SEO title="Cart" />
-      {cart === undefined ? (
+      {amountTotal <= 0 ? (
         <>
           <h1 className="empty-notice">Your Bag Is Currently Empty</h1>
           <div className="other-products">
@@ -49,42 +48,48 @@ const CartPage = () => {
         </>
       ) : (
         <ul className="cart-container card-container">
-          {cart.map(item => {
-            return (
-              <li
-                key={item.id}
-                className="item-card-box"
-                style={{
-                  backgroundImage: `url(${item.src}) `,
-                  backgroundSize: "97%",
-                }}
-              >
-                <div className="add-price">
-                  <div className="price">£{item.price} </div>
-                  <div className="amount-container">
-                    <RemoveButton
-                      sku={item.id}
-                      toZero={false}
-                      value="-"
-                      className="add-button"
-                    />
-                    <div className="amount">{item.amount}</div>
-                    <AddButton
-                      product={item.id}
-                      className="add-button"
-                      value="+"
-                    />
+          {cart ? (
+            cart.map(item => {
+              return (
+                <li
+                  key={item.id}
+                  className="item-card-box"
+                  style={{
+                    backgroundImage: `url(${item.src}) `,
+                    backgroundSize: "97%",
+                  }}
+                >
+                  <div className="add-price">
+                    <div className="price">£{item.price} </div>
+                    <div className="amount-container">
+                      <ShopButton
+                        remove={true}
+                        product={item.id}
+                        value="-"
+                        toZero={false}
+                        className="add-button"
+                      />
+                      <div className="amount">{item.amount}</div>
+                      <ShopButton
+                        product={item.id}
+                        className="add-button"
+                        value="+"
+                      />
+                    </div>
                   </div>
-                </div>
-                <RemoveButton
-                  sku={item.id}
-                  toZero={true}
-                  value="X"
-                  className="remove-button"
-                />
-              </li>
-            )
-          })}
+                  <ShopButton
+                    remove={true}
+                    product={item.id}
+                    toZero={true}
+                    value="X"
+                    className="remove-button"
+                  />
+                </li>
+              )
+            })
+          ) : (
+            <></>
+          )}
         </ul>
       )}
       {amountTotal !== 0 && (

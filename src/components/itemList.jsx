@@ -1,10 +1,9 @@
 import { graphql, useStaticQuery } from "gatsby"
 import { Link } from "gatsby"
-import React, { useContext, useEffect, useState } from "react"
-import { DispatchContext, StateContext } from "../components/Context"
-import AddButton from "./AddButton"
+import React, { useState } from "react"
 import Banner from "./Banner"
 import Info from "./assets/info.svg"
+import ShopButton from "./ShopButton"
 
 const ItemList = ({ condition }) => {
   // const state = useContext(StateContext)
@@ -95,7 +94,7 @@ const ItemList = ({ condition }) => {
               </Link>
               <div className="add-price">
                 <div className="price">£{item.price / 100}</div>
-                <AddButton
+                <ShopButton
                   product={item.id}
                   className="add-button"
                   value="Add"

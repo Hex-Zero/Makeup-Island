@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react"
-import AddButton from "./AddButton"
 import Accordion from "./Accordion"
 import ItemSlide from "./ItemSlide"
 import { graphql, useStaticQuery } from "gatsby"
+import ShopButton from "./ShopButton"
 
 const ProductInfo = ({ title, description, more, ingredients, sku }) => {
   const [items, setItems] = useState()
@@ -27,7 +27,7 @@ const ProductInfo = ({ title, description, more, ingredients, sku }) => {
       <h3 className="description">{description}</h3>
       <h4 className="more">{more}</h4>
       {sku ? (
-        <AddButton product={sku} className="info-add-button" value="Add" />
+        <ShopButton product={sku} className="info-add-button" value="Add" />
       ) : (
         <></>
       )}

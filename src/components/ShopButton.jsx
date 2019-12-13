@@ -1,10 +1,11 @@
-import React, { useContext, useState } from "react"
-import { SetCart, Cart } from "../components/Context"
+import React, { useContext, useState, useEffect } from "react"
+import { SetCart, Cart } from "./Context"
 import { graphql, useStaticQuery } from "gatsby"
 
-const AddButton = ({ product, className, value, toZero }) => {
+const ShopButton = ({ product, className, value, toZero, remove }) => {
   const setCart = useContext(SetCart)
   const cart = useContext(Cart)
+
   const data = useStaticQuery(graphql`
     query {
       allMongodbMakeupIslandProducts {
@@ -36,30 +37,24 @@ const AddButton = ({ product, className, value, toZero }) => {
   const [state, setState] = useState(
     data.allStripeSku.nodes.filter(item => item.id === product)[0]
   )
-  const [inventory, setInvetory] = useState(
+  const [inventory, setInventroy] = useState(
     data.allMongodbMakeupIslandProducts.edges.filter(
       item => item.node.sku === product
     )[0].node.inventory
   )
-  console.log(inventory)
 
-  console.log(state.amount > inventory)
-
-  const handleAdd = productId => {
-    setState({
-      ...state,
-      amount: !state.amount ? (state.amount = 1) : (state.amount += 1),
-    })
-
+  const handleAdd = () => {
     setCart(currentState => {
       if (currentState === undefined) {
         return [
           {
-            amount: state.amount,
+            amount: 1,
+
             id: state.id,
             title: state.attributes.name,
             price: (state.price / 100).toFixed(2),
             src: state.localFiles[0].childImageSharp.fluid.src,
+            inventory: inventory,
           },
         ]
       } else {
@@ -73,11 +68,15 @@ const AddButton = ({ product, className, value, toZero }) => {
           return [
             ...currentState,
             {
-              amount: state.amount,
+              amount:
+                currentState.amount === undefined
+                  ? (currentState.amount = 1)
+                  : (currentState.amount += 1),
               id: state.id,
               title: state.attributes.name,
               price: (state.price / 100).toFixed(2),
               src: state.localFiles[0].childImageSharp.fluid.src,
+              inventory: inventory,
             },
           ]
         }
@@ -85,30 +84,46 @@ const AddButton = ({ product, className, value, toZero }) => {
       }
     })
   }
+  useEffect(() => {
+    setInventroy(c => c)
+  }, [setInventroy])
   const handleRemove = () => {
     if (!toZero) {
-      if (state.amount !== 1) {
-        setState({
-          ...state,
-          amount: (state.amount -= 1),
-        })
-      }
+      setCart(current => {
+        return current
+          .map(item => {
+            return item.id === state.id && item.amount > 0
+              ? { ...item, amount: (item.amount -= 1) }
+              : item
+          })
+          .filter(item => item.amount > 0)
+      })
+    } else {
+      return setCart(current => current.filter(item => item.id !== state.id))
     }
   }
+
   return (
     <>
-      <button
-        onClick={() => handleAdd(product)}
-        className={className}
-        disabled={state.amount >= inventory}
-        style={{
-          background: state.amount >= inventory ? "black" : "var(--main-color)",
-        }}
-      >
-        {value}
-      </button>
+      {remove ? (
+        <button onClick={handleRemove} className={className}>
+          {value}
+        </button>
+      ) : (
+        <button
+          onClick={handleAdd}
+          className={className}
+          disabled={false}
+          style={{
+            background:
+              state.amount >= state.inventory ? "black" : "var(--main-color)",
+          }}
+        >
+          {value}
+        </button>
+      )}
     </>
   )
 }
 
-export default AddButton
+export default ShopButton

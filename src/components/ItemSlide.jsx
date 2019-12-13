@@ -2,9 +2,9 @@ import Slider from "react-slick"
 import { graphql, useStaticQuery } from "gatsby"
 import { Link } from "gatsby"
 import React, { useState } from "react"
-import AddButton from "./AddButton"
 import Banner from "./Banner"
 import Info from "./assets/info.svg"
+import ShopButton from "./ShopButton"
 const ItemSlide = ({ condition }) => {
   const data = useStaticQuery(graphql`
     query {
@@ -46,14 +46,6 @@ const ItemSlide = ({ condition }) => {
   `)
   const [info] = useState(data.allMongodbMakeupIslandProducts.edges)
   const [state] = useState(data.allStripeSku.nodes)
-
-  // useEffect(() => {
-  //   setState(data.allStripeSku.nodes)
-  // }, [data.allStripeSku.nodes, setState])
-
-  // useEffect(() => {
-  //   setInfo(data.allMongodbMakeupIslandProducts.edges)
-  // }, [data.allMongodbMakeupIslandProducts.edges])
 
   const handleMoreLink = id => {
     return "/" + id
@@ -104,7 +96,7 @@ const ItemSlide = ({ condition }) => {
                   </Link>
                   <div className="add-price">
                     <div className="price">£{item.price / 100}</div>
-                    <AddButton
+                    <ShopButton
                       product={item.id}
                       className="add-button"
                       value="Add"
