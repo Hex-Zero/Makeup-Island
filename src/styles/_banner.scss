@@ -12,7 +12,7 @@
   }
   .sale {
     position: absolute;
-    background-color: #f87800;
+    background-color: var(--secD-color);
     transform: rotate(-45deg);
     top: 30px;
     left: -30px;

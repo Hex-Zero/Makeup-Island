@@ -65,8 +65,6 @@ const ItemList = ({ condition }) => {
             ? status.sale
             : false
         ) {
-          console.log(item.localFiles[0].childImageSharp.fluid)
-
           return (
             <li key={item.id} className="item-card-box">
               <Img
@@ -81,7 +79,7 @@ const ItemList = ({ condition }) => {
                 alt="More informtion about the selected product"
                 className="info-container"
               >
-                <button className="info-button">
+                <button className="info-button" aria-label="More information">
                   <Info className="info-logo" />
                 </button>
               </Link>

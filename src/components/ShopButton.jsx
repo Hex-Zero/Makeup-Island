@@ -1,10 +1,9 @@
 import React, { useContext, useState } from "react"
-import { SetCart, Cart } from "./Context"
+import { SetCart } from "./Context"
 import { graphql, useStaticQuery } from "gatsby"
 
 const ShopButton = ({ product, className, value, toZero, remove }) => {
   const setCart = useContext(SetCart)
-  const cart = useContext(Cart)
 
   const data = useStaticQuery(graphql`
     query {
@@ -37,7 +36,7 @@ const ShopButton = ({ product, className, value, toZero, remove }) => {
   const [state] = useState(
     data.allStripeSku.nodes.filter(item => item.id === product)[0]
   )
-  const [inventory, setInventroy] = useState(
+  const [inventory] = useState(
     data.allMongodbMakeupIslandProducts.edges.filter(
       item => item.node.sku === product
     )[0].node.inventory

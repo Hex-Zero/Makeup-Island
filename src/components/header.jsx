@@ -19,7 +19,7 @@ const Header = () => {
           <Title className="branding" />
         </Link>
       </h1>
-      <Link to="/" className="main-logo">
+      <Link to="/" className="main-logo" aria-label="Makeup Island logo">
         <Logo className="logo" />
       </Link>
       <nav>
@@ -32,7 +32,12 @@ const Header = () => {
         <Link activeClassName="active" to="/sale" className="header-nav-links">
           Sale
         </Link>
-        <Link activeClassName="active" to="/cart" className="cart-link">
+        <Link
+          activeClassName="active"
+          to="/cart"
+          className="cart-link"
+          aria-label="Shopping bag"
+        >
           <FaShoppingBag size="24" className="bag" />
           {amount ? <div className="amount">{amount}</div> : null}
         </Link>
