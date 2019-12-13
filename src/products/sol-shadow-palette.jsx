@@ -62,7 +62,6 @@ const Sol = () => {
         <ProductInfo
           title={info.title}
           description={info.description}
-          more={info.more}
           ingredients={info.ingredients}
           sku={info.sku}
         />

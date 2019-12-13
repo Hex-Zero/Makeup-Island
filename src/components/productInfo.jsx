@@ -4,7 +4,7 @@ import ItemSlide from "./ItemSlide"
 import { graphql, useStaticQuery } from "gatsby"
 import ShopButton from "./ShopButton"
 
-const ProductInfo = ({ title, description, more, ingredients, sku }) => {
+const ProductInfo = ({ title, description, ingredients, sku }) => {
   const [items, setItems] = useState()
   const data = useStaticQuery(graphql`
     query {
@@ -25,7 +25,6 @@ const ProductInfo = ({ title, description, more, ingredients, sku }) => {
       <div className="info-price">£{items ? items.price / 100 : false}</div>
       <h2 className="title">{title}</h2>
       <h3 className="description">{description}</h3>
-      <h4 className="more">{more}</h4>
       {sku ? (
         <ShopButton product={sku} className="info-add-button" value="Add" />
       ) : (
