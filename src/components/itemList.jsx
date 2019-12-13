@@ -6,8 +6,6 @@ import Info from "./assets/info.svg"
 import ShopButton from "./ShopButton"
 
 const ItemList = ({ condition }) => {
-  // const state = useContext(StateContext)
-  // const setState = useContext(DispatchContext)
   const data = useStaticQuery(graphql`
     query {
       allMongodbMakeupIslandProducts {
@@ -46,15 +44,9 @@ const ItemList = ({ condition }) => {
       }
     }
   `)
+
   const [info] = useState(data.allMongodbMakeupIslandProducts.edges)
   const [state] = useState(data.allStripeSku.nodes)
-  // useEffect(() => {
-  //   setState(data.allStripeSku.nodes)
-  // }, [data.allStripeSku.nodes, setState])
-
-  // useEffect(() => {
-  //   setInfo(data.allMongodbMakeupIslandProducts.edges)
-  // }, [data.allMongodbMakeupIslandProducts.edges])
 
   const handleMoreLink = id => {
     return "/" + id
@@ -103,7 +95,7 @@ const ItemList = ({ condition }) => {
             </li>
           )
         } else {
-          return false
+          return <> </>
         }
       })}
     </ul>

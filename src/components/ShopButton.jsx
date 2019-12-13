@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react"
+import React, { useContext, useState } from "react"
 import { SetCart, Cart } from "./Context"
 import { graphql, useStaticQuery } from "gatsby"
 
@@ -34,7 +34,7 @@ const ShopButton = ({ product, className, value, toZero, remove }) => {
       }
     }
   `)
-  const [state, setState] = useState(
+  const [state] = useState(
     data.allStripeSku.nodes.filter(item => item.id === product)[0]
   )
   const [inventory, setInventroy] = useState(
@@ -42,14 +42,29 @@ const ShopButton = ({ product, className, value, toZero, remove }) => {
       item => item.node.sku === product
     )[0].node.inventory
   )
-
+  const [blocked, setBlocked] = useState(false)
   const handleAdd = () => {
     setCart(currentState => {
-      if (currentState === undefined) {
+      if (currentState.filter(item => item.id === state.id)[0]) {
+        currentState.map(item => {
+          if (item.id === state.id) {
+            if (item.amount < item.inventory) {
+              if (item.amount + 1 === item.inventory) {
+                setBlocked(true)
+              }
+              return { ...item, amount: (item.amount += 1) }
+            } else {
+              return item
+            }
+          } else {
+            return item
+          }
+        })
+      } else {
         return [
+          ...currentState,
           {
-            amount: 1,
-
+            amount: inventory === 1 ? (setBlocked(true), 1) : 1,
             id: state.id,
             title: state.attributes.name,
             price: (state.price / 100).toFixed(2),
@@ -57,36 +72,10 @@ const ShopButton = ({ product, className, value, toZero, remove }) => {
             inventory: inventory,
           },
         ]
-      } else {
-        if (currentState.filter(item => item.id === state.id)[0]) {
-          currentState.map(item => {
-            return item.id === state.id
-              ? { ...item, amount: (item.amount += 1) }
-              : item
-          })
-        } else {
-          return [
-            ...currentState,
-            {
-              amount:
-                currentState.amount === undefined
-                  ? (currentState.amount = 1)
-                  : (currentState.amount += 1),
-              id: state.id,
-              title: state.attributes.name,
-              price: (state.price / 100).toFixed(2),
-              src: state.localFiles[0].childImageSharp.fluid.src,
-              inventory: inventory,
-            },
-          ]
-        }
-        return [...currentState]
       }
+      return [...currentState]
     })
   }
-  useEffect(() => {
-    setInventroy(c => c)
-  }, [setInventroy])
   const handleRemove = () => {
     if (!toZero) {
       setCart(current => {
@@ -113,10 +102,9 @@ const ShopButton = ({ product, className, value, toZero, remove }) => {
         <button
           onClick={handleAdd}
           className={className}
-          disabled={false}
+          disabled={blocked}
           style={{
-            background:
-              state.amount >= state.inventory ? "black" : "var(--main-color)",
+            background: blocked ? "black" : "var(--main-color)",
           }}
         >
           {value}
