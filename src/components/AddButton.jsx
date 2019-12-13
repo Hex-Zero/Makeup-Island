@@ -2,10 +2,9 @@ import React, { useContext, useState } from "react"
 import { SetCart, Cart } from "../components/Context"
 import { graphql, useStaticQuery } from "gatsby"
 
-const AddButton = ({ product, className, value }) => {
+const AddButton = ({ product, className, value, toZero }) => {
   const setCart = useContext(SetCart)
   const cart = useContext(Cart)
-
   const data = useStaticQuery(graphql`
     query {
       allMongodbMakeupIslandProducts {
@@ -37,8 +36,14 @@ const AddButton = ({ product, className, value }) => {
   const [state, setState] = useState(
     data.allStripeSku.nodes.filter(item => item.id === product)[0]
   )
+  const [inventory, setInvetory] = useState(
+    data.allMongodbMakeupIslandProducts.edges.filter(
+      item => item.node.sku === product
+    )[0].node.inventory
+  )
+  console.log(inventory)
 
-  console.log(state)
+  console.log(state.amount > inventory)
 
   const handleAdd = productId => {
     setState({
@@ -80,13 +85,25 @@ const AddButton = ({ product, className, value }) => {
       }
     })
   }
-
+  const handleRemove = () => {
+    if (!toZero) {
+      if (state.amount !== 1) {
+        setState({
+          ...state,
+          amount: (state.amount -= 1),
+        })
+      }
+    }
+  }
   return (
     <>
       <button
         onClick={() => handleAdd(product)}
         className={className}
-        disabled={false}
+        disabled={state.amount >= inventory}
+        style={{
+          background: state.amount >= inventory ? "black" : "var(--main-color)",
+        }}
       >
         {value}
       </button>
