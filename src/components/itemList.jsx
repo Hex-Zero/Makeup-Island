@@ -65,36 +65,40 @@ const ItemList = ({ condition }) => {
             ? status.sale
             : false
         ) {
-          return (
-            <li key={item.id} className="item-card-box">
-              <Img
-                style={{ position: "absolute" }}
-                className="item-image-background"
-                fluid={item.localFiles[0].childImageSharp.fluid}
-              ></Img>
-              <Banner key={item.id} sku={item.id}></Banner>
-              <Link
-                activeClassName="active"
-                to={handleMoreLink(status.local)}
-                alt="More informtion about the selected product"
-                className="info-container"
-              >
-                <button className="info-button" aria-label="More information">
-                  <Info className="info-logo" />
-                </button>
-              </Link>
-              <div className="add-price">
-                <div className="price">£{item.price / 100}</div>
-                <ShopButton
-                  product={item.id}
-                  className="add-button"
-                  value="Add"
-                />
-              </div>
-            </li>
-          )
+          if (status.inventory >= 1) {
+            return (
+              <li key={item.id} className="item-card-box">
+                <Img
+                  style={{ position: "absolute" }}
+                  className="item-image-background"
+                  fluid={item.localFiles[0].childImageSharp.fluid}
+                ></Img>
+                <Banner key={item.id} sku={item.id}></Banner>
+                <Link
+                  activeClassName="active"
+                  to={handleMoreLink(status.local)}
+                  alt="More informtion about the selected product"
+                  className="info-container"
+                >
+                  <button className="info-button" aria-label="More information">
+                    <Info className="info-logo" />
+                  </button>
+                </Link>
+                <div className="add-price">
+                  <div className="price">£{item.price / 100}</div>
+                  <ShopButton
+                    product={item.id}
+                    className="add-button"
+                    value="Add"
+                  />
+                </div>
+              </li>
+            )
+          } else {
+            return <></>
+          }
         } else {
-          return <> </>
+          return <></>
         }
       })}
     </ul>
