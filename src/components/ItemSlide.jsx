@@ -107,10 +107,10 @@ const ItemSlide = ({ condition }) => {
                 </div>
               )
             } else {
-              return <></>
+              return false
             }
           } else {
-            return <></>
+            return false
           }
         })}
       </Slider>
