@@ -66,7 +66,7 @@ const AnastasiaBeverlyHilssLiquidGlowHighlighterOyster = () => {
     <Layout>
       <SEO title={info.title} />
       <div className="Product_Pages">
-        <PictureSlides pictures={state} location="2" />
+        <PictureSlides pictures={state} location="0" />
         <ProductInfo
           title={info.title}
           description={info.description}

@@ -29,7 +29,7 @@ body {
   margin-top: 20px;
   grid-template-columns: repeat(4, auto);
   justify-content: center;
-  grid-row-gap: 20px;
+  grid-row-gap: 0.1vh;
   perspective: 1000;
   @media only screen and (max-width: 1340px) {
     grid-template-columns: auto auto auto;
