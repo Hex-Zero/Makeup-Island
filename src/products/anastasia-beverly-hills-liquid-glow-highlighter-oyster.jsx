@@ -5,13 +5,17 @@ import ProductInfo from "../components/productInfo"
 import PictureSlides from "../components/pictureSlides"
 import SEO from "../components/seo"
 
-const TakeMeBackToBrazil = () => {
+const AnastasiaBeverlyHilssLiquidGlowHighlighterOyster = () => {
   const [state, setState] = useState([])
   const [info, setInfo] = useState({})
   const data = useStaticQuery(graphql`
     query {
       allMongodbMakeupIslandProducts(
-        filter: { local: { eq: "take-me-back-to-brazil" } }
+        filter: {
+          local: {
+            eq: "anastasia-beverly-hills-liquid-glow-highlighter-oyster"
+          }
+        }
       ) {
         edges {
           node {
@@ -29,7 +33,11 @@ const TakeMeBackToBrazil = () => {
         }
       }
       allFile(
-        filter: { relativeDirectory: { eq: "products/take-me-back-to-brazil" } }
+        filter: {
+          relativeDirectory: {
+            eq: "products/anastasia-beverly-hills-liquid-glow-highlighter-oyster"
+          }
+        }
       ) {
         edges {
           node {
@@ -58,7 +66,7 @@ const TakeMeBackToBrazil = () => {
     <Layout>
       <SEO title={info.title} />
       <div className="Product_Pages">
-        <PictureSlides pictures={state} location="0" />
+        <PictureSlides pictures={state} location="2" />
         <ProductInfo
           title={info.title}
           description={info.description}
@@ -70,4 +78,4 @@ const TakeMeBackToBrazil = () => {
   )
 }
 
-export default TakeMeBackToBrazil
+export default AnastasiaBeverlyHilssLiquidGlowHighlighterOyster

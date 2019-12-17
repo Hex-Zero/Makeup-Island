@@ -66,6 +66,7 @@ const ItemSlide = ({ condition }) => {
     <div className="more-item-slide">
       <Slider {...settings}>
         {state.map(item => {
+          console.log(info.filter(current => current.node.sku === item.id))
           let status = info.filter(current => current.node.sku === item.id)[0]
             .node
           if (

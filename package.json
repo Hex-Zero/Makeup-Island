@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Hex",
   "dependencies": {
+    "babel-plugin-inline-react-svg": "^1.1.0",
     "dotenv": "^8.2.0",
     "formik": "^2.0.6",
     "fs": "^0.0.1-security",

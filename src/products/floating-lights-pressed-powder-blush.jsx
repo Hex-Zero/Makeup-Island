@@ -5,13 +5,13 @@ import ProductInfo from "../components/productInfo"
 import PictureSlides from "../components/pictureSlides"
 import SEO from "../components/seo"
 
-const TakeMeBackToBrazil = () => {
+const FloatingLightsPressedPowderBlush = () => {
   const [state, setState] = useState([])
   const [info, setInfo] = useState({})
   const data = useStaticQuery(graphql`
     query {
       allMongodbMakeupIslandProducts(
-        filter: { local: { eq: "take-me-back-to-brazil" } }
+        filter: { local: { eq: "floating-lights-pressed-powder-blush" } }
       ) {
         edges {
           node {
@@ -29,7 +29,11 @@ const TakeMeBackToBrazil = () => {
         }
       }
       allFile(
-        filter: { relativeDirectory: { eq: "products/take-me-back-to-brazil" } }
+        filter: {
+          relativeDirectory: {
+            eq: "products/floating-lights-pressed-powder-blush"
+          }
+        }
       ) {
         edges {
           node {
@@ -70,4 +74,4 @@ const TakeMeBackToBrazil = () => {
   )
 }
 
-export default TakeMeBackToBrazil
+export default FloatingLightsPressedPowderBlush
