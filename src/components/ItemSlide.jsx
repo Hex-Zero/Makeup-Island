@@ -6,6 +6,7 @@ import Banner from "./Banner"
 import Info from "./assets/info.svg"
 import ShopButton from "./ShopButton"
 import Img from "gatsby-image"
+import { useEffect } from "react"
 
 const ItemSlide = ({ condition }) => {
   const data = useStaticQuery(graphql`
@@ -52,7 +53,11 @@ const ItemSlide = ({ condition }) => {
   const handleMoreLink = id => {
     return "/" + id
   }
-  const [showItems] = useState(window.innerWidth < 700 ? 1 : 2)
+  const [showItems, setShowItems] = useState(1)
+
+  useEffect(() => {
+    setShowItems(window.innerWidth < 700 ? 1 : 2)
+  }, [])
 
   const [settings] = useState({
     dots: true,
