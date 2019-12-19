@@ -52,13 +52,14 @@ const ItemSlide = ({ condition }) => {
   const handleMoreLink = id => {
     return "/" + id
   }
-
+  const isMobile = window.innerWidth < 700
+  const showItems = isMobile ? 1 : 2
   const [settings] = useState({
     dots: true,
     speed: 400,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    initialSlide: 1,
+    slidesToShow: showItems,
+    slidesToScroll: showItems,
+    initialSlide: 5,
     focusOnSelect: true,
     infinite: false,
   })

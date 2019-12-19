@@ -32,6 +32,7 @@
       justify-self: center;
       margin-bottom: 13px;
       width: 35vw;
+      text-align: justify;
       @media only screen and (max-width: 1040px) {
         width: 90vw;
       }
@@ -100,18 +101,17 @@
     }
   }
   .other-products {
-    align-self: center;
-    display: grid;
     h2 {
       font-weight: 700;
       margin: 16px 0;
       color: goldenrod;
     }
     .more-item-slide {
-      justify-self: center;
-      align-self: center;
-      width: 350px;
+      width: 700px;
       margin-bottom: 16px;
+      @media only screen and (max-width: 700px) {
+        width: 350px;
+      }
     }
   }
   .Slider {
