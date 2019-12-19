@@ -52,8 +52,8 @@ const ItemSlide = ({ condition }) => {
   const handleMoreLink = id => {
     return "/" + id
   }
-  const isMobile = window.innerWidth < 700
-  const showItems = isMobile ? 1 : 2
+  const [showItems] = useState(window.innerWidth < 700 ? 1 : 2)
+
   const [settings] = useState({
     dots: true,
     speed: 400,
