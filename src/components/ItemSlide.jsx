@@ -53,21 +53,26 @@ const ItemSlide = ({ condition }) => {
   const handleMoreLink = id => {
     return "/" + id
   }
-  const [showItems, setShowItems] = useState(1)
 
-  useEffect(() => {
-    setShowItems(window.innerWidth < 700 ? 1 : 2)
-  }, [])
-
-  const [settings] = useState({
+  const [settings, setSettings] = useState({
     dots: true,
     speed: 400,
-    slidesToShow: showItems,
-    slidesToScroll: showItems,
+    slidesToShow: 1,
+    slidesToScroll: 1,
     initialSlide: 5,
     focusOnSelect: true,
     infinite: false,
   })
+
+  useEffect(() => {
+    const width = window.innerWidth < 700 ? 1 : 2
+    setSettings(current => ({
+      ...current,
+      slidesToShow: width,
+      slidesToScroll: width,
+    }))
+  }, [])
+
   return (
     <div className="more-item-slide">
       <Slider {...settings}>
