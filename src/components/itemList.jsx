@@ -1,6 +1,6 @@
 import { graphql, useStaticQuery } from "gatsby"
 import { Link } from "gatsby"
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import Banner from "./Banner"
 import Info from "./assets/info.svg"
 import ShopButton from "./ShopButton"
@@ -9,6 +9,11 @@ import Img from "gatsby-image"
 const ItemList = ({ condition }) => {
   const data = useStaticQuery(graphql`
     query {
+      site {
+        siteMetadata {
+          api
+        }
+      }
       allMongodbMakeupIslandProducts {
         edges {
           node {
@@ -45,10 +50,18 @@ const ItemList = ({ condition }) => {
       }
     }
   `)
-
+  useEffect(() => {
+    const getData = async () => {
+      const response = await fetch(data.site.siteMetadata.api).then(data =>
+        data.json()
+      )
+      setInventory(response)
+    }
+    getData()
+  }, [])
   const [info] = useState(data.allMongodbMakeupIslandProducts.edges)
   const [state] = useState(data.allStripeSku.nodes)
-
+  const [inventory, setInventory] = useState(null)
   const handleMoreLink = id => {
     return "/" + id
   }
@@ -58,6 +71,12 @@ const ItemList = ({ condition }) => {
       {state.map(item => {
         let status = info.filter(current => current.node.sku === item.id)[0]
           .node
+        let amount = false
+        inventory
+          ? (amount = inventory.filter(current => current.sku === item.id)[0])
+          : (amount = false)
+        let show = amount ? amount.inventory >= 1 : false
+        console.log(show)
         if (
           condition === "product" || condition === "new"
             ? status.isnew
@@ -65,7 +84,7 @@ const ItemList = ({ condition }) => {
             ? status.sale
             : false
         ) {
-          if (status.inventory >= 1) {
+          if (show) {
             return (
               <li key={item.id} className="item-card-box">
                 <Img

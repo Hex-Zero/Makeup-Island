@@ -14,7 +14,6 @@ const MakeupPlaceholder = () => {
       }
     }
   `)
-  //
   return <Img fluid={data.placeholderImage.childImageSharp.fluid} />
 }
 

@@ -7,6 +7,7 @@ module.exports = {
     title: `Makeup Island`,
     description: `E-commers website selling makeup`,
     author: `Hex-Zero`,
+    api: `${process.env.GATSBY_AWS_API}`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
