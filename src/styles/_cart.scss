@@ -57,7 +57,7 @@
 }
 .other-products {
   margin-top: 30px;
-  max-width: 700px;
+  width: 700px;
   justify-self: center;
   align-self: end;
   @media only screen and (max-width: 700px) {
@@ -80,6 +80,15 @@
   cursor: pointer;
   box-shadow: 3px 3px 3px 2px rgba(82, 82, 82, 0.13);
   &:hover {
-    border: solid 2px var(--mainL-color);
+    box-shadow: 0 0 3pt 2pt var(--mainL-color);
   }
+  &:focus {
+    box-shadow: 0 0 3pt 2pt var(--mainL-color);
+  }
+}
+.delivery-info {
+  margin-top: 30px;
+  padding: 20px;
+  background: white;
+  color: var(--main-color);
 }

@@ -10,6 +10,9 @@ const Accortion = ({ ingredients }) => {
     <div
       className={`ingredients accordion ${open}`}
       onClick={() => handleExtendAccordion()}
+      onKeyDown={() => handleExtendAccordion()}
+      role="button"
+      tabIndex="0"
     >
       <div className="accortion-title">
         Ingredients <IoIosArrowDown size={30} className="arrow" />

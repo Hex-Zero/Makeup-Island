@@ -58,7 +58,7 @@ const ItemList = ({ condition }) => {
       setInventory(response)
     }
     getData()
-  }, [])
+  }, [data.site.siteMetadata.api])
   const [info] = useState(data.allMongodbMakeupIslandProducts.edges)
   const [state] = useState(data.allStripeSku.nodes)
   const [inventory, setInventory] = useState(null)
@@ -76,7 +76,7 @@ const ItemList = ({ condition }) => {
           ? (amount = inventory.filter(current => current.sku === item.id)[0])
           : (amount = false)
         let show = amount ? amount.inventory >= 1 : false
-        console.log(show)
+
         if (
           condition === "product" || condition === "new"
             ? status.isnew
@@ -114,7 +114,7 @@ const ItemList = ({ condition }) => {
               </li>
             )
           } else {
-            return <></>
+            return false
           }
         } else {
           return <></>

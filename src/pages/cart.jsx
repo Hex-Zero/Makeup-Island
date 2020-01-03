@@ -44,7 +44,7 @@ const CartPage = () => {
         <>
           <h1 className="empty-notice">Your Bag Is Currently Empty</h1>
           <div className="other-products">
-            <ItemSlide condition="product" />
+            <ItemSlide condition="new" />
           </div>
         </>
       ) : (
@@ -92,13 +92,19 @@ const CartPage = () => {
         </ul>
       )}
       {amountTotal !== 0 && (
-        <button
-          onClick={e => redirectToCheckout(e)}
-          className="checkout-button"
-        >
-          {`Total : ${amountTotal.toFixed(2)} £ `}
-          <br></br> Continue To Checkout
-        </button>
+        <>
+          <button
+            onClick={e => redirectToCheckout(e)}
+            className="checkout-button"
+          >
+            {`Total : ${amountTotal.toFixed(2)} £ `}
+            <br></br> Continue To Checkout
+          </button>
+          <h2 className="delivery-info">
+            Your items will be delivered to your billing address, using royal
+            mails 1st class postal service.
+          </h2>
+        </>
       )}
     </Layout>
   )

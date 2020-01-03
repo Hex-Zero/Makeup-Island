@@ -11,6 +11,11 @@ import { useEffect } from "react"
 const ItemSlide = ({ condition }) => {
   const data = useStaticQuery(graphql`
     query {
+      site {
+        siteMetadata {
+          api
+        }
+      }
       allMongodbMakeupIslandProducts {
         edges {
           node {
@@ -47,9 +52,19 @@ const ItemSlide = ({ condition }) => {
       }
     }
   `)
+  useEffect(() => {
+    const getData = async () => {
+      const response = await fetch(data.site.siteMetadata.api).then(data =>
+        data.json()
+      )
+      setInventory(response)
+    }
+    getData()
+  }, [data.site.siteMetadata.api])
+
   const [info] = useState(data.allMongodbMakeupIslandProducts.edges)
   const [state] = useState(data.allStripeSku.nodes)
-
+  const [inventory, setInventory] = useState(null)
   const handleMoreLink = id => {
     return "/" + id
   }
@@ -59,7 +74,7 @@ const ItemSlide = ({ condition }) => {
     speed: 400,
     slidesToShow: 1,
     slidesToScroll: 1,
-    initialSlide: 5,
+    initialSlide: Math.ceil(Math.random() * 18),
     focusOnSelect: true,
     infinite: false,
   })
@@ -79,6 +94,12 @@ const ItemSlide = ({ condition }) => {
         {state.map(item => {
           let status = info.filter(current => current.node.sku === item.id)[0]
             .node
+          let amount = false
+          inventory
+            ? (amount = inventory.filter(current => current.sku === item.id)[0])
+            : (amount = false)
+          let show = amount ? amount.inventory >= 1 : false
+
           if (
             condition === "product" || condition === "new"
               ? status.isnew
@@ -86,7 +107,7 @@ const ItemSlide = ({ condition }) => {
               ? status.sale
               : false
           ) {
-            if (status.inventory >= 1) {
+            if (show) {
               return (
                 <div key={item.id}>
                   <li className="item-card-box ">
