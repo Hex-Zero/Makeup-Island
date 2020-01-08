@@ -5,8 +5,18 @@ import SEO from "../components/seo"
 import ItemSlide from "../components/ItemSlide"
 import ShopButton from "../components/ShopButton"
 import Img from "gatsby-image"
+import { graphql, useStaticQuery } from "gatsby"
 
 const CartPage = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          api
+        }
+      }
+    }
+  `)
   const cart = useContext(Cart)
 
   const [amountTotal, setAmountTotal] = useState(0)
@@ -24,17 +34,33 @@ const CartPage = () => {
 
   const redirectToCheckout = async event => {
     event.preventDefault()
-    const { error } = await stripe.redirectToCheckout({
-      billingAddressCollection: "required",
-      items: cart.map(node => {
-        return { sku: node.id, quantity: node.amount }
-      }),
-      successUrl: `https://makeupisland.netlify.com/success/`,
-      cancelUrl: `https://makeupisland.netlify.com/cancel/`,
-    })
-    if (error) {
-      console.warn("Error:", error)
+    const sendInventory = () => {
+      cart.forEach(item =>
+        fetch(`${data.site.siteMetadata.api}v`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+          },
+          body: {
+            sku: item.id,
+            inventory: item.inventory - item.amount,
+          },
+        })
+      )
     }
+    sendInventory()
+    // const { error } = await stripe.redirectToCheckout({
+    //   billingAddressCollection: "required",
+    //   items: cart.map(node => {
+    //     return { sku: node.id, quantity: node.amount }
+    //   }),
+    //   successUrl: `https://makeupisland.netlify.com/success/`,
+    //   cancelUrl: `https://makeupisland.netlify.com/cancel/`,
+    // })
+    // if (error) {
+    //   console.warn("Error:", error)
+    // }
   }
 
   return (
@@ -51,6 +77,8 @@ const CartPage = () => {
         <ul className="cart-container card-container">
           {cart ? (
             cart.map(item => {
+              console.log(item)
+
               return (
                 <li key={item.id} className="item-card-box">
                   <Img
