@@ -40,27 +40,28 @@ const CartPage = () => {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Origin": "http://localhost:8000/cart",
           },
-          body: {
+
+          body: JSON.stringify({
             sku: item.id,
             inventory: item.inventory - item.amount,
-          },
+          }),
         })
       )
     }
     sendInventory()
-    // const { error } = await stripe.redirectToCheckout({
-    //   billingAddressCollection: "required",
-    //   items: cart.map(node => {
-    //     return { sku: node.id, quantity: node.amount }
-    //   }),
-    //   successUrl: `https://makeupisland.netlify.com/success/`,
-    //   cancelUrl: `https://makeupisland.netlify.com/cancel/`,
-    // })
-    // if (error) {
-    //   console.warn("Error:", error)
-    // }
+    const { error } = await stripe.redirectToCheckout({
+      billingAddressCollection: "required",
+      items: cart.map(node => {
+        return { sku: node.id, quantity: node.amount }
+      }),
+      successUrl: `https://makeupisland.netlify.com/success/`,
+      cancelUrl: `https://makeupisland.netlify.com/cancel/`,
+    })
+    if (error) {
+      console.warn("Error:", error)
+    }
   }
 
   return (
