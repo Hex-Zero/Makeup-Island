@@ -40,7 +40,7 @@ const CartPage = () => {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "http://localhost:8000/cart",
+            "Access-Control-Allow-Origin": "https://makeupisland.co.uk/cart",
           },
 
           body: JSON.stringify({
