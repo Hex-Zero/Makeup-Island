@@ -61,7 +61,11 @@ const ItemList = ({ condition }) => {
   }, [data.site.siteMetadata.api])
   const [info] = useState(data.allMongodbMakeupIslandProducts.edges)
   const [state] = useState(data.allStripeSku.nodes)
-  const [inventory, setInventory] = useState(null)
+  const [inventory, setInventory] = useState(
+    info.map(item => {
+      return { sku: item.node.sku, inventory: item.node.inventory }
+    })
+  )
   const handleMoreLink = id => {
     return "/" + id
   }
