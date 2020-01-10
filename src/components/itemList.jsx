@@ -50,15 +50,7 @@ const ItemList = ({ condition }) => {
       }
     }
   `)
-  useEffect(() => {
-    const getData = async () => {
-      const response = await fetch(data.site.siteMetadata.api).then(data =>
-        data.json()
-      )
-      setInventory(response)
-    }
-    getData()
-  }, [data.site.siteMetadata.api])
+
   const [info] = useState(data.allMongodbMakeupIslandProducts.edges)
   const [state] = useState(data.allStripeSku.nodes)
   const [inventory, setInventory] = useState(
@@ -69,7 +61,15 @@ const ItemList = ({ condition }) => {
   const handleMoreLink = id => {
     return "/" + id
   }
-
+  useEffect(() => {
+    const getData = async () => {
+      const response = await fetch(data.site.siteMetadata.api).then(data =>
+        data.json()
+      )
+      setInventory(response)
+    }
+    getData()
+  }, [data.site.siteMetadata.api])
   return (
     <ul className="card-container">
       {state.map(item => {
