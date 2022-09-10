@@ -1,4 +1,4 @@
-{
+d{
   "name": "makeup-island",
   "private": true,
   "description": "Makeup Island web-store",
@@ -9,8 +9,8 @@
     "dotenv": "^8.2.0",
     "formik": "^2.1.4",
     "fs": "^0.0.1-security",
-    "gatsby": "^4.22.1",
-    "gatsby-cli": "^4.22.1",
+    "gatsby": "^2.19.31",
+    "gatsby-cli": "^2.10.1",
     "gatsby-image": "^2.2.43",
     "gatsby-plugin-manifest": "^2.2.43",
     "gatsby-plugin-offline": "^3.0.36",
@@ -22,7 +22,7 @@
     "gatsby-plugin-stripe": "^1.2.4",
     "gatsby-source-filesystem": "^2.1.49",
     "gatsby-source-mongodb": "^2.1.33",
-    "gatsby-source-stripe": "^4.0.0",
+    "gatsby-source-stripe": "^3.0.6",
     "gatsby-transformer-sharp": "^2.3.17",
     "node-sass": "^4.13.1",
     "prop-types": "^15.7.2",
