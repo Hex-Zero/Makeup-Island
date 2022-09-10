@@ -32,41 +32,41 @@ const CartPage = () => {
     setStripe(window.Stripe(process.env.GATSBY_DATABASE))
   }, [])
 
-  const redirectToCheckout = async event => {
-    event.preventDefault()
-    const sendInventory = () => {
-      cart.forEach(item =>
-        fetch(`${data.site.siteMetadata.api}v`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "https://makeupisland.co.uk/cart",
-          },
+  // const redirectToCheckout = async event => {
+  //   event.preventDefault()
+  //   const sendInventory = () => {
+  //     cart.forEach(item =>
+  //       fetch(`${data.site.siteMetadata.api}v`, {
+  //         method: "POST",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //           "Access-Control-Allow-Origin": "https://makeupisland.co.uk/cart",
+  //         },
 
-          body: JSON.stringify({
-            sku: item.id,
-            inventory: item.inventory - item.amount,
-          }),
-        })
-      )
-    }
-    sendInventory()
-    const { error } = await stripe.redirectToCheckout({
-      billingAddressCollection: "required",
-      items: cart.map(node => {
-        return { sku: node.id, quantity: node.amount }
-      }),
-      successUrl: `https://makeupisland.netlify.com/success/`,
-      cancelUrl: `https://makeupisland.netlify.com/cancel/`,
-    })
-    if (error) {
-      console.warn("Error:", error)
-    }
-  }
+  //         body: JSON.stringify({
+  //           sku: item.id,
+  //           inventory: item.inventory - item.amount,
+  //         }),
+  //       })
+  //     )
+  //   }
+  //   sendInventory()
+  //   const { error } = await stripe.redirectToCheckout({
+  //     billingAddressCollection: "required",
+  //     items: cart.map(node => {
+  //       return { sku: node.id, quantity: node.amount }
+  //     }),
+  //     successUrl: `https://makeupisland.netlify.com/success/`,
+  //     cancelUrl: `https://makeupisland.netlify.com/cancel/`,
+  //   })
+  //   if (error) {
+  //     console.warn("Error:", error)
+  //   }
+  // }
 
   return (
     <Layout>
-      <SEO title="Cart" />
+      {/* <SEO title="Cart" />
       {amountTotal <= 0 ? (
         <>
           <h1 className="empty-notice">Your Bag Is Currently Empty</h1>
@@ -134,7 +134,7 @@ const CartPage = () => {
             mails 1st class postal service.
           </h2>
         </>
-      )}
+      )} */}
     </Layout>
   )
 }
