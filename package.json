@@ -22,7 +22,7 @@
     "gatsby-plugin-stripe": "^1.2.4",
     "gatsby-source-filesystem": "^2.1.49",
     "gatsby-source-mongodb": "^2.1.33",
-    "gatsby-source-stripe": "^3.0.6",
+    "gatsby-source-stripe": "^4.0.0",
     "gatsby-transformer-sharp": "^2.3.17",
     "node-sass": "^4.13.1",
     "prop-types": "^15.7.2",
