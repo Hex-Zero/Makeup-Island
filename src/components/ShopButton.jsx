@@ -99,7 +99,7 @@ const ShopButton = ({ product, className, value, toZero, remove }) => {
         </button>
       ) : (
         <button
-          onClick={handleAdd}
+          onClick={() => {}}
           className={className}
           disabled={blocked}
           style={{
