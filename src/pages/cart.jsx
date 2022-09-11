@@ -75,22 +75,6 @@ const CartPage = () => {
           <ItemSlide condition="new" />
         </div>
       </>
-
-      {amountTotal !== 0 && (
-        <>
-          <button
-            onClick={e => redirectToCheckout(e)}
-            className="checkout-button"
-          >
-            {`Total : ${amountTotal.toFixed(2)} £ `}
-            <br></br> Continue To Checkout
-          </button>
-          <h2 className="delivery-info">
-            Your items will be delivered to your billing address, using royal
-            mails 1st class postal service.
-          </h2>
-        </>
-      )}
     </Layout>
   )
 }
